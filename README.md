@@ -1,2 +1,1 @@
-# Mooga
 Metroidvania in Godot
