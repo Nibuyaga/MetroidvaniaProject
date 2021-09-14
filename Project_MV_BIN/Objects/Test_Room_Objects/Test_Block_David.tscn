@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Test_Room_Objects/Test_Block_David.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Test_Room_Objects/Test_Block_David.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.5, 15.5 )
+
+[node name="Test_Block_David" type="KinematicBody2D"]
+position = Vector2( 107.144, 460.212 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0.5, -0.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
