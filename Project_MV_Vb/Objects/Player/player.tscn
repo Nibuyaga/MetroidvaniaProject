@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Objects/Player/player.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/player.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Player/player_arm.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.79467
 height = 15.9565
 
-[node name="Test_Block_David" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -25,3 +26,11 @@ position = Vector2( 0, 15 )
 enabled = true
 cast_to = Vector2( 0, 2 )
 collision_mask = 2
+
+[node name="gun" type="Node2D" parent="."]
+position = Vector2( -0.15749, -2.83482 )
+
+[node name="Sprite" type="Sprite" parent="gun"]
+scale = Vector2( 0.603536, 0.603536 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, -11.671 )
