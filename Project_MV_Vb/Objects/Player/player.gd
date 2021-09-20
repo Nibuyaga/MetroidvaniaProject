@@ -11,18 +11,20 @@ export var AirJumps = 1
 export var WallJumps = 3
 export var WallJumpForce = -250
 
-var wall_jump_distance = 8 # Is relatief aan tile-size
+var wall_jump_distance = 8 # relative to tile-size
 var air_jump = 0
 var wall_jump = 0
+
+var aim = 0 # time 45 degrees 
 
 onready var drop_check = get_node("Drop_Down_Check")
 
 func _input(event):
-#	input om door de "pass" tiles te vallen
+	# input for falling through 'pass' tiles
 	if event.is_action_pressed("ui_down") and drop_check.is_colliding():
 		position.y += 1
 
-func jump(detla, intention):
+func jump(delta, intention):
 	if is_on_floor():
 		air_jump = 0
 		wall_jump = 0

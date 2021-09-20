@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Objects/Player/Test_Block_David.png" type="Texture" id=1]
-[ext_resource path="res://Objects/Player/Test_Block_David.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Player/player.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Player/player.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.79467
