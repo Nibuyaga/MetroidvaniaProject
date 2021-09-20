@@ -13,4 +13,5 @@ tile_data = PoolIntArray( 65561, 1, 8, 65562, 1, 65547, 65563, 1, 9, 65566, 1, 8
 tile_data = PoolIntArray( 786435, 0, 1, 786436, 0, 2, 786437, 0, 2, 786438, 0, 2, 786439, 0, 2, 786440, 0, 3, 851971, 0, 1, 851972, 0, 2, 851973, 0, 2, 851974, 0, 2, 851975, 0, 2, 851976, 0, 3 )
 
 [node name="Test_Block_David" parent="." instance=ExtResource( 2 )]
-position = Vector2( 83.0609, 456.835 )
+position = Vector2( 56.8979, 429.965 )
+Gravity = 20

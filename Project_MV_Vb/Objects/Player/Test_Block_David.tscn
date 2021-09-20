@@ -3,8 +3,9 @@
 [ext_resource path="res://Objects/Player/Test_Block_David.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/Test_Block_David.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.5, 15.5 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.79467
+height = 15.9565
 
 [node name="Test_Block_David" type="KinematicBody2D"]
 script = ExtResource( 2 )
