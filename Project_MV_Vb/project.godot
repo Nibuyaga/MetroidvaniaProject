@@ -76,6 +76,10 @@ aim_down_right={
 
 2d_physics/layer_1="General Collision"
 2d_physics/layer_2="Pass_Through Collision"
+2d_physics/layer_5="Player Hitbox"
+2d_physics/layer_6="Player Hurtbox"
+2d_physics/layer_8="Enemy Hitbox"
+2d_physics/layer_9="Enemy Hurtbox"
 
 [physics]
 

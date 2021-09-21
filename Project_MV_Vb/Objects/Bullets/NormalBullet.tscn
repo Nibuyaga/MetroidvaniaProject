@@ -7,6 +7,7 @@
 radius = 5.42707
 
 [node name="NormalBullet" type="Area2D"]
+collision_layer = 17
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
