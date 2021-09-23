@@ -4,18 +4,18 @@ extends KinematicBody2D
 var move = Vector2(0,0)
 
 export var speed = 2000
-export var gravity = 100
+export var gravity = 1000
 export var go_right = false	# determines whether the object moves left or right
 
 
 export var health = 8
-var single_time = true	# variable to prevent repeating death animation
+var death_check = true	# variable to prevent repeating death animation
 
 func _ready():
 #	a small convenience to flip the sprite also if the go_right is true
 	if go_right:
 		$Sprite.flip_h = true
-		
+		$Floor_Check.position.x = -1 * $Floor_Check.position.x
 
 
 func _process(delta):
@@ -31,10 +31,11 @@ func _process(delta):
 	move = move_and_slide(move, Vector2.UP)
 	
 	
-#	flips the object when getting obstructed
-	if abs(move.x) < (speed * delta - 10 * delta):
+#	flips the object when getting obstructed OR notices a cliff
+	if abs(move.x) < (speed * delta - 10 * delta) or not $Floor_Check.is_colliding():
 		go_right = not go_right
 		$Sprite.flip_h = not $Sprite.flip_h
+		$Floor_Check.position.x = -1 * $Floor_Check.position.x
 
 
 
@@ -49,8 +50,8 @@ func calc_health(damage):
 	health -= damage
 	$Enemy_Health_Counter.set_health(health)
 	
-	if health <= 0 and single_time:
-		single_time = false
+	if health <= 0 and death_check:
+		death_check = false
 		$AnimationPlayer.play("Dying")
 
 

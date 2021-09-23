@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Horizontal_Hesitant.png-cc528ff35173e936f4de1d2f47c2229f.stex"
+path="res://.import/Horizontal_Persistent.png-fdc986390ec52b47f01205751dcac3ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Enemies/Resources/Horizontal_Hesitant.png"
-dest_files=[ "res://.import/Horizontal_Hesitant.png-cc528ff35173e936f4de1d2f47c2229f.stex" ]
+source_file="res://Objects/Enemies/Test_enemies/Resources/Horizontal_Persistent.png"
+dest_files=[ "res://.import/Horizontal_Persistent.png-fdc986390ec52b47f01205751dcac3ce.stex" ]
 
 [params]
 
