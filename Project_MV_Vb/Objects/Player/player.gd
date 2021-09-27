@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-const NormalBullet = preload("../Bullets/NormalBullet.tscn")
-
 var move = Vector2(0,0)
 var minimum_move = 2
 
@@ -10,7 +8,7 @@ var air_jump = 0
 var wall_jump = 0
 var facing = 0
 var aim = 0 # multiply by 45 degrees 
-var firing_cooldown = 0
+
 
 export var Speed = 2048
 export var Drag = 8
@@ -19,7 +17,10 @@ export var JumpForce = -512
 export var AirJumps = 1
 export var WallJumps = 3
 export var WallJumpForce = -256
-export var FiringRate = 0.1 #time in in seconds
+
+onready var arm = get_node("arm")
+onready var weapons = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"),]
+export var current_weapon = 0
 
 onready var drop_check = get_node("Drop_Down_Check")
 
@@ -47,9 +48,9 @@ func update_aim():
 		elif auto_aim:
 			aim = (auto_aim-1)*2
 	aim = int(aim+8)%8
-	var gun = get_node('gun')
-	gun.rotation = deg2rad(aim*45)
-	gun.apply_scale(Vector2(1,1))
+	
+	arm.rotation = deg2rad(aim*45)
+	arm.apply_scale(Vector2(1,1))
 
 func update_jump():
 	if is_on_floor():
@@ -70,17 +71,6 @@ func update_jump():
 			return
 		move.y = JumpForce
 
-func update_firing(delta):
-	firing_cooldown -= delta
-	if firing_cooldown > 0:
-		return
-	if Input.get_action_strength("attack_a") > 0:
-		firing_cooldown = FiringRate
-		var bullet = NormalBullet.instance()
-		bullet.position = global_position
-		bullet.rotation_degrees = aim*45
-		get_tree().current_scene.add_child(bullet)
-
 func _physics_process(delta):
 	facing = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	move.x += (Speed * facing) * delta
@@ -89,7 +79,7 @@ func _physics_process(delta):
 	
 	update_jump()
 	update_aim()
-	update_firing(delta)
+	weapons[current_weapon].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
 	
 	move.x /= 1+(Drag*delta)
 	if abs(move.x) < minimum_move: move.x = 0
