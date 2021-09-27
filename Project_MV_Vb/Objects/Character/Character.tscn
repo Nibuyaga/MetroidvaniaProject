@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/PhysicsBody/PhysicsBody.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Character/Character.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10.7023, 18.6325 )
+
+[node name="Character" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="FloorRay" parent="." index="0"]
+collision_mask = 3
+
+[node name="Hurtbox" type="Area2D" parent="." index="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource( 1 )
