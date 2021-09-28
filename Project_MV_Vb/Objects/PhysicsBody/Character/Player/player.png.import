@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Vertical_Jumpy.png-2df6e051df8d2f9ff9519283c34250cf.stex"
+path="res://.import/player.png-1de0febecc681dfba228436a965dec37.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Enemies/Test_enemies/Resources/Vertical_Jumpy.png"
-dest_files=[ "res://.import/Vertical_Jumpy.png-2df6e051df8d2f9ff9519283c34250cf.stex" ]
+source_file="res://Objects/PhysicsBody/Character/Player/player.png"
+dest_files=[ "res://.import/player.png-1de0febecc681dfba228436a965dec37.stex" ]
 
 [params]
 

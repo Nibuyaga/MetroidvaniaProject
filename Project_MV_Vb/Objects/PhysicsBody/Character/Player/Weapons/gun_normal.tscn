@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Objects/Player/Weapons/gun_normal.gd" type="Script" id=2]
+[ext_resource path="res://Objects/PhysicsBody/Character/Player/Weapons/gun_normal.gd" type="Script" id=2]
 
 [node name="gun_normal" type="Node2D"]
 position = Vector2( -0.15749, -2.83482 )

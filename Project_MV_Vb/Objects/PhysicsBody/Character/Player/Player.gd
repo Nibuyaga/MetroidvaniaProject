@@ -1,6 +1,6 @@
-extends "res://Objects/Character/Character.gd"
+extends "res://Objects/PhysicsBody/Character/Character.gd"
 
-var wall_jump_distance = 8 # relative to tile-size
+var wall_jump_distance = 16 # relative to tile-size
 var double_jump = 0
 var wall_jump = 0
 var jumping = false
@@ -10,7 +10,7 @@ var aim = 0 # multiply by 45 degrees
 
 export var double_jumps = 1
 export var wall_jumps = 3
-export var wall_jump_force = 256
+export var wall_jump_force = 512
 
 onready var arm = get_node("arm")
 onready var weapons = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"),]
@@ -18,7 +18,7 @@ export var current_weapon = 0
 
 func _input(event):
 	# input for falling through 'pass' tiles
-	if event.is_action_pressed("aim_down") and floor_ray.is_colliding():
+	if event.is_action_pressed("aim_down") and $FloorRay.is_colliding():
 		velocity.y += 1
 
 func update_aim():
@@ -52,7 +52,7 @@ func jump():
 			pass
 		elif len(wall_ray_results) > 0 and wall_jump < wall_jumps:
 			wall_jump += 1
-			velocity.x += (facing * wall_jump_force)
+			velocity.x -= (facing * wall_jump_force)
 		elif double_jump < double_jumps:
 			double_jump += 1
 		else:

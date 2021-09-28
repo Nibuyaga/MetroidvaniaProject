@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Horizontal_Hesitant.png-d170d00adfd2a9fd44fa953999f0834f.stex"
+path="res://.import/Horizontal_Hesitant.png-58a6409fc07ef8db48f46e36b067479f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Enemies/Test_enemies/Resources/Horizontal_Hesitant.png"
-dest_files=[ "res://.import/Horizontal_Hesitant.png-d170d00adfd2a9fd44fa953999f0834f.stex" ]
+source_file="res://Objects/PhysicsBody/Character/Enemies/Test_enemies/Resources/Horizontal_Hesitant.png"
+dest_files=[ "res://.import/Horizontal_Hesitant.png-58a6409fc07ef8db48f46e36b067479f.stex" ]
 
 [params]
 

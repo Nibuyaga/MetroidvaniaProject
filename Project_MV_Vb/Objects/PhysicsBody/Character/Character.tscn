@@ -1,16 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Objects/Enemies/Test_enemies/Enemy_Hori_Persistent.gd" type="Script" id=1]
-[ext_resource path="res://Objects/Enemies/Test_enemies/Resources/Horizontal_Persistent.png" type="Texture" id=2]
-[ext_resource path="res://Objects/Enemies/Enemy_Health.gd" type="Script" id=3]
+[ext_resource path="res://Objects/PhysicsBody/PhysicsBody.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/PhysicsBody/Character/Character.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 15 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 12, 15 )
-
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "Dying"
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -63,41 +56,28 @@ tracks/3/keys = {
 "values": [ 90.0 ]
 }
 
-[node name="Enemy_Hori_Persistent" type="KinematicBody2D"]
-collision_layer = 0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12, 15 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="Character" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+speed = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 1 )
-shape = SubResource( 1 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+anims/Dying = SubResource( 1 )
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="FloorRay" type="RayCast2D" parent="." index="3"]
+position = Vector2( 0, 16 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 3
+
+[node name="Hurtbox" type="Area2D" parent="." index="4"]
 collision_layer = 0
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 1 )
 shape = SubResource( 2 )
 
-[node name="Enemy_Health_Counter" type="Node2D" parent="."]
-script = ExtResource( 3 )
-
-[node name="Health_Counter" type="Label" parent="Enemy_Health_Counter"]
-margin_left = -4.0
-margin_top = 20.0
-margin_right = 36.0
-margin_bottom = 34.0
-text = "8"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Dying = SubResource( 3 )
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

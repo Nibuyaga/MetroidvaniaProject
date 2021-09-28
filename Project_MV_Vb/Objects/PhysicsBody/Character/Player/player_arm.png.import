@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/normal_bullet.png-93ae6db42977a86ce91cf6e19ce1faad.stex"
+path="res://.import/player_arm.png-a421237a01a3bf558e75331adf565747.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Player/Weapons/Bullets/normal_bullet.png"
-dest_files=[ "res://.import/normal_bullet.png-93ae6db42977a86ce91cf6e19ce1faad.stex" ]
+source_file="res://Objects/PhysicsBody/Character/Player/player_arm.png"
+dest_files=[ "res://.import/player_arm.png-a421237a01a3bf558e75331adf565747.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

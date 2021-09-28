@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Objects/Enemies/Test_enemies/Resources/Vertical_Jumpy.png" type="Texture" id=1]
-[ext_resource path="res://Objects/Enemies/Enemy_Health.gd" type="Script" id=2]
-[ext_resource path="res://Objects/Enemies/Test_enemies/Enemy_Verti_Jumpy.gd" type="Script" id=3]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Test_enemies/Resources/Vertical_Jumpy.png" type="Texture" id=1]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Enemy_Health.gd" type="Script" id=2]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Test_enemies/Enemy_Verti_Jumpy.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 15 )

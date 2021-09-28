@@ -17,7 +17,6 @@ func _ready():
 		$Sprite.flip_h = true
 		$Floor_Check.position.x = -1 * $Floor_Check.position.x
 
-
 func _process(delta):
 	
 #	Movement
@@ -30,15 +29,11 @@ func _process(delta):
 	
 	move = move_and_slide(move, Vector2.UP)
 	
-	
 #	flips the object when getting obstructed OR notices a cliff
 	if abs(move.x) < (speed * delta - 10 * delta) or not $Floor_Check.is_colliding():
 		go_right = not go_right
 		$Sprite.flip_h = not $Sprite.flip_h
 		$Floor_Check.position.x = -1 * $Floor_Check.position.x
-
-
-
 
 # whenever the player hitbox enters the objects hurtbox
 func _on_Hurtbox_area_entered(area):
@@ -56,5 +51,3 @@ func calc_health(damage):
 
 
 # for the dying animation
-func at_dead_queue_free():
-	queue_free()

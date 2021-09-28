@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Horizontal_Persistent.png-fdc986390ec52b47f01205751dcac3ce.stex"
+path="res://.import/Vertical_Jumpy.png-02d2f58083e017fce4c8b9a6f59faed6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Enemies/Test_enemies/Resources/Horizontal_Persistent.png"
-dest_files=[ "res://.import/Horizontal_Persistent.png-fdc986390ec52b47f01205751dcac3ce.stex" ]
+source_file="res://Objects/PhysicsBody/Character/Enemies/Test_enemies/Resources/Vertical_Jumpy.png"
+dest_files=[ "res://.import/Vertical_Jumpy.png-02d2f58083e017fce4c8b9a6f59faed6.stex" ]
 
 [params]
 

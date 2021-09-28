@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grenade.png-e0757851488f89549b886cc9d53c38d3.stex"
+path="res://.import/Horizontal_Persistent.png-ae9a5b6167d4077b7c4170b7e4cbb1d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Player/Weapons/Bullets/grenade.png"
-dest_files=[ "res://.import/grenade.png-e0757851488f89549b886cc9d53c38d3.stex" ]
+source_file="res://Objects/PhysicsBody/Character/Enemies/Test_enemies/Resources/Horizontal_Persistent.png"
+dest_files=[ "res://.import/Horizontal_Persistent.png-ae9a5b6167d4077b7c4170b7e4cbb1d5.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
