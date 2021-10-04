@@ -1,6 +1,11 @@
 extends Node2D
 
+var is_firing = false
+var max_length = 128
+
 func update_weapon(delta, aim, attack=false):
-	var space_state = get_world_2d().direct_space_state
-	var to = global_position
-	var wall_ray_results = space_state.intersect_ray(global_position, to, [self])
+	$Line2D.set_point_position(0, Vector2(0,1))
+	$Line2D.set_point_position(1, Vector2(0,-max_length))
+
+	
+	
