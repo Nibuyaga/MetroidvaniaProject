@@ -72,4 +72,3 @@ func _process(delta):
 		jumping = false
 	update_aim()
 	weapons[current_weapon].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
-	

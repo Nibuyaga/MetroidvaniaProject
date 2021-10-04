@@ -6,6 +6,7 @@
 [ext_resource path="res://Objects/PhysicsBody/Character/Character.tscn" type="PackedScene" id=4]
 
 [node name="Enemy" instance=ExtResource( 4 )]
+collision_layer = 2049
 script = ExtResource( 3 )
 speed = 128
 
@@ -26,3 +27,6 @@ text = "8"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Hurtbox" parent="." index="5"]
+collision_mask = 8192

@@ -80,11 +80,15 @@ aim_down_right={
 [layer_names]
 
 2d_physics/layer_1="General Collision"
-2d_physics/layer_2="Pass_Through Collision"
-2d_physics/layer_5="Player Hitbox"
-2d_physics/layer_6="Player Hurtbox"
-2d_physics/layer_8="Enemy Hitbox"
-2d_physics/layer_9="Enemy Hurtbox"
+2d_physics/layer_2="World 1 (Solid)"
+2d_physics/layer_3="World 2 (Drop down)"
+2d_physics/layer_4="World 3 (Water)"
+2d_physics/layer_5="World 4 (Grappling hook)"
+2d_physics/layer_11="Player"
+2d_physics/layer_12="Enemy"
+2d_physics/layer_13="Hurt Player"
+2d_physics/layer_14="Hurt Enemy"
+2d_physics/layer_15="Pickup"
 
 [physics]
 
