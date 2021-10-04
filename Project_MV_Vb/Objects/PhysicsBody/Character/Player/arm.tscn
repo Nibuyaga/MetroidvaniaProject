@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://Objects/PhysicsBody/Character/Player/Weapons/gun_hook.gd" type="Script" id=1]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/Weapons/gun_normal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/Weapons/gun_grenade.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/player_arm.png" type="Texture" id=5]
@@ -14,3 +15,6 @@ offset = Vector2( 0, -16 )
 [node name="gun_normal" parent="." instance=ExtResource( 2 )]
 
 [node name="gun_grenade" parent="." instance=ExtResource( 4 )]
+
+[node name="gun_hook" type="Node2D" parent="."]
+script = ExtResource( 1 )

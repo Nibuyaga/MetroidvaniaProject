@@ -31,3 +31,4 @@ persistent = false
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 55.511, 396.6 )
+current_weapon = 1

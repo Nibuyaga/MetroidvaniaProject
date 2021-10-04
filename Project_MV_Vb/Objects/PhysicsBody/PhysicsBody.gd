@@ -5,6 +5,9 @@ export var drag = 10
 export var bounce = 0.2
 export var minimum_move = 8
 
+# when false don't slow down when in the air (f.e. projectiles) 
+export var air_drag = true 
+
 var velocity = Vector2(0,0) 
 var bounce_trigger_velocity = 128 # TODO: Better to be based on tile size
 
@@ -17,14 +20,19 @@ func _physics_process(delta):
 	elif is_on_ceiling():
 		if velocity.y < minimum_move:
 			velocity.y = 0
-
 	# Further X axis calculation -after- applying
 	# so any initial movement is applied 
 	move_and_slide(velocity, Vector2.UP)
 	if is_on_wall():
 		if abs(velocity.x) > 0:
 			velocity.x = 0
-	velocity.x /= 1+(drag*delta)
+	
+	
+	if is_on_floor() or air_drag:
+		velocity.x /= 1+(drag*delta)
+	else:
+		velocity.x /= 1+((drag/8)*delta)
+
 	velocity.y += gravity*delta
 	if abs(velocity.x) < minimum_move: velocity.x = 0
 

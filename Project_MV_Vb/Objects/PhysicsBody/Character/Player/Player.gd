@@ -13,7 +13,7 @@ export var wall_jumps = 3
 export var wall_jump_force = 512
 
 onready var arm = get_node("arm")
-onready var weapons = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"),]
+onready var weapons = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"), get_node("arm/gun_hook")]
 export var current_weapon = 0
 
 func _input(event):
