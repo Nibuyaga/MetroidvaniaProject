@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Solid.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/PhysicsBody/Character/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Pass.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/Enemies/Test_enemies/Enemy_Hori_Persistent.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/Enemies/Test_enemies/Enemy_Hori_ColdFeet.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Enemies/Test_enemies/Enemy_Verti_Jumpy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Enemy.tscn" type="PackedScene" id=6]
 
 [node name="Test_Room" type="Node2D"]
 
@@ -15,14 +13,21 @@ tile_data = PoolIntArray( 65561, 1, 8, 65562, 1, 65547, 65563, 1, 9, 65566, 1, 8
 [node name="TileMap - Test_Room_Pass" parent="." instance=ExtResource( 3 )]
 tile_data = PoolIntArray( 589827, 0, 1, 589828, 0, 2, 589829, 0, 2, 589830, 0, 2, 589831, 0, 2, 589832, 0, 3, 589836, 0, 1, 589837, 0, 2, 589838, 0, 2, 589839, 0, 2, 589840, 0, 2, 589841, 0, 3, 786435, 0, 1, 786436, 0, 2, 786437, 0, 2, 786438, 0, 3 )
 
-[node name="Enemy_Hori_Persistent" parent="." instance=ExtResource( 4 )]
+[node name="Enemy_Hori_Persistent" parent="." instance=ExtResource( 6 )]
 position = Vector2( 752, 368 )
+go_right = false
+jumper = false
 
-[node name="Enemy_Hori_ColdFeet" parent="." instance=ExtResource( 5 )]
+[node name="Enemy_Hori_ColdFeet" parent="." instance=ExtResource( 6 )]
 position = Vector2( 552, 272 )
+go_right = false
+persistent = false
+jumper = false
 
 [node name="Enemy_Verti_Jumpy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 340.732, 402.479 )
+go_right = false
+persistent = false
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 55.511, 396.6 )
