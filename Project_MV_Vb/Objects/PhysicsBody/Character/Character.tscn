@@ -61,6 +61,7 @@ extents = Vector2( 12, 15 )
 
 [node name="Character" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+speed = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 anims/Dying = SubResource( 1 )
@@ -73,7 +74,7 @@ collision_mask = 3
 
 [node name="Hurtbox" type="Area2D" parent="." index="4"]
 collision_layer = 0
-collision_mask = 16
+collision_mask = 12288
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 1 )
