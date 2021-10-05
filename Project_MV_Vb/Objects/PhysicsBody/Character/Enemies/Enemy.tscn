@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Test_enemies/Resources/Horizontal_Persistent.png" type="Texture" id=1]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Test_enemies/Resources/Enemy_Placeholder.png" type="Texture" id=1]
 [ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Enemy_Health.gd" type="Script" id=2]
 [ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Enemy.gd" type="Script" id=3]
 [ext_resource path="res://Objects/PhysicsBody/Character/Character.tscn" type="PackedScene" id=4]
@@ -8,12 +8,11 @@
 [node name="Enemy" instance=ExtResource( 4 )]
 collision_layer = 2049
 script = ExtResource( 3 )
-speed = 128
 
 [node name="Sprite" parent="." index="0"]
-position = Vector2( -0.157474, -1.1024 )
-scale = Vector2( 0.88686, 1.24121 )
 texture = ExtResource( 1 )
+hframes = 10
+vframes = 4
 
 [node name="Health_Counter" type="Node2D" parent="." index="4"]
 script = ExtResource( 2 )
