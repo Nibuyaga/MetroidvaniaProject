@@ -18,6 +18,10 @@ config/name="Project_MV_Vb"
 run/main_scene="res://Rooms/Test_Room.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Autoload_Scripts/Global.gd"
+
 [input]
 
 move_left={

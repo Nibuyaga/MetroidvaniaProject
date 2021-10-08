@@ -16,6 +16,14 @@ onready var arm = get_node("arm")
 onready var weapons = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"), get_node("arm/gun_hook")]
 export var current_weapon = 0
 
+
+
+func _ready():
+	# used for setting player position when changing scenes
+	if Global.player_spawn_location != null:
+		global_position = Global.player_spawn_location
+	
+
 func _input(event):
 	# input for falling through 'pass' tiles
 	if event.is_action_pressed("aim_down") and $FloorRay.is_colliding():

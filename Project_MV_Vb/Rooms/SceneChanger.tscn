@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Rooms/SceneChanger.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 5.0
+height = 1000.0
+
+[node name="SceneChanger" type="Area2D"]
+collision_layer = 0
+collision_mask = 1024
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -500 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_SceneChanger_body_entered"]
