@@ -5,8 +5,9 @@ export var drag = 10
 export var bounce = 0.2
 export var minimum_move = 8
 
-# when false don't slow down when in the air (f.e. projectiles) 
-export var air_drag = true 
+export var air_drag = 0.5
+var flying = false
+var floating = 1
 
 var velocity = Vector2(0,0) 
 var bounce_trigger_velocity = 128 # TODO: Better to be based on tile size
@@ -28,15 +29,17 @@ func _physics_process(delta):
 			velocity.x = 0
 	
 	
-	if is_on_floor() or air_drag:
+	if is_on_floor():
 		velocity.x /= 1+(drag*delta)
 	else:
-		velocity.x /= 1+((drag/8)*delta)
+		velocity.x /= 1+((drag/air_drag)*delta)
 
-	velocity.y += gravity*delta
+	if not flying:
+		velocity.y += gravity*floating*delta
+
 	if abs(velocity.x) < minimum_move: velocity.x = 0
 
 	if velocity.x > 0:
-		$Sprite.flip_h = true
-	elif velocity.x < 0:
 		$Sprite.flip_h = false
+	elif velocity.x < 0:
+		$Sprite.flip_h = true
