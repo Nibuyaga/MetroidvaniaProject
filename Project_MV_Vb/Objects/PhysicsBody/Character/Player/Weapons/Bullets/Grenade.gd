@@ -4,16 +4,20 @@ extends "res://Objects/PhysicsBody/PhysicsBody.gd"
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var time = 5
+const Explosion = preload("GrenadeExplosion.tscn")
+
+var time = 2
 export var speed = 500
 
 func explode():
-	pass #print('boom')
-
+	var explosion = Explosion.instance()
+	explosion.position = global_position
+	get_tree().current_scene.add_child(explosion)
+	queue_free()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position -= transform.y * 64
+	position -= transform.y * 32
 	velocity.x = speed
 
 func _process(delta):
