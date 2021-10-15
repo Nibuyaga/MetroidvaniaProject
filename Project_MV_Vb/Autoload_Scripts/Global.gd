@@ -3,6 +3,7 @@ extends Node
 
 var current_scene = null	# creates a variable for the "current level"
 var player_spawn_location = null	# variable for player location in the scene
+var player_data
 
 func _ready():
 	

@@ -1785,312 +1785,312 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeOneShot" id=86]
 
-[sub_resource type="AnimationNodeAnimation" id=145]
-animation = "Damaged"
-
-[sub_resource type="AnimationNodeAnimation" id=146]
-animation = "Damaged"
-
-[sub_resource type="AnimationNodeAnimation" id=147]
-animation = "Damaged_L"
-
-[sub_resource type="AnimationNodeAnimation" id=148]
-animation = "Damaged_L"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id=149]
-blend_point_0/node = SubResource( 145 )
-blend_point_0/pos = Vector2( 1, 0.2 )
-blend_point_1/node = SubResource( 146 )
-blend_point_1/pos = Vector2( 1, -0.2 )
-blend_point_2/node = SubResource( 147 )
-blend_point_2/pos = Vector2( -1, 0.2 )
-blend_point_3/node = SubResource( 148 )
-blend_point_3/pos = Vector2( -1, -0.2 )
-blend_mode = 1
-
-[sub_resource type="AnimationNodeOneShot" id=156]
-
-[sub_resource type="AnimationNodeAnimation" id=151]
-animation = "Dying"
-
-[sub_resource type="AnimationNodeAnimation" id=152]
-animation = "Dying"
-
-[sub_resource type="AnimationNodeAnimation" id=153]
-animation = "Dying_L"
-
-[sub_resource type="AnimationNodeAnimation" id=154]
-animation = "Dying_L"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id=155]
-blend_point_0/node = SubResource( 151 )
-blend_point_0/pos = Vector2( 1, 0.2 )
-blend_point_1/node = SubResource( 152 )
-blend_point_1/pos = Vector2( 1, -0.2 )
-blend_point_2/node = SubResource( 153 )
-blend_point_2/pos = Vector2( -1, 0.2 )
-blend_point_3/node = SubResource( 154 )
-blend_point_3/pos = Vector2( -1, -0.2 )
-
-[sub_resource type="AnimationNodeOneShot" id=157]
-
 [sub_resource type="AnimationNodeAnimation" id=87]
-animation = "AttackGroundNeutral_1"
+animation = "Damaged"
 
 [sub_resource type="AnimationNodeAnimation" id=88]
-animation = "AttackGroundNeutral_1_L"
+animation = "Damaged"
 
 [sub_resource type="AnimationNodeAnimation" id=89]
-animation = "AttackGroundDiagUp_1"
+animation = "Damaged_L"
 
 [sub_resource type="AnimationNodeAnimation" id=90]
-animation = "AttackGroundDiagUp_1_L"
+animation = "Damaged_L"
 
-[sub_resource type="AnimationNodeAnimation" id=91]
-animation = "AttackGroundUp_1"
+[sub_resource type="AnimationNodeBlendSpace2D" id=91]
+blend_point_0/node = SubResource( 87 )
+blend_point_0/pos = Vector2( 1, 0.2 )
+blend_point_1/node = SubResource( 88 )
+blend_point_1/pos = Vector2( 1, -0.2 )
+blend_point_2/node = SubResource( 89 )
+blend_point_2/pos = Vector2( -1, 0.2 )
+blend_point_3/node = SubResource( 90 )
+blend_point_3/pos = Vector2( -1, -0.2 )
+blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=92]
-animation = "AttackGroundUp_1_L"
+[sub_resource type="AnimationNodeOneShot" id=92]
 
 [sub_resource type="AnimationNodeAnimation" id=93]
-animation = "AttackGroundDiagDown_1"
+animation = "Dying"
 
 [sub_resource type="AnimationNodeAnimation" id=94]
-animation = "AttackGroundDiagDown_1_L"
+animation = "Dying"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=95]
-blend_point_0/node = SubResource( 87 )
-blend_point_0/pos = Vector2( 1, 0 )
-blend_point_1/node = SubResource( 88 )
-blend_point_1/pos = Vector2( -1, 0 )
-blend_point_2/node = SubResource( 89 )
-blend_point_2/pos = Vector2( 0.8, 0.8 )
-blend_point_3/node = SubResource( 90 )
-blend_point_3/pos = Vector2( -0.8, 0.8 )
-blend_point_4/node = SubResource( 91 )
-blend_point_4/pos = Vector2( 0.2, 1 )
-blend_point_5/node = SubResource( 92 )
-blend_point_5/pos = Vector2( -0.2, 1 )
-blend_point_6/node = SubResource( 93 )
-blend_point_6/pos = Vector2( 0.8, -0.8 )
-blend_point_7/node = SubResource( 94 )
-blend_point_7/pos = Vector2( -0.8, -0.8 )
-blend_mode = 1
+[sub_resource type="AnimationNodeAnimation" id=95]
+animation = "Dying_L"
 
-[sub_resource type="AnimationNodeOneShot" id=96]
+[sub_resource type="AnimationNodeAnimation" id=96]
+animation = "Dying_L"
 
-[sub_resource type="AnimationNodeAnimation" id=97]
-animation = "AttackGroundUp_2"
+[sub_resource type="AnimationNodeBlendSpace2D" id=97]
+blend_point_0/node = SubResource( 93 )
+blend_point_0/pos = Vector2( 1, 0.2 )
+blend_point_1/node = SubResource( 94 )
+blend_point_1/pos = Vector2( 1, -0.2 )
+blend_point_2/node = SubResource( 95 )
+blend_point_2/pos = Vector2( -1, 0.2 )
+blend_point_3/node = SubResource( 96 )
+blend_point_3/pos = Vector2( -1, -0.2 )
 
-[sub_resource type="AnimationNodeAnimation" id=98]
-animation = "AttackGroundUp_2_L"
+[sub_resource type="AnimationNodeOneShot" id=98]
 
 [sub_resource type="AnimationNodeAnimation" id=99]
-animation = "AttackGroundNeutral_2"
+animation = "AttackGroundNeutral_1"
 
 [sub_resource type="AnimationNodeAnimation" id=100]
-animation = "AttackGroundNeutral_2_L"
+animation = "AttackGroundNeutral_1_L"
 
 [sub_resource type="AnimationNodeAnimation" id=101]
-animation = "AttackGroundDiagUp_2"
+animation = "AttackGroundDiagUp_1"
 
 [sub_resource type="AnimationNodeAnimation" id=102]
-animation = "AttackGroundDiagUp_2_L"
+animation = "AttackGroundDiagUp_1_L"
 
 [sub_resource type="AnimationNodeAnimation" id=103]
-animation = "AttackGroundDiagDown_2"
+animation = "AttackGroundUp_1"
 
 [sub_resource type="AnimationNodeAnimation" id=104]
-animation = "AttackGroundDiagDown_2_L"
+animation = "AttackGroundUp_1_L"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=105]
-blend_point_0/node = SubResource( 97 )
-blend_point_0/pos = Vector2( 0.2, 1 )
-blend_point_1/node = SubResource( 98 )
-blend_point_1/pos = Vector2( -0.2, 1 )
-blend_point_2/node = SubResource( 99 )
-blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 100 )
-blend_point_3/pos = Vector2( -1, 0 )
-blend_point_4/node = SubResource( 101 )
-blend_point_4/pos = Vector2( 0.8, 0.8 )
-blend_point_5/node = SubResource( 102 )
-blend_point_5/pos = Vector2( -0.8, 0.8 )
-blend_point_6/node = SubResource( 103 )
+[sub_resource type="AnimationNodeAnimation" id=105]
+animation = "AttackGroundDiagDown_1"
+
+[sub_resource type="AnimationNodeAnimation" id=106]
+animation = "AttackGroundDiagDown_1_L"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=107]
+blend_point_0/node = SubResource( 99 )
+blend_point_0/pos = Vector2( 1, 0 )
+blend_point_1/node = SubResource( 100 )
+blend_point_1/pos = Vector2( -1, 0 )
+blend_point_2/node = SubResource( 101 )
+blend_point_2/pos = Vector2( 0.8, 0.8 )
+blend_point_3/node = SubResource( 102 )
+blend_point_3/pos = Vector2( -0.8, 0.8 )
+blend_point_4/node = SubResource( 103 )
+blend_point_4/pos = Vector2( 0.2, 1 )
+blend_point_5/node = SubResource( 104 )
+blend_point_5/pos = Vector2( -0.2, 1 )
+blend_point_6/node = SubResource( 105 )
 blend_point_6/pos = Vector2( 0.8, -0.8 )
-blend_point_7/node = SubResource( 104 )
+blend_point_7/node = SubResource( 106 )
 blend_point_7/pos = Vector2( -0.8, -0.8 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeOneShot" id=106]
+[sub_resource type="AnimationNodeOneShot" id=108]
 
-[sub_resource type="AnimationNodeTransition" id=107]
+[sub_resource type="AnimationNodeAnimation" id=109]
+animation = "AttackGroundUp_2"
+
+[sub_resource type="AnimationNodeAnimation" id=110]
+animation = "AttackGroundUp_2_L"
+
+[sub_resource type="AnimationNodeAnimation" id=111]
+animation = "AttackGroundNeutral_2"
+
+[sub_resource type="AnimationNodeAnimation" id=112]
+animation = "AttackGroundNeutral_2_L"
+
+[sub_resource type="AnimationNodeAnimation" id=113]
+animation = "AttackGroundDiagUp_2"
+
+[sub_resource type="AnimationNodeAnimation" id=114]
+animation = "AttackGroundDiagUp_2_L"
+
+[sub_resource type="AnimationNodeAnimation" id=115]
+animation = "AttackGroundDiagDown_2"
+
+[sub_resource type="AnimationNodeAnimation" id=116]
+animation = "AttackGroundDiagDown_2_L"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=117]
+blend_point_0/node = SubResource( 109 )
+blend_point_0/pos = Vector2( 0.2, 1 )
+blend_point_1/node = SubResource( 110 )
+blend_point_1/pos = Vector2( -0.2, 1 )
+blend_point_2/node = SubResource( 111 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 112 )
+blend_point_3/pos = Vector2( -1, 0 )
+blend_point_4/node = SubResource( 113 )
+blend_point_4/pos = Vector2( 0.8, 0.8 )
+blend_point_5/node = SubResource( 114 )
+blend_point_5/pos = Vector2( -0.8, 0.8 )
+blend_point_6/node = SubResource( 115 )
+blend_point_6/pos = Vector2( 0.8, -0.8 )
+blend_point_7/node = SubResource( 116 )
+blend_point_7/pos = Vector2( -0.8, -0.8 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeOneShot" id=118]
+
+[sub_resource type="AnimationNodeTransition" id=119]
 input_count = 2
 input_0/name = "Idle"
 input_0/auto_advance = false
 input_1/name = "Run"
 input_1/auto_advance = false
 
-[sub_resource type="AnimationNodeAnimation" id=108]
+[sub_resource type="AnimationNodeAnimation" id=120]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=109]
+[sub_resource type="AnimationNodeAnimation" id=121]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=110]
+[sub_resource type="AnimationNodeAnimation" id=122]
 animation = "Idle_L"
 
-[sub_resource type="AnimationNodeAnimation" id=111]
+[sub_resource type="AnimationNodeAnimation" id=123]
 animation = "Idle_L"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=112]
-blend_point_0/node = SubResource( 108 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=124]
+blend_point_0/node = SubResource( 120 )
 blend_point_0/pos = Vector2( 1, -0.2 )
-blend_point_1/node = SubResource( 109 )
+blend_point_1/node = SubResource( 121 )
 blend_point_1/pos = Vector2( 1, 0.2 )
-blend_point_2/node = SubResource( 110 )
+blend_point_2/node = SubResource( 122 )
 blend_point_2/pos = Vector2( -1, 0.2 )
-blend_point_3/node = SubResource( 111 )
+blend_point_3/node = SubResource( 123 )
 blend_point_3/pos = Vector2( -1, -0.2 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=113]
+[sub_resource type="AnimationNodeAnimation" id=125]
 animation = "AttackJumpUp_1"
 
-[sub_resource type="AnimationNodeAnimation" id=114]
+[sub_resource type="AnimationNodeAnimation" id=126]
 animation = "AttackJumpNeutral_1"
 
-[sub_resource type="AnimationNodeAnimation" id=115]
+[sub_resource type="AnimationNodeAnimation" id=127]
 animation = "AttackJumpNeutral_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=116]
+[sub_resource type="AnimationNodeAnimation" id=128]
 animation = "AttackJumpUp_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=117]
+[sub_resource type="AnimationNodeAnimation" id=129]
 animation = "AttackJumpDiagUp_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=118]
+[sub_resource type="AnimationNodeAnimation" id=130]
 animation = "AttackJumpDiagUp_1"
 
-[sub_resource type="AnimationNodeAnimation" id=119]
+[sub_resource type="AnimationNodeAnimation" id=131]
 animation = "AttackJumpDiagDown_1"
 
-[sub_resource type="AnimationNodeAnimation" id=120]
+[sub_resource type="AnimationNodeAnimation" id=132]
 animation = "AttackJumpDiagDown_1_L"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=121]
-blend_point_0/node = SubResource( 113 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=133]
+blend_point_0/node = SubResource( 125 )
 blend_point_0/pos = Vector2( 0.2, 1 )
-blend_point_1/node = SubResource( 114 )
+blend_point_1/node = SubResource( 126 )
 blend_point_1/pos = Vector2( 1, 0 )
-blend_point_2/node = SubResource( 115 )
+blend_point_2/node = SubResource( 127 )
 blend_point_2/pos = Vector2( -1, 0 )
-blend_point_3/node = SubResource( 116 )
+blend_point_3/node = SubResource( 128 )
 blend_point_3/pos = Vector2( -0.2, 1 )
-blend_point_4/node = SubResource( 117 )
+blend_point_4/node = SubResource( 129 )
 blend_point_4/pos = Vector2( -0.8, 0.8 )
-blend_point_5/node = SubResource( 118 )
+blend_point_5/node = SubResource( 130 )
 blend_point_5/pos = Vector2( 0.8, 0.8 )
-blend_point_6/node = SubResource( 119 )
+blend_point_6/node = SubResource( 131 )
 blend_point_6/pos = Vector2( 0.8, -0.8 )
-blend_point_7/node = SubResource( 120 )
+blend_point_7/node = SubResource( 132 )
 blend_point_7/pos = Vector2( -0.8, -0.8 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeOneShot" id=122]
+[sub_resource type="AnimationNodeOneShot" id=134]
 
-[sub_resource type="AnimationNodeAnimation" id=123]
+[sub_resource type="AnimationNodeAnimation" id=135]
 animation = "AttackJumpUp_2"
 
-[sub_resource type="AnimationNodeAnimation" id=124]
+[sub_resource type="AnimationNodeAnimation" id=136]
 animation = "AttackJumpUp_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=125]
+[sub_resource type="AnimationNodeAnimation" id=137]
 animation = "AttackJumpNeutral_2"
 
-[sub_resource type="AnimationNodeAnimation" id=126]
+[sub_resource type="AnimationNodeAnimation" id=138]
 animation = "AttackJumpNeutral_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=127]
+[sub_resource type="AnimationNodeAnimation" id=139]
 animation = "AttackJumpDiagUp_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=128]
+[sub_resource type="AnimationNodeAnimation" id=140]
 animation = "AttackJumpDiagUp_2"
 
-[sub_resource type="AnimationNodeAnimation" id=129]
+[sub_resource type="AnimationNodeAnimation" id=141]
 animation = "AttackJumpDiagDown_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=130]
+[sub_resource type="AnimationNodeAnimation" id=142]
 animation = "AttackJumpDiagDown_2"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=131]
-blend_point_0/node = SubResource( 123 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=143]
+blend_point_0/node = SubResource( 135 )
 blend_point_0/pos = Vector2( 0.3, 1 )
-blend_point_1/node = SubResource( 124 )
+blend_point_1/node = SubResource( 136 )
 blend_point_1/pos = Vector2( -0.3, 1 )
-blend_point_2/node = SubResource( 125 )
+blend_point_2/node = SubResource( 137 )
 blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 126 )
+blend_point_3/node = SubResource( 138 )
 blend_point_3/pos = Vector2( -1, 0 )
-blend_point_4/node = SubResource( 127 )
+blend_point_4/node = SubResource( 139 )
 blend_point_4/pos = Vector2( -0.8, 0.8 )
-blend_point_5/node = SubResource( 128 )
+blend_point_5/node = SubResource( 140 )
 blend_point_5/pos = Vector2( 0.8, 0.8 )
-blend_point_6/node = SubResource( 129 )
+blend_point_6/node = SubResource( 141 )
 blend_point_6/pos = Vector2( -0.8, -0.8 )
-blend_point_7/node = SubResource( 130 )
+blend_point_7/node = SubResource( 142 )
 blend_point_7/pos = Vector2( 0.8, -0.8 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeOneShot" id=132]
+[sub_resource type="AnimationNodeOneShot" id=144]
 
-[sub_resource type="AnimationNodeAnimation" id=133]
+[sub_resource type="AnimationNodeAnimation" id=145]
 animation = "JumpDown"
 
-[sub_resource type="AnimationNodeAnimation" id=134]
+[sub_resource type="AnimationNodeAnimation" id=146]
 animation = "JumpDown_L"
 
-[sub_resource type="AnimationNodeAnimation" id=135]
+[sub_resource type="AnimationNodeAnimation" id=147]
 animation = "JumpUp_L"
 
-[sub_resource type="AnimationNodeAnimation" id=136]
+[sub_resource type="AnimationNodeAnimation" id=148]
 animation = "JumpUp"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=137]
-blend_point_0/node = SubResource( 133 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=149]
+blend_point_0/node = SubResource( 145 )
 blend_point_0/pos = Vector2( 1, 1 )
-blend_point_1/node = SubResource( 134 )
+blend_point_1/node = SubResource( 146 )
 blend_point_1/pos = Vector2( -1, 1 )
-blend_point_2/node = SubResource( 135 )
+blend_point_2/node = SubResource( 147 )
 blend_point_2/pos = Vector2( -1, -1 )
-blend_point_3/node = SubResource( 136 )
+blend_point_3/node = SubResource( 148 )
 blend_point_3/pos = Vector2( 1, -1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=138]
+[sub_resource type="AnimationNodeAnimation" id=150]
 animation = "Run"
 
-[sub_resource type="AnimationNodeAnimation" id=139]
+[sub_resource type="AnimationNodeAnimation" id=151]
 animation = "Run_L"
 
-[sub_resource type="AnimationNodeAnimation" id=140]
+[sub_resource type="AnimationNodeAnimation" id=152]
 animation = "Run_L"
 
-[sub_resource type="AnimationNodeAnimation" id=141]
+[sub_resource type="AnimationNodeAnimation" id=153]
 animation = "Run"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=142]
-blend_point_0/node = SubResource( 138 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=154]
+blend_point_0/node = SubResource( 150 )
 blend_point_0/pos = Vector2( 1, 0.2 )
-blend_point_1/node = SubResource( 139 )
+blend_point_1/node = SubResource( 151 )
 blend_point_1/pos = Vector2( -1, 0.2 )
-blend_point_2/node = SubResource( 140 )
+blend_point_2/node = SubResource( 152 )
 blend_point_2/pos = Vector2( -1, -0.2 )
-blend_point_3/node = SubResource( 141 )
+blend_point_3/node = SubResource( 153 )
 blend_point_3/pos = Vector2( 1, -0.2 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeTransition" id=143]
+[sub_resource type="AnimationNodeTransition" id=155]
 input_count = 3
 input_0/name = "Jump"
 input_0/auto_advance = false
@@ -2099,7 +2099,7 @@ input_1/auto_advance = false
 input_2/name = "Crouch"
 input_2/auto_advance = false
 
-[sub_resource type="AnimationNodeBlendTree" id=144]
+[sub_resource type="AnimationNodeBlendTree" id=156]
 graph_offset = Vector2( -103, 150.25 )
 nodes/Crouch/node = SubResource( 66 )
 nodes/Crouch/position = Vector2( -600, 600 )
@@ -2111,54 +2111,53 @@ nodes/CrouchAttack_2_BlendSpace2D/node = SubResource( 85 )
 nodes/CrouchAttack_2_BlendSpace2D/position = Vector2( -240, 800 )
 nodes/CrouchAttack_2_Trigger/node = SubResource( 86 )
 nodes/CrouchAttack_2_Trigger/position = Vector2( -40, 600 )
-nodes/Damaged_BlendSpace2D/node = SubResource( 149 )
+nodes/Damaged_BlendSpace2D/node = SubResource( 91 )
 nodes/Damaged_BlendSpace2D/position = Vector2( 400, 0 )
-nodes/Damaged_Trigger/node = SubResource( 156 )
+nodes/Damaged_Trigger/node = SubResource( 92 )
 nodes/Damaged_Trigger/position = Vector2( 660, 0 )
-nodes/Dead_BlendSpace2D/node = SubResource( 155 )
+nodes/Dead_BlendSpace2D/node = SubResource( 97 )
 nodes/Dead_BlendSpace2D/position = Vector2( 400, 200 )
-nodes/Dead_trigger/node = SubResource( 157 )
+nodes/Dead_trigger/node = SubResource( 98 )
 nodes/Dead_trigger/position = Vector2( 680, 180 )
-nodes/GroundAttack_1_BlendSpace2D/node = SubResource( 95 )
+nodes/GroundAttack_1_BlendSpace2D/node = SubResource( 107 )
 nodes/GroundAttack_1_BlendSpace2D/position = Vector2( -540, 400 )
-nodes/GroundAttack_1_Trigger/node = SubResource( 96 )
+nodes/GroundAttack_1_Trigger/node = SubResource( 108 )
 nodes/GroundAttack_1_Trigger/position = Vector2( -340, 200 )
-nodes/GroundAttack_2_BlendSpace2D/node = SubResource( 105 )
+nodes/GroundAttack_2_BlendSpace2D/node = SubResource( 117 )
 nodes/GroundAttack_2_BlendSpace2D/position = Vector2( -240, 400 )
-nodes/GroundAttack_2_Trigger/node = SubResource( 106 )
+nodes/GroundAttack_2_Trigger/node = SubResource( 118 )
 nodes/GroundAttack_2_Trigger/position = Vector2( -40, 200 )
-nodes/Ground_State/node = SubResource( 107 )
+nodes/Ground_State/node = SubResource( 119 )
 nodes/Ground_State/position = Vector2( -600, 200 )
-nodes/Idle/node = SubResource( 112 )
+nodes/Idle/node = SubResource( 124 )
 nodes/Idle/position = Vector2( -800, 200 )
-nodes/JumpAttack_1_BlendSpace2D/node = SubResource( 121 )
+nodes/JumpAttack_1_BlendSpace2D/node = SubResource( 133 )
 nodes/JumpAttack_1_BlendSpace2D/position = Vector2( -520, -20 )
-nodes/JumpAttack_1_Trigger/node = SubResource( 122 )
+nodes/JumpAttack_1_Trigger/node = SubResource( 134 )
 nodes/JumpAttack_1_Trigger/position = Vector2( -340, -200 )
-nodes/JumpAttack_2_BlendSpace2D/node = SubResource( 131 )
+nodes/JumpAttack_2_BlendSpace2D/node = SubResource( 143 )
 nodes/JumpAttack_2_BlendSpace2D/position = Vector2( -220, -20 )
-nodes/JumpAttack_2_Trigger/node = SubResource( 132 )
+nodes/JumpAttack_2_Trigger/node = SubResource( 144 )
 nodes/JumpAttack_2_Trigger/position = Vector2( -40, -200 )
-nodes/JumpNormal/node = SubResource( 137 )
+nodes/JumpNormal/node = SubResource( 149 )
 nodes/JumpNormal/position = Vector2( -600, -200 )
-nodes/Run/node = SubResource( 142 )
+nodes/Run/node = SubResource( 154 )
 nodes/Run/position = Vector2( -800, 360 )
-nodes/Stance/node = SubResource( 143 )
+nodes/Stance/node = SubResource( 155 )
 nodes/Stance/position = Vector2( 400, -200 )
 nodes/output/position = Vector2( 880, 0 )
-node_connections = [ "output", 0, "Dead_trigger", "Ground_State", 0, "Idle", "Ground_State", 1, "Run", "GroundAttack_2_Trigger", 0, "GroundAttack_1_Trigger", "GroundAttack_2_Trigger", 1, "GroundAttack_2_BlendSpace2D", "JumpAttack_2_Trigger", 0, "JumpAttack_1_Trigger", "JumpAttack_2_Trigger", 1, "JumpAttack_2_BlendSpace2D", "JumpAttack_1_Trigger", 0, "JumpNormal", "JumpAttack_1_Trigger", 1, "JumpAttack_1_BlendSpace2D", "CrouchAttack_1_Trigger", 0, "Crouch", "CrouchAttack_1_Trigger", 1, "CrouchAttack_1_BlendSpace2D", "Stance", 0, "JumpAttack_2_Trigger", "Stance", 1, "GroundAttack_2_Trigger", "Stance", 2, "CrouchAttack_2_Trigger", "GroundAttack_1_Trigger", 0, "Ground_State", "GroundAttack_1_Trigger", 1, "GroundAttack_1_BlendSpace2D", "CrouchAttack_2_Trigger", 0, "CrouchAttack_1_Trigger", "CrouchAttack_2_Trigger", 1, "CrouchAttack_2_BlendSpace2D", "Dead_trigger", 0, "Damaged_Trigger", "Dead_trigger", 1, "Dead_BlendSpace2D", "Damaged_Trigger", 0, "Stance", "Damaged_Trigger", 1, "Damaged_BlendSpace2D" ]
+node_connections = [ "output", 0, "Dead_trigger", "CrouchAttack_1_Trigger", 0, "Crouch", "CrouchAttack_1_Trigger", 1, "CrouchAttack_1_BlendSpace2D", "CrouchAttack_2_Trigger", 0, "CrouchAttack_1_Trigger", "CrouchAttack_2_Trigger", 1, "CrouchAttack_2_BlendSpace2D", "Dead_trigger", 0, "Damaged_Trigger", "Dead_trigger", 1, "Dead_BlendSpace2D", "GroundAttack_2_Trigger", 0, "GroundAttack_1_Trigger", "GroundAttack_2_Trigger", 1, "GroundAttack_2_BlendSpace2D", "Damaged_Trigger", 0, "Stance", "Damaged_Trigger", 1, "Damaged_BlendSpace2D", "JumpAttack_2_Trigger", 0, "JumpAttack_1_Trigger", "JumpAttack_2_Trigger", 1, "JumpAttack_2_BlendSpace2D", "Stance", 0, "JumpAttack_2_Trigger", "Stance", 1, "GroundAttack_2_Trigger", "Stance", 2, "CrouchAttack_2_Trigger", "Ground_State", 0, "Idle", "Ground_State", 1, "Run", "JumpAttack_1_Trigger", 0, "JumpNormal", "JumpAttack_1_Trigger", 1, "JumpAttack_1_BlendSpace2D", "GroundAttack_1_Trigger", 0, "Ground_State", "GroundAttack_1_Trigger", 1, "GroundAttack_1_BlendSpace2D" ]
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 1025
 script = ExtResource( 2 )
+speed = 3200
+current_weapon = 1
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 4 )
 hframes = 10
 vframes = 4
-
-[node name="CollisionShape2D" parent="." index="1"]
-visible = false
 
 [node name="AnimationPlayer" parent="." index="2"]
 anims/AttackCrouchDiagDown_1 = SubResource( 1 )
@@ -2224,7 +2223,7 @@ anims/Run = SubResource( 60 )
 anims/Run_L = SubResource( 61 )
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]
-tree_root = SubResource( 144 )
+tree_root = SubResource( 156 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Crouch/blend_position = Vector2( 0.332027, 0.0314685 )
@@ -2250,12 +2249,7 @@ parameters/JumpNormal/blend_position = Vector2( 0.158598, -0.406716 )
 parameters/Run/blend_position = Vector2( 0.0886999, -0.00209641 )
 parameters/Stance/current = 1
 
-[node name="FloorRay" parent="." index="4"]
-visible = false
-
 [node name="Hurtbox" parent="." index="5"]
-visible = false
 collision_mask = 4096
 
 [node name="arm" parent="." index="6" instance=ExtResource( 3 )]
-visible = false

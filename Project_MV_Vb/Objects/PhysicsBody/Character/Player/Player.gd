@@ -20,9 +20,11 @@ export var current_weapon = 0
 
 func _ready():
 	# used for setting player position when changing scenes
-	if Global.player_spawn_location != null:
-		global_position = Global.player_spawn_location
+	if PlayerVariables.player_spawn_location != null:
+		global_position = PlayerVariables.player_spawn_location
 	
+		PlayerVariables.get_data(self)
+
 
 func _input(event):
 	# input for falling through 'pass' tiles
