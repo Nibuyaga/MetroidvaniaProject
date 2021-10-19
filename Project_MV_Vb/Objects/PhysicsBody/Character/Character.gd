@@ -33,7 +33,11 @@ func calc_health(damage):
 		die()
 
 func die():
-	$AnimationPlayer.play("Dying")
+	if get_node_or_null("AnimationPlayer") == null:
+		print("Object removed")
+		self.queue_free()
+	else:
+		$AnimationPlayer.play("Dying")
 
 func at_dead_queue_free():
 	queue_free()

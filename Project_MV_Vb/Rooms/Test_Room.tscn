@@ -39,7 +39,7 @@ persistent = false
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 164.357, 437.566 )
-current_weapon = 2
+current_weapon = 0
 
 [node name="SceneChanger" parent="." instance=ExtResource( 5 )]
 position = Vector2( -30, 482 )

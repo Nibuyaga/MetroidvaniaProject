@@ -82,3 +82,24 @@ func _process(delta):
 		jumping = false
 	update_aim()
 	weapons[current_weapon].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
+
+
+# The player's Hurtbox function overwrites the Character function, fully
+func _on_Hurtbox_area_entered(area):
+	if area.position.x > position.x:
+		knockback(Vector2(-1000,-100))
+	else:
+		knockback(Vector2(1000,-100))
+
+	if "damage" in area:	# This needs to be tested
+		calc_health(area.damage)
+	else:
+		calc_health(1)
+	
+	
+	# The magic combo getting the room node
+	var room = get_tree().get_root().get_child(
+		get_tree().get_root().get_child_count() - 1
+		)
+	# GUI function
+	room.get_node("GUI").update_bars(health)

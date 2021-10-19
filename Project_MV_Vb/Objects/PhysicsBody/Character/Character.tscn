@@ -1,38 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Objects/PhysicsBody/PhysicsBody.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/PhysicsBody/Character/Character.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Dying"
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "at_dead_queue_free"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:speed")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 15 )
 
 [node name="Character" instance=ExtResource( 1 )]
@@ -42,21 +13,18 @@ speed = 0
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 1, 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-anims/Dying = SubResource( 1 )
-
-[node name="FloorRay" type="RayCast2D" parent="." index="3"]
+[node name="FloorRay" type="RayCast2D" parent="." index="2"]
 position = Vector2( 0, 16 )
 enabled = true
 cast_to = Vector2( 0, 8 )
 collision_mask = 3
 
-[node name="Hurtbox" type="Area2D" parent="." index="4"]
+[node name="Hurtbox" type="Area2D" parent="." index="3"]
 collision_layer = 0
 collision_mask = 12288
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
