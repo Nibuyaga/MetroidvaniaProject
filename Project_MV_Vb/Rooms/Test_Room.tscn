@@ -23,20 +23,17 @@ tile_data = PoolIntArray( -65518, 1, 0, -65517, 1, 2, -65516, 1, 2, -65515, 1, 2
 
 [node name="Enemy_Hori_Persistent" parent="." instance=ExtResource( 6 )]
 position = Vector2( 752, 368 )
-input_pickable = true
 go_right = false
 jumper = false
 
 [node name="Enemy_Hori_ColdFeet" parent="." instance=ExtResource( 6 )]
 position = Vector2( 552, 272 )
-input_pickable = true
 go_right = false
 persistent = false
 jumper = false
 
 [node name="Enemy_Verti_Jumpy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 340.732, 402.479 )
-input_pickable = true
 go_right = false
 persistent = false
 
@@ -44,7 +41,12 @@ persistent = false
 position = Vector2( 164.357, 437.566 )
 current_weapon = 0
 
+[node name="Camera2D" parent="Player/CameraDirection" index="0"]
+limit_right = 1025
+
 [node name="SceneChanger" parent="." instance=ExtResource( 5 )]
 position = Vector2( -30, 482 )
 next_scene_path = "res://Rooms/Test_Room_02.tscn"
 new_player_pos = Vector2( 1024, 528 )
+
+[editable path="Player"]

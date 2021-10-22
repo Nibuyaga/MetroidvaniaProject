@@ -1419,6 +1419,42 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 31 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimationTree:active")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=54]
 resource_name = "Dying_L"
@@ -1471,6 +1507,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 31 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimationTree:active")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=55]
@@ -2129,7 +2177,7 @@ input_2/name = "Crouch"
 input_2/auto_advance = false
 
 [sub_resource type="AnimationNodeBlendTree" id=157]
-graph_offset = Vector2( -773, -334.25 )
+graph_offset = Vector2( -92, -295 )
 nodes/Crouch/node = SubResource( 67 )
 nodes/Crouch/position = Vector2( -600, 600 )
 nodes/CrouchAttack_1_BlendSpace2D/node = SubResource( 76 )
@@ -2175,7 +2223,7 @@ nodes/Run/position = Vector2( -800, 360 )
 nodes/Stance/node = SubResource( 156 )
 nodes/Stance/position = Vector2( 400, -200 )
 nodes/output/position = Vector2( 880, 0 )
-node_connections = [ "output", 0, "Dead_trigger", "Damaged_Trigger", 0, "Stance", "Damaged_Trigger", 1, "Damaged_BlendSpace2D", "GroundAttack_2_Trigger", 0, "GroundAttack_1_Trigger", "GroundAttack_2_Trigger", 1, "GroundAttack_2_BlendSpace2D", "JumpAttack_2_Trigger", 0, "JumpAttack_1_Trigger", "JumpAttack_2_Trigger", 1, "JumpAttack_2_BlendSpace2D", "GroundAttack_1_Trigger", 0, "Ground_State", "GroundAttack_1_Trigger", 1, "GroundAttack_1_BlendSpace2D", "Stance", 0, "JumpAttack_2_Trigger", "Stance", 1, "GroundAttack_2_Trigger", "Stance", 2, "CrouchAttack_2_Trigger", "Dead_trigger", 0, "Damaged_Trigger", "Dead_trigger", 1, "Dead_BlendSpace2D", "Ground_State", 0, "Idle", "Ground_State", 1, "Run", "CrouchAttack_1_Trigger", 0, "Crouch", "CrouchAttack_1_Trigger", 1, "CrouchAttack_1_BlendSpace2D", "CrouchAttack_2_Trigger", 0, "CrouchAttack_1_Trigger", "CrouchAttack_2_Trigger", 1, "CrouchAttack_2_BlendSpace2D", "JumpAttack_1_Trigger", 0, "JumpNormal", "JumpAttack_1_Trigger", 1, "JumpAttack_1_BlendSpace2D" ]
+node_connections = [ "output", 0, "Dead_trigger", "CrouchAttack_1_Trigger", 0, "Crouch", "CrouchAttack_1_Trigger", 1, "CrouchAttack_1_BlendSpace2D", "GroundAttack_1_Trigger", 0, "Ground_State", "GroundAttack_1_Trigger", 1, "GroundAttack_1_BlendSpace2D", "Ground_State", 0, "Idle", "Ground_State", 1, "Run", "Damaged_Trigger", 0, "Stance", "Damaged_Trigger", 1, "Damaged_BlendSpace2D", "GroundAttack_2_Trigger", 0, "GroundAttack_1_Trigger", "GroundAttack_2_Trigger", 1, "GroundAttack_2_BlendSpace2D", "JumpAttack_1_Trigger", 0, "JumpNormal", "JumpAttack_1_Trigger", 1, "JumpAttack_1_BlendSpace2D", "Stance", 0, "JumpAttack_2_Trigger", "Stance", 1, "GroundAttack_2_Trigger", "Stance", 2, "CrouchAttack_2_Trigger", "CrouchAttack_2_Trigger", 0, "CrouchAttack_1_Trigger", "CrouchAttack_2_Trigger", 1, "CrouchAttack_2_BlendSpace2D", "JumpAttack_2_Trigger", 0, "JumpAttack_1_Trigger", "JumpAttack_2_Trigger", 1, "JumpAttack_2_BlendSpace2D", "Dead_trigger", 0, "Damaged_Trigger", "Dead_trigger", 1, "Dead_BlendSpace2D" ]
 
 [node name="Enemy" instance=ExtResource( 4 )]
 collision_layer = 2049

@@ -30,6 +30,10 @@ tile_data = PoolIntArray( 1179645, 1, 8, 1179646, 1, 65547, 1179647, 1, 65547, 1
 position = Vector2( 490.066, 527.836 )
 current_weapon = 2
 
+[node name="Camera2D" parent="Player/CameraDirection" index="0"]
+limit_left = 0
+limit_right = 1024
+
 [node name="SceneChanger_Left" parent="." instance=ExtResource( 4 )]
 position = Vector2( -29, 546 )
 next_scene_path = "res://Rooms/Test_Room_02.tscn"
@@ -64,3 +68,5 @@ text = "Deals 2 Damage"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[editable path="Player"]
