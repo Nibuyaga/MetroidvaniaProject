@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Pass.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Solid.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Rooms/SceneChanger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
-[ext_resource path="res://Objects/UI/GUI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Area2D
@@ -42,7 +41,7 @@ next_scene_path = "res://Rooms/Test_Room.tscn"
 new_player_pos = Vector2( 0, 464 )
 
 [node name="Test_Player_Damage" type="Area2D" parent="."]
-position = Vector2( 362.801, 491.839 )
+position = Vector2( 410.257, 492.159 )
 collision_layer = 4096
 collision_mask = 0
 script = SubResource( 1 )
@@ -56,4 +55,12 @@ texture = ExtResource( 5 )
 [node name="Hitbox" type="CollisionShape2D" parent="Test_Player_Damage"]
 shape = SubResource( 2 )
 
-[node name="GUI" parent="." instance=ExtResource( 6 )]
+[node name="Label" type="Label" parent="Test_Player_Damage"]
+margin_left = -47.1937
+margin_top = -48.1376
+margin_right = 44.8063
+margin_bottom = -34.1376
+text = "Deals 2 Damage"
+__meta__ = {
+"_edit_use_anchors_": false
+}

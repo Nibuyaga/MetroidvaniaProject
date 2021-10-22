@@ -17,6 +17,9 @@ onready var weapons = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"), 
 export var current_weapon = 0
 
 
+# var for GUI
+onready var GUI =  get_node_or_null("CanvasLayer/GUI")
+
 
 func _ready():
 	# used for setting player position when changing scenes
@@ -24,12 +27,16 @@ func _ready():
 		global_position = PlayerVariables.player_spawn_location
 	
 		PlayerVariables.get_data(self)
-
+	
+	# !AT, sets the AnimationTree at active at ready
+	$AnimationTree.active = true
 
 func _input(event):
 	# input for falling through 'pass' tiles
 	if event.is_action_pressed("aim_down") and $FloorRay.is_colliding():
 		velocity.y += 1
+	
+
 
 func update_aim():
 	var manual_aim_up = Input.get_action_strength("aim_up_right") - Input.get_action_strength("aim_up_left")
@@ -82,6 +89,41 @@ func _process(delta):
 		jumping = false
 	update_aim()
 	weapons[current_weapon].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
+	
+	
+	
+	# !Camera and Blendspace2D.x correction
+	if facing != 0:
+		$CameraDirection.position.x = facing * 20
+		
+		# !AT, not optimal
+		# Also PhysicBody's _physics_process() still applies flip.h 
+		$AnimationTree.set("parameters/Idle/blend_position", Vector2(facing, 0))
+		$AnimationTree.set("parameters/Run/blend_position", Vector2(facing, 0))
+		$AnimationTree.set("parameters/GroundAttack_1_BlendSpace2D/blend_position", Vector2(facing, 0))
+		$AnimationTree.set("parameters/GroundAttack_2_BlendSpace2D/blend_position", Vector2(facing, 0))
+		$AnimationTree.set("parameters/JumpNormal/blend_position", Vector2(facing, 0))
+		$AnimationTree.set("parameters/JumpAttack_1_BlendSpace2D/blend_position", Vector2(facing, 0))
+		$AnimationTree.set("parameters/JumpAttack_2_BlendSpace2D/blend_position", Vector2(facing, 0))
+		$AnimationTree.set("parameters/Crouch/blend_position", Vector2(facing, 0))
+		$AnimationTree.set("parameters/CrouchAttack_1_BlendSpace2D/blend_position", Vector2(facing, 0))
+		$AnimationTree.set("parameters/CroundAttack_2_BlendSpace2D/blend_position", Vector2(facing, 0))
+		$AnimationTree.set("parameters/Damaged_BlendSpace2D/blend_position", Vector2(facing, 0))
+		$AnimationTree.set("parameters/Dead_BlendSpace2D/blend_position", Vector2(facing, 0))
+		
+	
+	# !AT, animationtree section
+	if $FloorRay.is_colliding():
+		# Ground Animation
+		$AnimationTree.set("parameters/Stance/current", 1)
+
+	else:
+		# Jump Animation
+		$AnimationTree.set("parameters/Stance/current", 0)
+
+# note by nib, can be helpful when implementing AnimationTree
+# $AnimationTree.set("parameters/Idle/blend_position", Vector2(0,0))
+# "parameters/GroundAttack_1_BlendSpace2D/blend_position"
 
 
 # The player's Hurtbox function overwrites the Character function, fully
@@ -90,16 +132,14 @@ func _on_Hurtbox_area_entered(area):
 		knockback(Vector2(-1000,-100))
 	else:
 		knockback(Vector2(1000,-100))
-
+	
+	
 	if "damage" in area:	# This needs to be tested
 		calc_health(area.damage)
 	else:
 		calc_health(1)
 	
 	
-	# The magic combo getting the room node
-	var room = get_tree().get_root().get_child(
-		get_tree().get_root().get_child_count() - 1
-		)
-	# GUI function
-	room.get_node("GUI").update_bars(health)
+	# GUI function, may need to change if the GUI is placed somewhere else
+	if GUI != null:
+		GUI.update_bars("hp", health)

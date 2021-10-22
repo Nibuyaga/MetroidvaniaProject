@@ -1,9 +1,10 @@
-[gd_scene load_steps=162 format=2]
+[gd_scene load_steps=163 format=2]
 
 [ext_resource path="res://Objects/PhysicsBody/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/arm.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/Player_Placeholder.png" type="Texture" id=4]
+[ext_resource path="res://Objects/UI/GUI.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "AttackCrouchDiagDown_1"
@@ -1393,22 +1394,20 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=53]
 resource_name = "Dying"
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:speed")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "at_dead_queue_free"
-} ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:speed")
+tracks/1/path = NodePath("Sprite:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1417,39 +1416,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=54]
-resource_name = "Dying_L"
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "at_dead_queue_free"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:speed")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/path = NodePath("Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1458,10 +1428,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 31 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:frame")
+tracks/3/path = NodePath("AnimationTree:active")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1470,7 +1440,58 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=54]
+resource_name = "Dying_L"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.001 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
 "values": [ 31 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationTree:active")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=55]
@@ -1860,6 +1881,7 @@ blend_point_2/node = SubResource( 96 )
 blend_point_2/pos = Vector2( -1, 0.2 )
 blend_point_3/node = SubResource( 97 )
 blend_point_3/pos = Vector2( -1, -0.2 )
+blend_mode = 1
 
 [sub_resource type="AnimationNodeOneShot" id=99]
 
@@ -2129,7 +2151,7 @@ input_2/name = "Crouch"
 input_2/auto_advance = false
 
 [sub_resource type="AnimationNodeBlendTree" id=157]
-graph_offset = Vector2( -103, -50.75 )
+graph_offset = Vector2( -171, -114.75 )
 nodes/Crouch/node = SubResource( 67 )
 nodes/Crouch/position = Vector2( -600, 600 )
 nodes/CrouchAttack_1_BlendSpace2D/node = SubResource( 76 )
@@ -2175,7 +2197,7 @@ nodes/Run/position = Vector2( -800, 360 )
 nodes/Stance/node = SubResource( 156 )
 nodes/Stance/position = Vector2( 400, -200 )
 nodes/output/position = Vector2( 880, 0 )
-node_connections = [ "output", 0, "Dead_trigger", "CrouchAttack_2_Trigger", 0, "CrouchAttack_1_Trigger", "CrouchAttack_2_Trigger", 1, "CrouchAttack_2_BlendSpace2D", "Damaged_Trigger", 0, "Stance", "Damaged_Trigger", 1, "Damaged_BlendSpace2D", "JumpAttack_1_Trigger", 0, "JumpNormal", "JumpAttack_1_Trigger", 1, "JumpAttack_1_BlendSpace2D", "GroundAttack_1_Trigger", 0, "Ground_State", "GroundAttack_1_Trigger", 1, "GroundAttack_1_BlendSpace2D", "CrouchAttack_1_Trigger", 0, "Crouch", "CrouchAttack_1_Trigger", 1, "CrouchAttack_1_BlendSpace2D", "Dead_trigger", 0, "Damaged_Trigger", "Dead_trigger", 1, "Dead_BlendSpace2D", "GroundAttack_2_Trigger", 0, "GroundAttack_1_Trigger", "GroundAttack_2_Trigger", 1, "GroundAttack_2_BlendSpace2D", "JumpAttack_2_Trigger", 0, "JumpAttack_1_Trigger", "JumpAttack_2_Trigger", 1, "JumpAttack_2_BlendSpace2D", "Ground_State", 0, "Idle", "Ground_State", 1, "Run", "Stance", 0, "JumpAttack_2_Trigger", "Stance", 1, "GroundAttack_2_Trigger", "Stance", 2, "CrouchAttack_2_Trigger" ]
+node_connections = [ "output", 0, "Dead_trigger", "GroundAttack_1_Trigger", 0, "Ground_State", "GroundAttack_1_Trigger", 1, "GroundAttack_1_BlendSpace2D", "JumpAttack_1_Trigger", 0, "JumpNormal", "JumpAttack_1_Trigger", 1, "JumpAttack_1_BlendSpace2D", "Ground_State", 0, "Idle", "Ground_State", 1, "Run", "CrouchAttack_2_Trigger", 0, "CrouchAttack_1_Trigger", "CrouchAttack_2_Trigger", 1, "CrouchAttack_2_BlendSpace2D", "Dead_trigger", 0, "Damaged_Trigger", "Dead_trigger", 1, "Dead_BlendSpace2D", "CrouchAttack_1_Trigger", 0, "Crouch", "CrouchAttack_1_Trigger", 1, "CrouchAttack_1_BlendSpace2D", "GroundAttack_2_Trigger", 0, "GroundAttack_1_Trigger", "GroundAttack_2_Trigger", 1, "GroundAttack_2_BlendSpace2D", "Damaged_Trigger", 0, "Stance", "Damaged_Trigger", 1, "Damaged_BlendSpace2D", "JumpAttack_2_Trigger", 0, "JumpAttack_1_Trigger", "JumpAttack_2_Trigger", 1, "JumpAttack_2_BlendSpace2D", "Stance", 0, "JumpAttack_2_Trigger", "Stance", 1, "GroundAttack_2_Trigger", "Stance", 2, "CrouchAttack_2_Trigger" ]
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 1025
@@ -2261,9 +2283,9 @@ parameters/CrouchAttack_1_BlendSpace2D/blend_position = Vector2( -0.872674, 0.01
 parameters/CrouchAttack_1_Trigger/active = false
 parameters/CrouchAttack_2_BlendSpace2D/blend_position = Vector2( 0.177277, 0.0384616 )
 parameters/CrouchAttack_2_Trigger/active = false
-parameters/Damaged_BlendSpace2D/blend_position = Vector2( 0.375122, -0.00349653 )
+parameters/Damaged_BlendSpace2D/blend_position = Vector2( 0.119363, 0.064588 )
 parameters/Damaged_Trigger/active = false
-parameters/Dead_BlendSpace2D/blend_position = Vector2( 0, 0 )
+parameters/Dead_BlendSpace2D/blend_position = Vector2( 0.0645447, 0.0556793 )
 parameters/Dead_trigger/active = false
 parameters/GroundAttack_1_BlendSpace2D/blend_position = Vector2( -0.01, 0.71 )
 parameters/GroundAttack_1_Trigger/active = false
@@ -2283,3 +2305,17 @@ parameters/Stance/current = 1
 collision_mask = 4096
 
 [node name="arm" parent="." index="6" instance=ExtResource( 3 )]
+
+[node name="CameraDirection" type="Position2D" parent="." index="7"]
+position = Vector2( 20, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="CameraDirection" index="0"]
+current = true
+zoom = Vector2( 0.6, 0.6 )
+smoothing_enabled = true
+smoothing_speed = 7.0
+editor_draw_drag_margin = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
+
+[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 5 )]

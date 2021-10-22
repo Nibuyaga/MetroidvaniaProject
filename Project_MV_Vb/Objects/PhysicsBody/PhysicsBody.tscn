@@ -7,7 +7,6 @@
 height = 13.343
 
 [node name="PhysicsBody" type="KinematicBody2D"]
-position = Vector2( 444.76, 349.444 )
 input_pickable = true
 script = ExtResource( 2 )
 

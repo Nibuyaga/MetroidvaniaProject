@@ -5,7 +5,7 @@
 [ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Enemy.gd" type="Script" id=3]
 [ext_resource path="res://Objects/PhysicsBody/Character/Character.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Animation" id=96]
+[sub_resource type="Animation" id=1]
 resource_name = "AttackCrouchDiagDown_1"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -32,7 +32,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=97]
+[sub_resource type="Animation" id=2]
 resource_name = "AttackCrouchDiagDown_1_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -59,7 +59,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=98]
+[sub_resource type="Animation" id=3]
 resource_name = "AttackCrouchDiagDown_2"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -86,7 +86,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=99]
+[sub_resource type="Animation" id=4]
 resource_name = "AttackCrouchDiagDown_2_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -113,7 +113,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=100]
+[sub_resource type="Animation" id=5]
 resource_name = "AttackCrouchDiagUp_1"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -140,7 +140,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=101]
+[sub_resource type="Animation" id=6]
 resource_name = "AttackCrouchDiagUp_1_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -167,7 +167,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=102]
+[sub_resource type="Animation" id=7]
 resource_name = "AttackCrouchDiagUp_2"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -194,7 +194,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=103]
+[sub_resource type="Animation" id=8]
 resource_name = "AttackCrouchDiagUp_2_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -221,7 +221,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=104]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -247,7 +247,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=105]
+[sub_resource type="Animation" id=10]
 resource_name = "AttackCrouchNeutral_1_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -274,7 +274,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=106]
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -300,7 +300,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=107]
+[sub_resource type="Animation" id=12]
 resource_name = "AttackCrouchNeutral_2_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -327,7 +327,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=108]
+[sub_resource type="Animation" id=13]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -353,7 +353,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=109]
+[sub_resource type="Animation" id=14]
 resource_name = "AttackCrouchUp_1_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -380,7 +380,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=110]
+[sub_resource type="Animation" id=15]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -406,7 +406,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=111]
+[sub_resource type="Animation" id=16]
 resource_name = "AttackCrouchUp_2_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -433,7 +433,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=112]
+[sub_resource type="Animation" id=17]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -459,7 +459,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=113]
+[sub_resource type="Animation" id=18]
 resource_name = "AttackGroundDiagDown_1_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -486,7 +486,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=114]
+[sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -512,7 +512,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=115]
+[sub_resource type="Animation" id=20]
 resource_name = "AttackGroundDiagDown_2_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -539,7 +539,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=116]
+[sub_resource type="Animation" id=21]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -565,7 +565,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=117]
+[sub_resource type="Animation" id=22]
 resource_name = "AttackGroundDiagUp_1_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -592,7 +592,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=118]
+[sub_resource type="Animation" id=23]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -618,7 +618,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=119]
+[sub_resource type="Animation" id=24]
 resource_name = "AttackGroundDiagUp_2_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -645,7 +645,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=120]
+[sub_resource type="Animation" id=25]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -671,7 +671,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=121]
+[sub_resource type="Animation" id=26]
 resource_name = "AttackGroundNeutral_1_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -698,7 +698,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=122]
+[sub_resource type="Animation" id=27]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -724,7 +724,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=123]
+[sub_resource type="Animation" id=28]
 resource_name = "AttackGroundNeutral_2_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -751,7 +751,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=124]
+[sub_resource type="Animation" id=29]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -777,7 +777,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=125]
+[sub_resource type="Animation" id=30]
 resource_name = "AttackGroundUp_1_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -804,7 +804,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=126]
+[sub_resource type="Animation" id=31]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -830,7 +830,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=127]
+[sub_resource type="Animation" id=32]
 resource_name = "AttackGroundUp_2_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -857,7 +857,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=128]
+[sub_resource type="Animation" id=33]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -883,7 +883,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=129]
+[sub_resource type="Animation" id=34]
 resource_name = "AttackJumpDiagDown_1_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -910,7 +910,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=130]
+[sub_resource type="Animation" id=35]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -936,7 +936,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=131]
+[sub_resource type="Animation" id=36]
 resource_name = "AttackJumpDiagDown_2_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -963,7 +963,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=132]
+[sub_resource type="Animation" id=37]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -989,7 +989,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=133]
+[sub_resource type="Animation" id=38]
 resource_name = "AttackJumpDiagUp_1_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1016,7 +1016,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=134]
+[sub_resource type="Animation" id=39]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1042,7 +1042,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=135]
+[sub_resource type="Animation" id=40]
 resource_name = "AttackJumpDiagUp_2_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1069,7 +1069,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=136]
+[sub_resource type="Animation" id=41]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1095,7 +1095,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=137]
+[sub_resource type="Animation" id=42]
 resource_name = "AttackJumpNeutral_1_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1122,7 +1122,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=138]
+[sub_resource type="Animation" id=43]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1148,7 +1148,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=139]
+[sub_resource type="Animation" id=44]
 resource_name = "AttackJumpNeutral_2_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1175,7 +1175,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=140]
+[sub_resource type="Animation" id=45]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1201,7 +1201,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=141]
+[sub_resource type="Animation" id=46]
 resource_name = "AttackJumpUp_1_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1228,7 +1228,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=142]
+[sub_resource type="Animation" id=47]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1254,7 +1254,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=143]
+[sub_resource type="Animation" id=48]
 resource_name = "AttackJumpUp_2_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1281,7 +1281,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=144]
+[sub_resource type="Animation" id=49]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -1309,7 +1309,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=145]
+[sub_resource type="Animation" id=50]
 resource_name = "Crouch_L"
 length = 0.5
 loop = true
@@ -1338,7 +1338,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=146]
+[sub_resource type="Animation" id=51]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1364,7 +1364,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=147]
+[sub_resource type="Animation" id=52]
 resource_name = "Damaged_L"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1391,7 +1391,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=148]
+[sub_resource type="Animation" id=53]
 resource_name = "Dying"
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -1420,7 +1420,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=149]
+[sub_resource type="Animation" id=54]
 resource_name = "Dying_L"
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -1473,7 +1473,7 @@ tracks/3/keys = {
 "values": [ 31 ]
 }
 
-[sub_resource type="Animation" id=150]
+[sub_resource type="Animation" id=55]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -1501,7 +1501,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=151]
+[sub_resource type="Animation" id=56]
 resource_name = "Idle_L"
 length = 0.5
 loop = true
@@ -1530,7 +1530,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=152]
+[sub_resource type="Animation" id=57]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -1558,7 +1558,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=153]
+[sub_resource type="Animation" id=58]
 resource_name = "JumpDown_L"
 length = 0.5
 loop = true
@@ -1587,7 +1587,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=154]
+[sub_resource type="Animation" id=59]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -1615,7 +1615,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=155]
+[sub_resource type="Animation" id=60]
 resource_name = "JumpUp_L"
 length = 0.5
 loop = true
@@ -1644,7 +1644,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=156]
+[sub_resource type="Animation" id=61]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -1672,7 +1672,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=157]
+[sub_resource type="Animation" id=62]
 resource_name = "Run_L"
 length = 0.6
 loop = true
@@ -1701,425 +1701,425 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=158]
+[sub_resource type="AnimationNodeAnimation" id=63]
 animation = "Crouch"
 
-[sub_resource type="AnimationNodeAnimation" id=159]
+[sub_resource type="AnimationNodeAnimation" id=64]
 animation = "Crouch"
 
-[sub_resource type="AnimationNodeAnimation" id=160]
+[sub_resource type="AnimationNodeAnimation" id=65]
 animation = "Crouch_L"
 
-[sub_resource type="AnimationNodeAnimation" id=161]
+[sub_resource type="AnimationNodeAnimation" id=66]
 animation = "Crouch_L"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=5]
-blend_point_0/node = SubResource( 158 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=67]
+blend_point_0/node = SubResource( 63 )
 blend_point_0/pos = Vector2( 1, 0.2 )
-blend_point_1/node = SubResource( 159 )
+blend_point_1/node = SubResource( 64 )
 blend_point_1/pos = Vector2( 1, -0.2 )
-blend_point_2/node = SubResource( 160 )
+blend_point_2/node = SubResource( 65 )
 blend_point_2/pos = Vector2( -1, 0.2 )
-blend_point_3/node = SubResource( 161 )
+blend_point_3/node = SubResource( 66 )
 blend_point_3/pos = Vector2( -1, -0.2 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=162]
+[sub_resource type="AnimationNodeAnimation" id=68]
 animation = "AttackCrouchNeutral_1"
 
-[sub_resource type="AnimationNodeAnimation" id=163]
+[sub_resource type="AnimationNodeAnimation" id=69]
 animation = "AttackCrouchNeutral_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=164]
+[sub_resource type="AnimationNodeAnimation" id=70]
 animation = "AttackCrouchUp_1"
 
-[sub_resource type="AnimationNodeAnimation" id=165]
+[sub_resource type="AnimationNodeAnimation" id=71]
 animation = "AttackCrouchUp_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=166]
+[sub_resource type="AnimationNodeAnimation" id=72]
 animation = "AttackCrouchDiagUp_1"
 
-[sub_resource type="AnimationNodeAnimation" id=167]
+[sub_resource type="AnimationNodeAnimation" id=73]
 animation = "AttackCrouchDiagUp_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=168]
+[sub_resource type="AnimationNodeAnimation" id=74]
 animation = "AttackCrouchDiagDown_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=169]
+[sub_resource type="AnimationNodeAnimation" id=75]
 animation = "AttackCrouchDiagDown_1"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=14]
-blend_point_0/node = SubResource( 162 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=76]
+blend_point_0/node = SubResource( 68 )
 blend_point_0/pos = Vector2( 1, 0 )
-blend_point_1/node = SubResource( 163 )
+blend_point_1/node = SubResource( 69 )
 blend_point_1/pos = Vector2( -1, 0 )
-blend_point_2/node = SubResource( 164 )
+blend_point_2/node = SubResource( 70 )
 blend_point_2/pos = Vector2( 0.2, 1 )
-blend_point_3/node = SubResource( 165 )
+blend_point_3/node = SubResource( 71 )
 blend_point_3/pos = Vector2( -0.2, 1 )
-blend_point_4/node = SubResource( 166 )
+blend_point_4/node = SubResource( 72 )
 blend_point_4/pos = Vector2( 0.8, 0.8 )
-blend_point_5/node = SubResource( 167 )
+blend_point_5/node = SubResource( 73 )
 blend_point_5/pos = Vector2( -0.8, 0.8 )
-blend_point_6/node = SubResource( 168 )
+blend_point_6/node = SubResource( 74 )
 blend_point_6/pos = Vector2( -0.8, -0.8 )
-blend_point_7/node = SubResource( 169 )
+blend_point_7/node = SubResource( 75 )
 blend_point_7/pos = Vector2( 0.8, -0.8 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeOneShot" id=15]
+[sub_resource type="AnimationNodeOneShot" id=77]
 
-[sub_resource type="AnimationNodeAnimation" id=170]
+[sub_resource type="AnimationNodeAnimation" id=78]
 animation = "AttackCrouchNeutral_2"
 
-[sub_resource type="AnimationNodeAnimation" id=171]
+[sub_resource type="AnimationNodeAnimation" id=79]
 animation = "AttackCrouchNeutral_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=172]
+[sub_resource type="AnimationNodeAnimation" id=80]
 animation = "AttackCrouchUp_2"
 
-[sub_resource type="AnimationNodeAnimation" id=173]
+[sub_resource type="AnimationNodeAnimation" id=81]
 animation = "AttackCrouchUp_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=174]
+[sub_resource type="AnimationNodeAnimation" id=82]
 animation = "AttackCrouchDiagUp_2"
 
-[sub_resource type="AnimationNodeAnimation" id=175]
+[sub_resource type="AnimationNodeAnimation" id=83]
 animation = "AttackCrouchDiagUp_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=176]
+[sub_resource type="AnimationNodeAnimation" id=84]
 animation = "AttackCrouchDiagDown_2"
 
-[sub_resource type="AnimationNodeAnimation" id=177]
+[sub_resource type="AnimationNodeAnimation" id=85]
 animation = "AttackCrouchDiagDown_2_L"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=24]
-blend_point_0/node = SubResource( 170 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=86]
+blend_point_0/node = SubResource( 78 )
 blend_point_0/pos = Vector2( 1, 0 )
-blend_point_1/node = SubResource( 171 )
+blend_point_1/node = SubResource( 79 )
 blend_point_1/pos = Vector2( -1, 0 )
-blend_point_2/node = SubResource( 172 )
+blend_point_2/node = SubResource( 80 )
 blend_point_2/pos = Vector2( 0.2, 1 )
-blend_point_3/node = SubResource( 173 )
+blend_point_3/node = SubResource( 81 )
 blend_point_3/pos = Vector2( -0.2, 1 )
-blend_point_4/node = SubResource( 174 )
+blend_point_4/node = SubResource( 82 )
 blend_point_4/pos = Vector2( 0.8, 0.8 )
-blend_point_5/node = SubResource( 175 )
+blend_point_5/node = SubResource( 83 )
 blend_point_5/pos = Vector2( -0.8, 0.8 )
-blend_point_6/node = SubResource( 176 )
+blend_point_6/node = SubResource( 84 )
 blend_point_6/pos = Vector2( 0.8, -0.8 )
-blend_point_7/node = SubResource( 177 )
+blend_point_7/node = SubResource( 85 )
 blend_point_7/pos = Vector2( -0.8, -0.8 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeOneShot" id=25]
+[sub_resource type="AnimationNodeOneShot" id=87]
 
-[sub_resource type="AnimationNodeAnimation" id=178]
+[sub_resource type="AnimationNodeAnimation" id=88]
 animation = "Damaged"
 
-[sub_resource type="AnimationNodeAnimation" id=179]
+[sub_resource type="AnimationNodeAnimation" id=89]
 animation = "Damaged"
 
-[sub_resource type="AnimationNodeAnimation" id=180]
+[sub_resource type="AnimationNodeAnimation" id=90]
 animation = "Damaged_L"
 
-[sub_resource type="AnimationNodeAnimation" id=181]
+[sub_resource type="AnimationNodeAnimation" id=91]
 animation = "Damaged_L"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=30]
-blend_point_0/node = SubResource( 178 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=92]
+blend_point_0/node = SubResource( 88 )
 blend_point_0/pos = Vector2( 1, 0.2 )
-blend_point_1/node = SubResource( 179 )
+blend_point_1/node = SubResource( 89 )
 blend_point_1/pos = Vector2( 1, -0.2 )
-blend_point_2/node = SubResource( 180 )
+blend_point_2/node = SubResource( 90 )
 blend_point_2/pos = Vector2( -1, 0.2 )
-blend_point_3/node = SubResource( 181 )
+blend_point_3/node = SubResource( 91 )
 blend_point_3/pos = Vector2( -1, -0.2 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeOneShot" id=31]
+[sub_resource type="AnimationNodeOneShot" id=93]
 
-[sub_resource type="AnimationNodeAnimation" id=182]
+[sub_resource type="AnimationNodeAnimation" id=94]
 animation = "Dying"
 
-[sub_resource type="AnimationNodeAnimation" id=183]
+[sub_resource type="AnimationNodeAnimation" id=95]
 animation = "Dying"
 
-[sub_resource type="AnimationNodeAnimation" id=184]
+[sub_resource type="AnimationNodeAnimation" id=96]
 animation = "Dying_L"
 
-[sub_resource type="AnimationNodeAnimation" id=185]
+[sub_resource type="AnimationNodeAnimation" id=97]
 animation = "Dying_L"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=36]
-blend_point_0/node = SubResource( 182 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=98]
+blend_point_0/node = SubResource( 94 )
 blend_point_0/pos = Vector2( 1, 0.2 )
-blend_point_1/node = SubResource( 183 )
+blend_point_1/node = SubResource( 95 )
 blend_point_1/pos = Vector2( 1, -0.2 )
-blend_point_2/node = SubResource( 184 )
+blend_point_2/node = SubResource( 96 )
 blend_point_2/pos = Vector2( -1, 0.2 )
-blend_point_3/node = SubResource( 185 )
+blend_point_3/node = SubResource( 97 )
 blend_point_3/pos = Vector2( -1, -0.2 )
 
-[sub_resource type="AnimationNodeOneShot" id=37]
+[sub_resource type="AnimationNodeOneShot" id=99]
 
-[sub_resource type="AnimationNodeAnimation" id=186]
+[sub_resource type="AnimationNodeAnimation" id=100]
 animation = "AttackGroundNeutral_1"
 
-[sub_resource type="AnimationNodeAnimation" id=187]
+[sub_resource type="AnimationNodeAnimation" id=101]
 animation = "AttackGroundNeutral_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=188]
+[sub_resource type="AnimationNodeAnimation" id=102]
 animation = "AttackGroundDiagUp_1"
 
-[sub_resource type="AnimationNodeAnimation" id=189]
+[sub_resource type="AnimationNodeAnimation" id=103]
 animation = "AttackGroundDiagUp_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=190]
+[sub_resource type="AnimationNodeAnimation" id=104]
 animation = "AttackGroundUp_1"
 
-[sub_resource type="AnimationNodeAnimation" id=191]
+[sub_resource type="AnimationNodeAnimation" id=105]
 animation = "AttackGroundUp_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=192]
+[sub_resource type="AnimationNodeAnimation" id=106]
 animation = "AttackGroundDiagDown_1"
 
-[sub_resource type="AnimationNodeAnimation" id=193]
+[sub_resource type="AnimationNodeAnimation" id=107]
 animation = "AttackGroundDiagDown_1_L"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=46]
-blend_point_0/node = SubResource( 186 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=108]
+blend_point_0/node = SubResource( 100 )
 blend_point_0/pos = Vector2( 1, 0 )
-blend_point_1/node = SubResource( 187 )
+blend_point_1/node = SubResource( 101 )
 blend_point_1/pos = Vector2( -1, 0 )
-blend_point_2/node = SubResource( 188 )
+blend_point_2/node = SubResource( 102 )
 blend_point_2/pos = Vector2( 0.8, 0.8 )
-blend_point_3/node = SubResource( 189 )
+blend_point_3/node = SubResource( 103 )
 blend_point_3/pos = Vector2( -0.8, 0.8 )
-blend_point_4/node = SubResource( 190 )
+blend_point_4/node = SubResource( 104 )
 blend_point_4/pos = Vector2( 0.2, 1 )
-blend_point_5/node = SubResource( 191 )
+blend_point_5/node = SubResource( 105 )
 blend_point_5/pos = Vector2( -0.2, 1 )
-blend_point_6/node = SubResource( 192 )
+blend_point_6/node = SubResource( 106 )
 blend_point_6/pos = Vector2( 0.8, -0.8 )
-blend_point_7/node = SubResource( 193 )
+blend_point_7/node = SubResource( 107 )
 blend_point_7/pos = Vector2( -0.8, -0.8 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeOneShot" id=47]
+[sub_resource type="AnimationNodeOneShot" id=109]
 
-[sub_resource type="AnimationNodeAnimation" id=194]
+[sub_resource type="AnimationNodeAnimation" id=110]
 animation = "AttackGroundUp_2"
 
-[sub_resource type="AnimationNodeAnimation" id=195]
+[sub_resource type="AnimationNodeAnimation" id=111]
 animation = "AttackGroundUp_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=196]
+[sub_resource type="AnimationNodeAnimation" id=112]
 animation = "AttackGroundNeutral_2"
 
-[sub_resource type="AnimationNodeAnimation" id=197]
+[sub_resource type="AnimationNodeAnimation" id=113]
 animation = "AttackGroundNeutral_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=198]
+[sub_resource type="AnimationNodeAnimation" id=114]
 animation = "AttackGroundDiagUp_2"
 
-[sub_resource type="AnimationNodeAnimation" id=199]
+[sub_resource type="AnimationNodeAnimation" id=115]
 animation = "AttackGroundDiagUp_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=200]
+[sub_resource type="AnimationNodeAnimation" id=116]
 animation = "AttackGroundDiagDown_2"
 
-[sub_resource type="AnimationNodeAnimation" id=201]
+[sub_resource type="AnimationNodeAnimation" id=117]
 animation = "AttackGroundDiagDown_2_L"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=56]
-blend_point_0/node = SubResource( 194 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=118]
+blend_point_0/node = SubResource( 110 )
 blend_point_0/pos = Vector2( 0.2, 1 )
-blend_point_1/node = SubResource( 195 )
+blend_point_1/node = SubResource( 111 )
 blend_point_1/pos = Vector2( -0.2, 1 )
-blend_point_2/node = SubResource( 196 )
+blend_point_2/node = SubResource( 112 )
 blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 197 )
+blend_point_3/node = SubResource( 113 )
 blend_point_3/pos = Vector2( -1, 0 )
-blend_point_4/node = SubResource( 198 )
+blend_point_4/node = SubResource( 114 )
 blend_point_4/pos = Vector2( 0.8, 0.8 )
-blend_point_5/node = SubResource( 199 )
+blend_point_5/node = SubResource( 115 )
 blend_point_5/pos = Vector2( -0.8, 0.8 )
-blend_point_6/node = SubResource( 200 )
+blend_point_6/node = SubResource( 116 )
 blend_point_6/pos = Vector2( 0.8, -0.8 )
-blend_point_7/node = SubResource( 201 )
+blend_point_7/node = SubResource( 117 )
 blend_point_7/pos = Vector2( -0.8, -0.8 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeOneShot" id=57]
+[sub_resource type="AnimationNodeOneShot" id=119]
 
-[sub_resource type="AnimationNodeTransition" id=58]
+[sub_resource type="AnimationNodeTransition" id=120]
 input_count = 2
 input_0/name = "Idle"
 input_0/auto_advance = false
 input_1/name = "Run"
 input_1/auto_advance = false
 
-[sub_resource type="AnimationNodeAnimation" id=202]
+[sub_resource type="AnimationNodeAnimation" id=121]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=203]
+[sub_resource type="AnimationNodeAnimation" id=122]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=204]
+[sub_resource type="AnimationNodeAnimation" id=123]
 animation = "Idle_L"
 
-[sub_resource type="AnimationNodeAnimation" id=205]
+[sub_resource type="AnimationNodeAnimation" id=124]
 animation = "Idle_L"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=63]
-blend_point_0/node = SubResource( 202 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=125]
+blend_point_0/node = SubResource( 121 )
 blend_point_0/pos = Vector2( 1, -0.2 )
-blend_point_1/node = SubResource( 203 )
+blend_point_1/node = SubResource( 122 )
 blend_point_1/pos = Vector2( 1, 0.2 )
-blend_point_2/node = SubResource( 204 )
+blend_point_2/node = SubResource( 123 )
 blend_point_2/pos = Vector2( -1, 0.2 )
-blend_point_3/node = SubResource( 205 )
+blend_point_3/node = SubResource( 124 )
 blend_point_3/pos = Vector2( -1, -0.2 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=206]
+[sub_resource type="AnimationNodeAnimation" id=126]
 animation = "AttackJumpUp_1"
 
-[sub_resource type="AnimationNodeAnimation" id=207]
+[sub_resource type="AnimationNodeAnimation" id=127]
 animation = "AttackJumpNeutral_1"
 
-[sub_resource type="AnimationNodeAnimation" id=208]
+[sub_resource type="AnimationNodeAnimation" id=128]
 animation = "AttackJumpNeutral_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=209]
+[sub_resource type="AnimationNodeAnimation" id=129]
 animation = "AttackJumpUp_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=210]
+[sub_resource type="AnimationNodeAnimation" id=130]
 animation = "AttackJumpDiagUp_1_L"
 
-[sub_resource type="AnimationNodeAnimation" id=211]
+[sub_resource type="AnimationNodeAnimation" id=131]
 animation = "AttackJumpDiagUp_1"
 
-[sub_resource type="AnimationNodeAnimation" id=212]
+[sub_resource type="AnimationNodeAnimation" id=132]
 animation = "AttackJumpDiagDown_1"
 
-[sub_resource type="AnimationNodeAnimation" id=213]
+[sub_resource type="AnimationNodeAnimation" id=133]
 animation = "AttackJumpDiagDown_1_L"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=72]
-blend_point_0/node = SubResource( 206 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=134]
+blend_point_0/node = SubResource( 126 )
 blend_point_0/pos = Vector2( 0.2, 1 )
-blend_point_1/node = SubResource( 207 )
+blend_point_1/node = SubResource( 127 )
 blend_point_1/pos = Vector2( 1, 0 )
-blend_point_2/node = SubResource( 208 )
+blend_point_2/node = SubResource( 128 )
 blend_point_2/pos = Vector2( -1, 0 )
-blend_point_3/node = SubResource( 209 )
+blend_point_3/node = SubResource( 129 )
 blend_point_3/pos = Vector2( -0.2, 1 )
-blend_point_4/node = SubResource( 210 )
+blend_point_4/node = SubResource( 130 )
 blend_point_4/pos = Vector2( -0.8, 0.8 )
-blend_point_5/node = SubResource( 211 )
+blend_point_5/node = SubResource( 131 )
 blend_point_5/pos = Vector2( 0.8, 0.8 )
-blend_point_6/node = SubResource( 212 )
+blend_point_6/node = SubResource( 132 )
 blend_point_6/pos = Vector2( 0.8, -0.8 )
-blend_point_7/node = SubResource( 213 )
+blend_point_7/node = SubResource( 133 )
 blend_point_7/pos = Vector2( -0.8, -0.8 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeOneShot" id=73]
+[sub_resource type="AnimationNodeOneShot" id=135]
 
-[sub_resource type="AnimationNodeAnimation" id=214]
+[sub_resource type="AnimationNodeAnimation" id=136]
 animation = "AttackJumpUp_2"
 
-[sub_resource type="AnimationNodeAnimation" id=215]
+[sub_resource type="AnimationNodeAnimation" id=137]
 animation = "AttackJumpUp_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=216]
+[sub_resource type="AnimationNodeAnimation" id=138]
 animation = "AttackJumpNeutral_2"
 
-[sub_resource type="AnimationNodeAnimation" id=217]
+[sub_resource type="AnimationNodeAnimation" id=139]
 animation = "AttackJumpNeutral_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=218]
+[sub_resource type="AnimationNodeAnimation" id=140]
 animation = "AttackJumpDiagUp_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=219]
+[sub_resource type="AnimationNodeAnimation" id=141]
 animation = "AttackJumpDiagUp_2"
 
-[sub_resource type="AnimationNodeAnimation" id=220]
+[sub_resource type="AnimationNodeAnimation" id=142]
 animation = "AttackJumpDiagDown_2_L"
 
-[sub_resource type="AnimationNodeAnimation" id=221]
+[sub_resource type="AnimationNodeAnimation" id=143]
 animation = "AttackJumpDiagDown_2"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=82]
-blend_point_0/node = SubResource( 214 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=144]
+blend_point_0/node = SubResource( 136 )
 blend_point_0/pos = Vector2( 0.3, 1 )
-blend_point_1/node = SubResource( 215 )
+blend_point_1/node = SubResource( 137 )
 blend_point_1/pos = Vector2( -0.3, 1 )
-blend_point_2/node = SubResource( 216 )
+blend_point_2/node = SubResource( 138 )
 blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 217 )
+blend_point_3/node = SubResource( 139 )
 blend_point_3/pos = Vector2( -1, 0 )
-blend_point_4/node = SubResource( 218 )
+blend_point_4/node = SubResource( 140 )
 blend_point_4/pos = Vector2( -0.8, 0.8 )
-blend_point_5/node = SubResource( 219 )
+blend_point_5/node = SubResource( 141 )
 blend_point_5/pos = Vector2( 0.8, 0.8 )
-blend_point_6/node = SubResource( 220 )
+blend_point_6/node = SubResource( 142 )
 blend_point_6/pos = Vector2( -0.8, -0.8 )
-blend_point_7/node = SubResource( 221 )
+blend_point_7/node = SubResource( 143 )
 blend_point_7/pos = Vector2( 0.8, -0.8 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeOneShot" id=83]
+[sub_resource type="AnimationNodeOneShot" id=145]
 
-[sub_resource type="AnimationNodeAnimation" id=222]
+[sub_resource type="AnimationNodeAnimation" id=146]
 animation = "JumpDown"
 
-[sub_resource type="AnimationNodeAnimation" id=223]
+[sub_resource type="AnimationNodeAnimation" id=147]
 animation = "JumpDown_L"
 
-[sub_resource type="AnimationNodeAnimation" id=224]
+[sub_resource type="AnimationNodeAnimation" id=148]
 animation = "JumpUp_L"
 
-[sub_resource type="AnimationNodeAnimation" id=225]
+[sub_resource type="AnimationNodeAnimation" id=149]
 animation = "JumpUp"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=88]
-blend_point_0/node = SubResource( 222 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=150]
+blend_point_0/node = SubResource( 146 )
 blend_point_0/pos = Vector2( 1, 1 )
-blend_point_1/node = SubResource( 223 )
+blend_point_1/node = SubResource( 147 )
 blend_point_1/pos = Vector2( -1, 1 )
-blend_point_2/node = SubResource( 224 )
+blend_point_2/node = SubResource( 148 )
 blend_point_2/pos = Vector2( -1, -1 )
-blend_point_3/node = SubResource( 225 )
+blend_point_3/node = SubResource( 149 )
 blend_point_3/pos = Vector2( 1, -1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=226]
+[sub_resource type="AnimationNodeAnimation" id=151]
 animation = "Run"
 
-[sub_resource type="AnimationNodeAnimation" id=227]
+[sub_resource type="AnimationNodeAnimation" id=152]
 animation = "Run_L"
 
-[sub_resource type="AnimationNodeAnimation" id=228]
+[sub_resource type="AnimationNodeAnimation" id=153]
 animation = "Run_L"
 
-[sub_resource type="AnimationNodeAnimation" id=229]
+[sub_resource type="AnimationNodeAnimation" id=154]
 animation = "Run"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=93]
-blend_point_0/node = SubResource( 226 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=155]
+blend_point_0/node = SubResource( 151 )
 blend_point_0/pos = Vector2( 1, 0.2 )
-blend_point_1/node = SubResource( 227 )
+blend_point_1/node = SubResource( 152 )
 blend_point_1/pos = Vector2( -1, 0.2 )
-blend_point_2/node = SubResource( 228 )
+blend_point_2/node = SubResource( 153 )
 blend_point_2/pos = Vector2( -1, -0.2 )
-blend_point_3/node = SubResource( 229 )
+blend_point_3/node = SubResource( 154 )
 blend_point_3/pos = Vector2( 1, -0.2 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeTransition" id=94]
+[sub_resource type="AnimationNodeTransition" id=156]
 input_count = 3
 input_0/name = "Jump"
 input_0/auto_advance = false
@@ -2128,54 +2128,54 @@ input_1/auto_advance = false
 input_2/name = "Crouch"
 input_2/auto_advance = false
 
-[sub_resource type="AnimationNodeBlendTree" id=230]
+[sub_resource type="AnimationNodeBlendTree" id=157]
 graph_offset = Vector2( -773, -334.25 )
-nodes/Crouch/node = SubResource( 5 )
+nodes/Crouch/node = SubResource( 67 )
 nodes/Crouch/position = Vector2( -600, 600 )
-nodes/CrouchAttack_1_BlendSpace2D/node = SubResource( 14 )
+nodes/CrouchAttack_1_BlendSpace2D/node = SubResource( 76 )
 nodes/CrouchAttack_1_BlendSpace2D/position = Vector2( -540, 800 )
-nodes/CrouchAttack_1_Trigger/node = SubResource( 15 )
+nodes/CrouchAttack_1_Trigger/node = SubResource( 77 )
 nodes/CrouchAttack_1_Trigger/position = Vector2( -340, 600 )
-nodes/CrouchAttack_2_BlendSpace2D/node = SubResource( 24 )
+nodes/CrouchAttack_2_BlendSpace2D/node = SubResource( 86 )
 nodes/CrouchAttack_2_BlendSpace2D/position = Vector2( -240, 800 )
-nodes/CrouchAttack_2_Trigger/node = SubResource( 25 )
+nodes/CrouchAttack_2_Trigger/node = SubResource( 87 )
 nodes/CrouchAttack_2_Trigger/position = Vector2( -40, 600 )
-nodes/Damaged_BlendSpace2D/node = SubResource( 30 )
+nodes/Damaged_BlendSpace2D/node = SubResource( 92 )
 nodes/Damaged_BlendSpace2D/position = Vector2( 400, 0 )
-nodes/Damaged_Trigger/node = SubResource( 31 )
+nodes/Damaged_Trigger/node = SubResource( 93 )
 nodes/Damaged_Trigger/position = Vector2( 660, 0 )
-nodes/Dead_BlendSpace2D/node = SubResource( 36 )
+nodes/Dead_BlendSpace2D/node = SubResource( 98 )
 nodes/Dead_BlendSpace2D/position = Vector2( 400, 200 )
-nodes/Dead_trigger/node = SubResource( 37 )
+nodes/Dead_trigger/node = SubResource( 99 )
 nodes/Dead_trigger/position = Vector2( 680, 180 )
-nodes/GroundAttack_1_BlendSpace2D/node = SubResource( 46 )
+nodes/GroundAttack_1_BlendSpace2D/node = SubResource( 108 )
 nodes/GroundAttack_1_BlendSpace2D/position = Vector2( -540, 400 )
-nodes/GroundAttack_1_Trigger/node = SubResource( 47 )
+nodes/GroundAttack_1_Trigger/node = SubResource( 109 )
 nodes/GroundAttack_1_Trigger/position = Vector2( -340, 200 )
-nodes/GroundAttack_2_BlendSpace2D/node = SubResource( 56 )
+nodes/GroundAttack_2_BlendSpace2D/node = SubResource( 118 )
 nodes/GroundAttack_2_BlendSpace2D/position = Vector2( -240, 400 )
-nodes/GroundAttack_2_Trigger/node = SubResource( 57 )
+nodes/GroundAttack_2_Trigger/node = SubResource( 119 )
 nodes/GroundAttack_2_Trigger/position = Vector2( -40, 200 )
-nodes/Ground_State/node = SubResource( 58 )
+nodes/Ground_State/node = SubResource( 120 )
 nodes/Ground_State/position = Vector2( -600, 200 )
-nodes/Idle/node = SubResource( 63 )
+nodes/Idle/node = SubResource( 125 )
 nodes/Idle/position = Vector2( -800, 200 )
-nodes/JumpAttack_1_BlendSpace2D/node = SubResource( 72 )
+nodes/JumpAttack_1_BlendSpace2D/node = SubResource( 134 )
 nodes/JumpAttack_1_BlendSpace2D/position = Vector2( -520, -20 )
-nodes/JumpAttack_1_Trigger/node = SubResource( 73 )
+nodes/JumpAttack_1_Trigger/node = SubResource( 135 )
 nodes/JumpAttack_1_Trigger/position = Vector2( -340, -200 )
-nodes/JumpAttack_2_BlendSpace2D/node = SubResource( 82 )
+nodes/JumpAttack_2_BlendSpace2D/node = SubResource( 144 )
 nodes/JumpAttack_2_BlendSpace2D/position = Vector2( -220, -20 )
-nodes/JumpAttack_2_Trigger/node = SubResource( 83 )
+nodes/JumpAttack_2_Trigger/node = SubResource( 145 )
 nodes/JumpAttack_2_Trigger/position = Vector2( -40, -200 )
-nodes/JumpNormal/node = SubResource( 88 )
+nodes/JumpNormal/node = SubResource( 150 )
 nodes/JumpNormal/position = Vector2( -600, -200 )
-nodes/Run/node = SubResource( 93 )
+nodes/Run/node = SubResource( 155 )
 nodes/Run/position = Vector2( -800, 360 )
-nodes/Stance/node = SubResource( 94 )
+nodes/Stance/node = SubResource( 156 )
 nodes/Stance/position = Vector2( 400, -200 )
 nodes/output/position = Vector2( 880, 0 )
-node_connections = [ "output", 0, "Dead_trigger", "CrouchAttack_1_Trigger", 0, "Crouch", "CrouchAttack_1_Trigger", 1, "CrouchAttack_1_BlendSpace2D", "GroundAttack_2_Trigger", 0, "GroundAttack_1_Trigger", "GroundAttack_2_Trigger", 1, "GroundAttack_2_BlendSpace2D", "GroundAttack_1_Trigger", 0, "Ground_State", "GroundAttack_1_Trigger", 1, "GroundAttack_1_BlendSpace2D", "JumpAttack_1_Trigger", 0, "JumpNormal", "JumpAttack_1_Trigger", 1, "JumpAttack_1_BlendSpace2D", "CrouchAttack_2_Trigger", 0, "CrouchAttack_1_Trigger", "CrouchAttack_2_Trigger", 1, "CrouchAttack_2_BlendSpace2D", "Stance", 0, "JumpAttack_2_Trigger", "Stance", 1, "GroundAttack_2_Trigger", "Stance", 2, "CrouchAttack_2_Trigger", "Ground_State", 0, "Idle", "Ground_State", 1, "Run", "Damaged_Trigger", 0, "Stance", "Damaged_Trigger", 1, "Damaged_BlendSpace2D", "Dead_trigger", 0, "Damaged_Trigger", "Dead_trigger", 1, "Dead_BlendSpace2D", "JumpAttack_2_Trigger", 0, "JumpAttack_1_Trigger", "JumpAttack_2_Trigger", 1, "JumpAttack_2_BlendSpace2D" ]
+node_connections = [ "output", 0, "Dead_trigger", "Damaged_Trigger", 0, "Stance", "Damaged_Trigger", 1, "Damaged_BlendSpace2D", "GroundAttack_2_Trigger", 0, "GroundAttack_1_Trigger", "GroundAttack_2_Trigger", 1, "GroundAttack_2_BlendSpace2D", "JumpAttack_2_Trigger", 0, "JumpAttack_1_Trigger", "JumpAttack_2_Trigger", 1, "JumpAttack_2_BlendSpace2D", "GroundAttack_1_Trigger", 0, "Ground_State", "GroundAttack_1_Trigger", 1, "GroundAttack_1_BlendSpace2D", "Stance", 0, "JumpAttack_2_Trigger", "Stance", 1, "GroundAttack_2_Trigger", "Stance", 2, "CrouchAttack_2_Trigger", "Dead_trigger", 0, "Damaged_Trigger", "Dead_trigger", 1, "Dead_BlendSpace2D", "Ground_State", 0, "Idle", "Ground_State", 1, "Run", "CrouchAttack_1_Trigger", 0, "Crouch", "CrouchAttack_1_Trigger", 1, "CrouchAttack_1_BlendSpace2D", "CrouchAttack_2_Trigger", 0, "CrouchAttack_1_Trigger", "CrouchAttack_2_Trigger", 1, "CrouchAttack_2_BlendSpace2D", "JumpAttack_1_Trigger", 0, "JumpNormal", "JumpAttack_1_Trigger", 1, "JumpAttack_1_BlendSpace2D" ]
 
 [node name="Enemy" instance=ExtResource( 4 )]
 collision_layer = 2049
@@ -2187,71 +2187,71 @@ hframes = 10
 vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
-anims/AttackCrouchDiagDown_1 = SubResource( 96 )
-anims/AttackCrouchDiagDown_1_L = SubResource( 97 )
-anims/AttackCrouchDiagDown_2 = SubResource( 98 )
-anims/AttackCrouchDiagDown_2_L = SubResource( 99 )
-anims/AttackCrouchDiagUp_1 = SubResource( 100 )
-anims/AttackCrouchDiagUp_1_L = SubResource( 101 )
-anims/AttackCrouchDiagUp_2 = SubResource( 102 )
-anims/AttackCrouchDiagUp_2_L = SubResource( 103 )
-anims/AttackCrouchNeutral_1 = SubResource( 104 )
-anims/AttackCrouchNeutral_1_L = SubResource( 105 )
-anims/AttackCrouchNeutral_2 = SubResource( 106 )
-anims/AttackCrouchNeutral_2_L = SubResource( 107 )
-anims/AttackCrouchUp_1 = SubResource( 108 )
-anims/AttackCrouchUp_1_L = SubResource( 109 )
-anims/AttackCrouchUp_2 = SubResource( 110 )
-anims/AttackCrouchUp_2_L = SubResource( 111 )
-anims/AttackGroundDiagDown_1 = SubResource( 112 )
-anims/AttackGroundDiagDown_1_L = SubResource( 113 )
-anims/AttackGroundDiagDown_2 = SubResource( 114 )
-anims/AttackGroundDiagDown_2_L = SubResource( 115 )
-anims/AttackGroundDiagUp_1 = SubResource( 116 )
-anims/AttackGroundDiagUp_1_L = SubResource( 117 )
-anims/AttackGroundDiagUp_2 = SubResource( 118 )
-anims/AttackGroundDiagUp_2_L = SubResource( 119 )
-anims/AttackGroundNeutral_1 = SubResource( 120 )
-anims/AttackGroundNeutral_1_L = SubResource( 121 )
-anims/AttackGroundNeutral_2 = SubResource( 122 )
-anims/AttackGroundNeutral_2_L = SubResource( 123 )
-anims/AttackGroundUp_1 = SubResource( 124 )
-anims/AttackGroundUp_1_L = SubResource( 125 )
-anims/AttackGroundUp_2 = SubResource( 126 )
-anims/AttackGroundUp_2_L = SubResource( 127 )
-anims/AttackJumpDiagDown_1 = SubResource( 128 )
-anims/AttackJumpDiagDown_1_L = SubResource( 129 )
-anims/AttackJumpDiagDown_2 = SubResource( 130 )
-anims/AttackJumpDiagDown_2_L = SubResource( 131 )
-anims/AttackJumpDiagUp_1 = SubResource( 132 )
-anims/AttackJumpDiagUp_1_L = SubResource( 133 )
-anims/AttackJumpDiagUp_2 = SubResource( 134 )
-anims/AttackJumpDiagUp_2_L = SubResource( 135 )
-anims/AttackJumpNeutral_1 = SubResource( 136 )
-anims/AttackJumpNeutral_1_L = SubResource( 137 )
-anims/AttackJumpNeutral_2 = SubResource( 138 )
-anims/AttackJumpNeutral_2_L = SubResource( 139 )
-anims/AttackJumpUp_1 = SubResource( 140 )
-anims/AttackJumpUp_1_L = SubResource( 141 )
-anims/AttackJumpUp_2 = SubResource( 142 )
-anims/AttackJumpUp_2_L = SubResource( 143 )
-anims/Crouch = SubResource( 144 )
-anims/Crouch_L = SubResource( 145 )
-anims/Damaged = SubResource( 146 )
-anims/Damaged_L = SubResource( 147 )
-anims/Dying = SubResource( 148 )
-anims/Dying_L = SubResource( 149 )
-anims/Idle = SubResource( 150 )
-anims/Idle_L = SubResource( 151 )
-anims/JumpDown = SubResource( 152 )
-anims/JumpDown_L = SubResource( 153 )
-anims/JumpUp = SubResource( 154 )
-anims/JumpUp_L = SubResource( 155 )
-anims/Run = SubResource( 156 )
-anims/Run_L = SubResource( 157 )
+anims/AttackCrouchDiagDown_1 = SubResource( 1 )
+anims/AttackCrouchDiagDown_1_L = SubResource( 2 )
+anims/AttackCrouchDiagDown_2 = SubResource( 3 )
+anims/AttackCrouchDiagDown_2_L = SubResource( 4 )
+anims/AttackCrouchDiagUp_1 = SubResource( 5 )
+anims/AttackCrouchDiagUp_1_L = SubResource( 6 )
+anims/AttackCrouchDiagUp_2 = SubResource( 7 )
+anims/AttackCrouchDiagUp_2_L = SubResource( 8 )
+anims/AttackCrouchNeutral_1 = SubResource( 9 )
+anims/AttackCrouchNeutral_1_L = SubResource( 10 )
+anims/AttackCrouchNeutral_2 = SubResource( 11 )
+anims/AttackCrouchNeutral_2_L = SubResource( 12 )
+anims/AttackCrouchUp_1 = SubResource( 13 )
+anims/AttackCrouchUp_1_L = SubResource( 14 )
+anims/AttackCrouchUp_2 = SubResource( 15 )
+anims/AttackCrouchUp_2_L = SubResource( 16 )
+anims/AttackGroundDiagDown_1 = SubResource( 17 )
+anims/AttackGroundDiagDown_1_L = SubResource( 18 )
+anims/AttackGroundDiagDown_2 = SubResource( 19 )
+anims/AttackGroundDiagDown_2_L = SubResource( 20 )
+anims/AttackGroundDiagUp_1 = SubResource( 21 )
+anims/AttackGroundDiagUp_1_L = SubResource( 22 )
+anims/AttackGroundDiagUp_2 = SubResource( 23 )
+anims/AttackGroundDiagUp_2_L = SubResource( 24 )
+anims/AttackGroundNeutral_1 = SubResource( 25 )
+anims/AttackGroundNeutral_1_L = SubResource( 26 )
+anims/AttackGroundNeutral_2 = SubResource( 27 )
+anims/AttackGroundNeutral_2_L = SubResource( 28 )
+anims/AttackGroundUp_1 = SubResource( 29 )
+anims/AttackGroundUp_1_L = SubResource( 30 )
+anims/AttackGroundUp_2 = SubResource( 31 )
+anims/AttackGroundUp_2_L = SubResource( 32 )
+anims/AttackJumpDiagDown_1 = SubResource( 33 )
+anims/AttackJumpDiagDown_1_L = SubResource( 34 )
+anims/AttackJumpDiagDown_2 = SubResource( 35 )
+anims/AttackJumpDiagDown_2_L = SubResource( 36 )
+anims/AttackJumpDiagUp_1 = SubResource( 37 )
+anims/AttackJumpDiagUp_1_L = SubResource( 38 )
+anims/AttackJumpDiagUp_2 = SubResource( 39 )
+anims/AttackJumpDiagUp_2_L = SubResource( 40 )
+anims/AttackJumpNeutral_1 = SubResource( 41 )
+anims/AttackJumpNeutral_1_L = SubResource( 42 )
+anims/AttackJumpNeutral_2 = SubResource( 43 )
+anims/AttackJumpNeutral_2_L = SubResource( 44 )
+anims/AttackJumpUp_1 = SubResource( 45 )
+anims/AttackJumpUp_1_L = SubResource( 46 )
+anims/AttackJumpUp_2 = SubResource( 47 )
+anims/AttackJumpUp_2_L = SubResource( 48 )
+anims/Crouch = SubResource( 49 )
+anims/Crouch_L = SubResource( 50 )
+anims/Damaged = SubResource( 51 )
+anims/Damaged_L = SubResource( 52 )
+anims/Dying = SubResource( 53 )
+anims/Dying_L = SubResource( 54 )
+anims/Idle = SubResource( 55 )
+anims/Idle_L = SubResource( 56 )
+anims/JumpDown = SubResource( 57 )
+anims/JumpDown_L = SubResource( 58 )
+anims/JumpUp = SubResource( 59 )
+anims/JumpUp_L = SubResource( 60 )
+anims/Run = SubResource( 61 )
+anims/Run_L = SubResource( 62 )
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="4"]
-tree_root = SubResource( 230 )
+tree_root = SubResource( 157 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Crouch/blend_position = Vector2( 0.332027, 0.0314685 )
