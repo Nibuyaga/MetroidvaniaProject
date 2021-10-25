@@ -1,5 +1,7 @@
 extends "res://Objects/PhysicsBody/Character/Character.gd"
 
+
+# TODO: https://docs.godotengine.org/en/3.1/getting_started/step_by_step/singletons_autoload.html
 var horizontal_movement = 0
 var wall_jump_distance = 16 # relative to tile-size
 var double_jump = 0
@@ -13,10 +15,9 @@ export var wall_jumps = 3
 export var wall_jump_force = 512
 
 onready var arm = get_node("arm")
+onready var sword = get_node("sword")
 onready var guns = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"), get_node("arm/gun_hook")]
-onready var swords = [get_node("arm/sword_blue")]
 export var gun = 0
-export var sword = 0
 
 # var for GUI
 onready var GUI =  get_node_or_null("CanvasLayer/GUI")
@@ -90,9 +91,8 @@ func _process(delta):
 		jumping = false
 	update_aim()
 	guns[gun].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
-	swords[sword].update_weapon(delta, aim, Input.get_action_strength("attack_b"))
-	
-	
+	sword.update_weapon(delta, aim, Input.get_action_strength("attack_b"))
+		
 	# !Camera and Blendspace2D.x correction
 	$CameraDirection.position.x = facing * 20
 	
@@ -128,14 +128,12 @@ func _process(delta):
 
 # The player's Hurtbox function overwrites the Character function, fully
 func _on_Hurtbox_area_entered(area):
-	knockback(Vector2(-1000,-100))
-	
+	knockback(Vector2(-1000,-100), true)
 	
 	if "damage" in area:	# This needs to be tested
 		calc_health(area.damage)
 	else:
 		calc_health(1)
-	
 	
 	# GUI function, may need to change if the GUI is placed somewhere else
 	if GUI != null:
