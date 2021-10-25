@@ -4,6 +4,7 @@ export var speed = 3200
 export var jumpforce = 500
 export var health = 10
 
+var facing = 0
 var is_jumping = false
 var is_alive = true
 
@@ -13,7 +14,9 @@ func jump():
 	is_jumping = true
 	velocity.y = -jumpforce
 
-func knockback(force=Vector2(0,0)):
+func knockback(force=Vector2(0,0), relative=false):
+	if relative:
+		force.x *= facing
 	velocity += force
 
 func _on_Hurtbox_area_entered(area):
@@ -21,6 +24,7 @@ func _on_Hurtbox_area_entered(area):
 		knockback(Vector2(-1000,-100))
 	else:
 		knockback(Vector2(1000,-100))
+
 
 	if "damage" in area:	# This needs to be tested
 		calc_health(area.damage)

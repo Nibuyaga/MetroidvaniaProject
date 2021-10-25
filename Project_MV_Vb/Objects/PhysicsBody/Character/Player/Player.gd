@@ -1,11 +1,11 @@
 extends "res://Objects/PhysicsBody/Character/Character.gd"
 
+var horizontal_movement = 0
 var wall_jump_distance = 16 # relative to tile-size
 var double_jump = 0
 var wall_jump = 0
 var jumping = false
 
-var facing = 0
 var aim = 0 # multiply by 45 degrees 
 
 export var double_jumps = 1
@@ -13,9 +13,10 @@ export var wall_jumps = 3
 export var wall_jump_force = 512
 
 onready var arm = get_node("arm")
-onready var weapons = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"), get_node("arm/gun_hook")]
-export var current_weapon = 0
-
+onready var guns = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"), get_node("arm/gun_hook")]
+onready var swords = [get_node("arm/sword_blue")]
+export var gun = 0
+export var sword = 0
 
 # var for GUI
 onready var GUI =  get_node_or_null("CanvasLayer/GUI")
@@ -35,8 +36,6 @@ func _input(event):
 	# input for falling through 'pass' tiles
 	if event.is_action_pressed("aim_down") and $FloorRay.is_colliding():
 		velocity.y += 1
-	
-
 
 func update_aim():
 	var manual_aim_up = Input.get_action_strength("aim_up_right") - Input.get_action_strength("aim_up_left")
@@ -48,8 +47,8 @@ func update_aim():
 		aim = int(manual_aim_down)
 	# If not manually aiming, figure it out with up and down.
 	else: 
-		if facing:
-			aim = round(facing)*2
+		if horizontal_movement:
+			aim = round(horizontal_movement)*2
 			if aim < 0:
 				aim += auto_aim
 			elif aim > 0:
@@ -78,8 +77,10 @@ func jump():
 		velocity.y = -jumpforce
 
 func _process(delta):
-	facing = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	velocity.x += speed * facing * delta
+	horizontal_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	if horizontal_movement:
+		facing = horizontal_movement
+		velocity.x += speed * facing * delta
 	if is_on_floor():
 		double_jump = 0
 		wall_jump = 0
@@ -88,28 +89,27 @@ func _process(delta):
 	else:
 		jumping = false
 	update_aim()
-	weapons[current_weapon].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
-	
+	guns[gun].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
+	swords[sword].update_weapon(delta, aim, Input.get_action_strength("attack_b"))
 	
 	
 	# !Camera and Blendspace2D.x correction
-	if facing != 0:
-		$CameraDirection.position.x = facing * 20
-		
-		# !AT, not optimal
-		# Also PhysicBody's _physics_process() still applies flip.h 
-		$AnimationTree.set("parameters/Idle/blend_position", Vector2(facing, 0))
-		$AnimationTree.set("parameters/Run/blend_position", Vector2(facing, 0))
-		$AnimationTree.set("parameters/GroundAttack_1_BlendSpace2D/blend_position", Vector2(facing, 0))
-		$AnimationTree.set("parameters/GroundAttack_2_BlendSpace2D/blend_position", Vector2(facing, 0))
-		$AnimationTree.set("parameters/JumpNormal/blend_position", Vector2(facing, 0))
-		$AnimationTree.set("parameters/JumpAttack_1_BlendSpace2D/blend_position", Vector2(facing, 0))
-		$AnimationTree.set("parameters/JumpAttack_2_BlendSpace2D/blend_position", Vector2(facing, 0))
-		$AnimationTree.set("parameters/Crouch/blend_position", Vector2(facing, 0))
-		$AnimationTree.set("parameters/CrouchAttack_1_BlendSpace2D/blend_position", Vector2(facing, 0))
-		$AnimationTree.set("parameters/CroundAttack_2_BlendSpace2D/blend_position", Vector2(facing, 0))
-		$AnimationTree.set("parameters/Damaged_BlendSpace2D/blend_position", Vector2(facing, 0))
-		$AnimationTree.set("parameters/Dead_BlendSpace2D/blend_position", Vector2(facing, 0))
+	$CameraDirection.position.x = facing * 20
+	
+	# !AT, not optimal
+	# Also PhysicBody's _physics_process() still applies flip.h 
+	$AnimationTree.set("parameters/Idle/blend_position", Vector2(facing, 0))
+	$AnimationTree.set("parameters/Run/blend_position", Vector2(facing, 0))
+	$AnimationTree.set("parameters/GroundAttack_1_BlendSpace2D/blend_position", Vector2(facing, 0))
+	$AnimationTree.set("parameters/GroundAttack_2_BlendSpace2D/blend_position", Vector2(facing, 0))
+	$AnimationTree.set("parameters/JumpNormal/blend_position", Vector2(facing, 0))
+	$AnimationTree.set("parameters/JumpAttack_1_BlendSpace2D/blend_position", Vector2(facing, 0))
+	$AnimationTree.set("parameters/JumpAttack_2_BlendSpace2D/blend_position", Vector2(facing, 0))
+	$AnimationTree.set("parameters/Crouch/blend_position", Vector2(facing, 0))
+	$AnimationTree.set("parameters/CrouchAttack_1_BlendSpace2D/blend_position", Vector2(facing, 0))
+	$AnimationTree.set("parameters/CroundAttack_2_BlendSpace2D/blend_position", Vector2(facing, 0))
+	$AnimationTree.set("parameters/Damaged_BlendSpace2D/blend_position", Vector2(facing, 0))
+	$AnimationTree.set("parameters/Dead_BlendSpace2D/blend_position", Vector2(facing, 0))
 		
 	
 	# !AT, animationtree section
@@ -128,10 +128,7 @@ func _process(delta):
 
 # The player's Hurtbox function overwrites the Character function, fully
 func _on_Hurtbox_area_entered(area):
-	if area.position.x > position.x:
-		knockback(Vector2(-1000,-100))
-	else:
-		knockback(Vector2(1000,-100))
+	knockback(Vector2(-1000,-100))
 	
 	
 	if "damage" in area:	# This needs to be tested

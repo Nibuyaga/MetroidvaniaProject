@@ -1,16 +1,16 @@
 extends "res://Objects/PhysicsBody/Character/Character.gd"
 
-export var go_right = true
 export var persistent = true
 export var jumper = true
 export var jump_time = 1
 var jump_timer = jump_time
 
 func _ready():
+	facing = 1
 	$FloorRay.position.x = 8 # Does this depend on sprite size?
 
 func turn_around():
-	go_right = not go_right
+	facing = -facing
 	$FloorRay.position.x = -$FloorRay.position.x
 
 func _process(delta):
@@ -31,8 +31,5 @@ func _process(delta):
 				jump_timer = jump_time
 	jump_timer -= delta
 	
-	if go_right:
-		velocity.x = speed
-	else:
-		velocity.x = -speed
+	velocity.x = speed*self.facing
 	$Health_Counter.set_health(health)

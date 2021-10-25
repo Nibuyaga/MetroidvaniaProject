@@ -6,7 +6,7 @@ var player_spawn_location = null
 # list of player variables
 
 var velocity = null
-var current_weapon = null
+var gun = null
 var health = null
 
 
@@ -17,7 +17,7 @@ func _ready():
 
 func store_data(target):
 	# current equips
-	current_weapon = target.current_weapon
+	gun = target.gun
 	
 	# movement
 	velocity = target.velocity

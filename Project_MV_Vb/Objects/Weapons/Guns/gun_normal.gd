@@ -4,7 +4,7 @@ extends Node2D
 const NormalBullet = preload("Bullets/NormalBullet.tscn")
 
 export var Rate = 0.1 # time in in seconds
-export var Cooldown = 0
+var Cooldown = 0
 
 func update_weapon(delta, aim, attack=false):
 	Cooldown -= delta

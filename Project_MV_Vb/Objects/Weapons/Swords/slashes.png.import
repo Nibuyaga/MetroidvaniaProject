@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grenate_explosion.png-d8913507e0e67bf162e3e58463e7eeaf.stex"
+path="res://.import/slashes.png-43d777e2bf8e528482e7381cc33470a2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/PhysicsBody/Character/Player/Weapons/Bullets/grenate_explosion.png"
-dest_files=[ "res://.import/grenate_explosion.png-d8913507e0e67bf162e3e58463e7eeaf.stex" ]
+source_file="res://Objects/Weapons/Swords/slashes.png"
+dest_files=[ "res://.import/slashes.png-43d777e2bf8e528482e7381cc33470a2.stex" ]
 
 [params]
 

@@ -8,7 +8,6 @@ extents = Vector2( 12, 15 )
 
 [node name="Character" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-speed = 0
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 1, 1 )
@@ -26,5 +25,4 @@ collision_mask = 12288
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 1 )
 shape = SubResource( 1 )
-
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
