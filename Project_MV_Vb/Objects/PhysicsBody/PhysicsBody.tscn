@@ -4,7 +4,7 @@
 [ext_resource path="res://Objects/PhysicsBody/PhysicsBody.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-height = 13.343
+height = 14.838
 
 [node name="PhysicsBody" type="KinematicBody2D"]
 input_pickable = true

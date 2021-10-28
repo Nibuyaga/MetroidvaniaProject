@@ -28,11 +28,6 @@ tile_data = PoolIntArray( 1179645, 1, 8, 1179646, 1, 65547, 1179647, 1, 65547, 1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 490.066, 527.836 )
-current_weapon = 2
-
-[node name="Camera2D" parent="Player/CameraDirection" index="0"]
-limit_left = 0
-limit_right = 1024
 
 [node name="SceneChanger_Left" parent="." instance=ExtResource( 4 )]
 position = Vector2( -29, 546 )
@@ -45,7 +40,7 @@ next_scene_path = "res://Rooms/Test_Room.tscn"
 new_player_pos = Vector2( 0, 464 )
 
 [node name="Test_Player_Damage" type="Area2D" parent="."]
-position = Vector2( 410.257, 492.159 )
+position = Vector2( 399.874, 491.215 )
 collision_layer = 4096
 collision_mask = 0
 script = SubResource( 1 )
