@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Boss-SlugTank_Projectile.png-380686a63c9a5cf44f9c2a60776cf646.stex"
+path="res://.import/Boss-SlugTank_Tank_Cannon.png-03f7fb8a767a8474f98381ba82362dd9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Assets/Boss_SlugTank/Boss-SlugTank_Projectile.png"
-dest_files=[ "res://.import/Boss-SlugTank_Projectile.png-380686a63c9a5cf44f9c2a60776cf646.stex" ]
+source_file="res://Assets/Boss_SlugTank/Boss-SlugTank_Tank_Cannon.png"
+dest_files=[ "res://.import/Boss-SlugTank_Tank_Cannon.png-03f7fb8a767a8474f98381ba82362dd9.stex" ]
 
 [params]
 

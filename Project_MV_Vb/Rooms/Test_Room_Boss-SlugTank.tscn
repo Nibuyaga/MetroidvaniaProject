@@ -22,4 +22,9 @@ next_scene_path = "res://Rooms/Test_Room.tscn"
 new_player_pos = Vector2( 1024, 480 )
 
 [node name="Boss-SlugTank" parent="." instance=ExtResource( 5 )]
-position = Vector2( 716.042, 480.142 )
+position = Vector2( 717.042, 480.142 )
+
+[node name="Cannon_Anchor" parent="Boss-SlugTank/Sprite" index="2"]
+rotation = 0.872665
+
+[editable path="Boss-SlugTank"]

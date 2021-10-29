@@ -1,13 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Objects/PhysicsBody/PhysicsBody.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Objects/Assets/Boss_SlugTank/Boss-SlugTank_Projectile.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Boss_SlugTank/Boss-SlugTank_Projectile.png" type="Texture" id=2]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Boss-SlugTank/Projectile_SlugTank.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 7.0
+radius = 1.32582
 height = 0.0
 
+[sub_resource type="CircleShape2D" id=2]
+radius = 7.7092
+
 [node name="Projectile_SlugTank" instance=ExtResource( 1 )]
+collision_layer = 0
+script = ExtResource( 3 )
+gravity = 5000
+drag = 1
 air_drag = 1.0
 
 [node name="Sprite" parent="." index="0"]
@@ -15,3 +23,11 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
+
+[node name="Collision_detector" type="Area2D" parent="." index="2"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_detector" index="0"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Collision_detector" to="." method="_on_Collision_detector_body_entered"]

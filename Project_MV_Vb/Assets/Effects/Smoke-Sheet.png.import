@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Boss-SlugTank_Tank_Back.png-e22cbb1403a91194b34f9109275a2ea5.stex"
+path="res://.import/Smoke-Sheet.png-f535f41437e37dba627dc8d12bf2a991.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Assets/Boss_SlugTank/Boss-SlugTank_Tank_Back.png"
-dest_files=[ "res://.import/Boss-SlugTank_Tank_Back.png-e22cbb1403a91194b34f9109275a2ea5.stex" ]
+source_file="res://Assets/Effects/Smoke-Sheet.png"
+dest_files=[ "res://.import/Smoke-Sheet.png-f535f41437e37dba627dc8d12bf2a991.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
