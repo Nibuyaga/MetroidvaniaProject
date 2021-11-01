@@ -64,7 +64,6 @@ new_player_pos = Vector2( 0, 547 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneChanger_ToSlugTank"]
 position = Vector2( 0, -100 )
 shape = SubResource( 1 )
-
 [connection signal="body_entered" from="SceneChanger_ToSlugTank" to="SceneChanger_ToSlugTank" method="_on_SceneChanger_body_entered"]
 
 [editable path="Player"]
