@@ -9,15 +9,9 @@ func _get_configuration_warning() -> String:
 	else:
 		return ""
 
-
-
 func _on_SceneChanger_body_entered(body):
-	
-	new_player_pos.y += body.global_position.y - self.global_position.y
-	
-	PlayerVariables.player_spawn_location = new_player_pos
-	PlayerVariables.store_data(body)
-	
-	if Global.goto_scene(next_scene_path) != OK:
-		# error handling
-		print("Error: Unavailable scene (or other errors)")
+	var root = get_tree().get_current_scene()
+	root.swap_scene(next_scene_path)
+	var player = root.get_node('Player')
+	player.position.x = new_player_pos.x
+	player.position.y = new_player_pos.y 

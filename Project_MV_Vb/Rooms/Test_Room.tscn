@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Solid.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Objects/PhysicsBody/Character/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Pass.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Grappling.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Rooms/SceneChanger.tscn" type="PackedScene" id=5]
@@ -39,12 +38,6 @@ jumper = false
 position = Vector2( 340.732, 402.479 )
 persistent = false
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 164.357, 437.566 )
-
-[node name="Camera2D" parent="Player/CameraDirection" index="0"]
-limit_right = 1025
-
 [node name="SceneChanger_To2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -30, 482 )
 next_scene_path = "res://Rooms/Test_Room_02.tscn"
@@ -65,5 +58,3 @@ new_player_pos = Vector2( 0, 547 )
 position = Vector2( 0, -100 )
 shape = SubResource( 1 )
 [connection signal="body_entered" from="SceneChanger_ToSlugTank" to="SceneChanger_ToSlugTank" method="_on_SceneChanger_body_entered"]
-
-[editable path="Player"]
