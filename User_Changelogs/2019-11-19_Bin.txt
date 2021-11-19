@@ -1,0 +1,29 @@
+2019-11-19
+Added new rooms, mainly for feels of space etc.
+	resolution and sizes based on "Super Metroid" 
+		(tilesize: 16*16 pixels, screenresolution: 256*224 pixels, 16*14 tiles)
+	! isn't finished
+
+flexible camera limit changer of the player
+	Rooms need a RoomSizeReference node to update the player camera limits
+
+!Changed scene changer from the WorldRoot node
+	Commented print scene.tree from "World" node
+	Swap_scene function "deferred"
+		call_deferred changes the timing of when the function is called
+
+
+
+# The lines underneath are notes for planned changes
+# please add feedback for the next meeting
+Changes to screensize to match with "Super Metroid" 
+	Project -> Project Settings -> Display -> Window -> Size
+		Width: 1024 -> 256
+		Height: 600 -> 224
+		Test Width: 0 -> 768
+		Test Heigth: 0 -> 672
+	Also changed Window behaviour
+		Mode: disabled -> viewport
+		Aspect: ignore -> keep
+	And other stuff to remove error messages
+		Rendering -> Quality -> Dynamic Fonts -> Use Oversampling: On -> Off

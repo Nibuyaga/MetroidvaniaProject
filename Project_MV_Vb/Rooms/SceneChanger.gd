@@ -9,9 +9,11 @@ func _get_configuration_warning() -> String:
 	else:
 		return ""
 
+
 func _on_SceneChanger_body_entered(body):
 	var root = get_tree().get_current_scene()
 	root.swap_scene(next_scene_path)
 	var player = root.get_node('Player')
 	player.position.x = new_player_pos.x
 	player.position.y = new_player_pos.y 
+

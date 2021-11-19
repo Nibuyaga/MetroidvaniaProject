@@ -10,7 +10,6 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
@@ -97,11 +96,12 @@ aim_down_right={
 
 [physics]
 
+common/enable_pause_aware_picking=true
 2d/default_gravity=512
 2d/default_linear_damp=2.0
-common/enable_pause_aware_picking=true
 
 [rendering]
 
 quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false
