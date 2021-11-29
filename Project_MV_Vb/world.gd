@@ -3,6 +3,7 @@ extends Node2D
 
 
 export var start_room = 'Rooms/Test_Room.tscn'
+export var starting_position = Vector2.ZERO
 var current_room = null
 
 
@@ -19,6 +20,8 @@ func _deferred_swap_scene(scene_path='Rooms/Test_Room.tscn'):
 	get_tree().current_scene.add_child(current_room)
 	
 	Global._change_camera_limit()
+	
+	$Player.position = starting_position
 	
 #	Commented print_tree() to prevent output overflow
 #	print_tree()

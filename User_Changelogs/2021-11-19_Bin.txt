@@ -1,4 +1,4 @@
-2019-11-19
+2021-11-19
 Added new rooms, mainly for feels of space etc.
 	resolution and sizes based on "Super Metroid" 
 		(tilesize: 16*16 pixels, screenresolution: 256*224 pixels, 16*14 tiles)
@@ -16,7 +16,7 @@ flexible camera limit changer of the player
 
 # The lines underneath are notes for planned changes
 # please add feedback for the next meeting
-Changes to screensize to match with "Super Metroid" 
+Changes to screensize to match with "Super Metroid"
 	Project -> Project Settings -> Display -> Window -> Size
 		Width: 1024 -> 256
 		Height: 600 -> 224

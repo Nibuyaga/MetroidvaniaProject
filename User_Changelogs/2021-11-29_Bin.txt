@@ -1,0 +1,23 @@
+2021-11-29
+
+Changes to screensize to match with "Super Metroid"
+	Project -> Project Settings -> Display -> Window -> Size
+		Width: 1024 -> 256
+		Height: 600 -> 224
+		Test Width: 0 -> 768
+		Test Heigth: 0 -> 672
+	Also changed Window behaviour
+		Mode: disabled -> viewport
+		Aspect: ignore -> keep
+	And other stuff to remove error messages
+		Rendering -> Quality -> Dynamic Fonts -> Use Oversampling: On -> Off
+
+
+Starting area set to Area00 - Briefing_Room
+
+Added more tiles to Area00
+	!Noticed a bug with the current code
+		If you add background, the player will appear "behind" the background
+
+Added concept art of one of the survivor
+	check Art/Concept/Concept_Survivor_A1
