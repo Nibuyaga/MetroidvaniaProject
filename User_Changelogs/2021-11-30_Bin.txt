@@ -1,0 +1,6 @@
+2021-11-30
+
+Turned on "Gpu Pixel Snap" (Project -> Rendering -> 2d -> Snapping)
+	"Removes" the flickering lines of the tilemaps
+
+Edited the collision of a few Area00 tiles
