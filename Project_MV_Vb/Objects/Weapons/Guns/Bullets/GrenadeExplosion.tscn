@@ -3,12 +3,11 @@
 [ext_resource path="res://Objects/Weapons/Guns/Bullets/grenate_explosion.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Weapons/Guns/Bullets/GrenadeExplosion.gd" type="Script" id=2]
 
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 9.98377
 
 [node name="Area2D" type="Area2D"]
-scale = Vector2( 3.66534, 4.09751 )
+scale = Vector2( 1.47381, 1.87473 )
 collision_layer = 8192
 collision_mask = 2048
 script = ExtResource( 2 )

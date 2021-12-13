@@ -7,7 +7,7 @@ extends "res://Objects/PhysicsBody/PhysicsBody.gd"
 const Explosion = preload("GrenadeExplosion.tscn")
 
 var time = 2
-export var speed = 500
+export var speed = 256
 
 func explode():
 	var explosion = Explosion.instance()
