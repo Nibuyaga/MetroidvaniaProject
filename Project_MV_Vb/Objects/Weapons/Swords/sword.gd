@@ -27,6 +27,8 @@ func update_weapon(delta, aim, attack):
 			slash_timer = slash_time
 			if player.velocity.y < 5:
 				player.knockback(Vector2(500,-10), true)
+			else:
+				player.knockback(Vector2(128,-10), true)
 	if slash_timer > 0:
 		slash_timer -= delta
 		$sword_shape.disabled = false

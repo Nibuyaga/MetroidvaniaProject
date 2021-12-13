@@ -4,7 +4,6 @@
 [ext_resource path="res://Objects/PhysicsBody/PhysicsBody.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Weapons/Guns/Bullets/Grenade.gd" type="Script" id=3]
 
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.65187
 
@@ -12,6 +11,7 @@ radius = 6.65187
 radius = 16.6658
 
 [node name="Grenade" instance=ExtResource( 2 )]
+scale = Vector2( 0.424073, 0.424073 )
 script = ExtResource( 3 )
 bounce = 0.5
 air_drag = 20.0

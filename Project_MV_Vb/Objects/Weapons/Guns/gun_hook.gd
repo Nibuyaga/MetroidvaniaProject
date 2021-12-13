@@ -1,6 +1,6 @@
 extends Node2D
 
-var max_length = 256
+var max_length = 180
 var current_length = 0
 var connected_length = 0
 var shot_speed = 1024
@@ -45,7 +45,7 @@ func update_weapon(delta, aim, attack=false):
 			$hook_line.set_point_position(1, Vector2(0,0))
 			# HACK: revert to the set value
 			body.air_drag = 0.5 
-			body.speed = 3200
+			body.speed = 2400
 			body.minimum_move = 8
 	else:
 		if attack:

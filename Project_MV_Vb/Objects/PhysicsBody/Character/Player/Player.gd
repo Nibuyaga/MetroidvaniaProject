@@ -11,13 +11,13 @@ var jumping = false
 var aim = 0 # multiply by 45 degrees 
 
 export var double_jumps = 1
-export var wall_jumps = 3
-export var wall_jump_force = 512
+export var wall_jumps = 2
+export var wall_jump_force = 128
 
 onready var arm = get_node("arm")
 onready var sword = get_node("sword")
 onready var guns = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"), get_node("arm/gun_hook")]
-export var gun = 0
+export var gun = 1
 
 # var for GUI
 onready var GUI =  get_node_or_null("CanvasLayer/GUI")

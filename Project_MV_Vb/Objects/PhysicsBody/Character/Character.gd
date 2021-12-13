@@ -1,7 +1,7 @@
 extends "res://Objects/PhysicsBody/PhysicsBody.gd"
 
-export var speed = 3200
-export var jumpforce = 500
+export var speed = 2400
+export var jumpforce = 380
 export var health = 10
 
 var facing = 0
@@ -24,7 +24,6 @@ func _on_Hurtbox_area_entered(area):
 		knockback(Vector2(-1000,-100))
 	else:
 		knockback(Vector2(1000,-100))
-
 
 	if "damage" in area:	# This needs to be tested
 		calc_health(area.damage)
