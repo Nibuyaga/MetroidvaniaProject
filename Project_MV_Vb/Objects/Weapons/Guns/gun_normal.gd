@@ -15,4 +15,4 @@ func update_weapon(delta, aim, attack=false):
 		var bullet = NormalBullet.instance()
 		bullet.position = global_position
 		bullet.rotation_degrees = aim*45
-		get_tree().current_scene.add_child(bullet)
+		Global.grab_current_level().add_child(bullet)
