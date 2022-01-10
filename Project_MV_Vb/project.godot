@@ -15,20 +15,20 @@ _global_script_class_icons={
 [application]
 
 config/name="Project_MV_Vb"
-run/main_scene="res://world.tscn"
+run/main_scene="res://Rooms/Area00/Area00 - Briefing Room.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Autoload_Scripts/Global.gd"
-PlayerVariables="*res://Autoload_Scripts/PlayerVariables.gd"
+PlayerVariables="*res://Autoload_Scripts/PlayerGlobal.gd"
 
 [display]
 
 window/size/width=256
-window/size/height=224
+window/size/height=144
 window/size/test_width=768
-window/size/test_height=672
+window/size/test_height=432
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

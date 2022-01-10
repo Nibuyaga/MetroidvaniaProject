@@ -15,5 +15,5 @@ func update_weapon(delta, aim, attack=false):
 		var bullet = Grenade.instance()
 		bullet.position = global_position
 		bullet.rotation_degrees = aim*45
-		get_tree().current_scene.add_child(bullet)
+		Global.grab_current_level().add_child(bullet)
 		bullet.velocity = bullet.velocity.rotated(deg2rad((aim-2)*45))

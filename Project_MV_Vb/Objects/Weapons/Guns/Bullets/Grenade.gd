@@ -12,7 +12,7 @@ export var speed = 256
 func explode():
 	var explosion = Explosion.instance()
 	explosion.position = global_position
-	get_tree().current_scene.add_child(explosion)
+	Global.grab_current_level().add_child(explosion)
 	queue_free()
 
 # Called when the node enters the scene tree for the first time.

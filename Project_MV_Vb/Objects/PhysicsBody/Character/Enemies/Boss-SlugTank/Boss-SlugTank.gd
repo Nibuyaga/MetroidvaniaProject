@@ -48,7 +48,7 @@ func shoot_projectile():
 		)
 	
 	
-	get_tree().current_scene.add_child(new_pro)
+	Global.grab_current_level().add_child(new_pro)
 
 
 func _input(event):
