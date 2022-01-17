@@ -20,7 +20,7 @@ func _ready():
 	if player_spawn_location != null:
 		player_node.position = player_spawn_location
 	else:
-		player_node.position = Vector2(128,176)
+		player_node.position = Vector2(150,150)
 	
 	# changes camera to fit current room, at the start of the game
 	_change_camera_limit()
