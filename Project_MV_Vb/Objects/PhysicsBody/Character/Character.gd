@@ -2,7 +2,11 @@ extends "res://Objects/PhysicsBody/PhysicsBody.gd"
 
 export var speed = 2400
 export var jumpforce = 380
-export var health = 10
+export var stats = {
+	'gun':0,
+	'health':10,
+	'max_health':10,
+}
 
 var facing = 0
 var is_jumping = false
@@ -31,8 +35,8 @@ func _on_Hurtbox_area_entered(area):
 		calc_health(1)
 
 func calc_health(damage):
-	health -= damage
-	if health <= 0:
+	stats['health'] -= damage
+	if stats['health'] <= 0:
 		die()
 
 func die():

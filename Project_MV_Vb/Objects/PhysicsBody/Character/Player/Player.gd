@@ -14,10 +14,11 @@ export var double_jumps = 1
 export var wall_jumps = 2
 export var wall_jump_force = 128
 
+onready var player_vars = get_node("/root/PlayerVariables")
 onready var arm = get_node("arm")
 onready var sword = get_node("sword")
 onready var guns = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"), get_node("arm/gun_hook")]
-export var gun = 1
+export var gun = 0
 
 # var for GUI
 onready var GUI =  get_node_or_null("CanvasLayer/GUI")
@@ -90,8 +91,13 @@ func _process(delta):
 	else:
 		jumping = false
 	update_aim()
+	#TODO: check if gun in player_vars.stats['guns']
 	guns[gun].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
-	sword.update_weapon(delta, aim, Input.get_action_strength("attack_b"))
+	if 'sword' in player_vars.stats:
+		sword.show()
+		sword.update_weapon(delta, aim, Input.get_action_strength("attack_b"))
+	else:
+		sword.hide()
 		
 	# !Camera and Blendspace2D.x correction
 	$CameraDirection.position.x = facing * 20
@@ -137,4 +143,4 @@ func _on_Hurtbox_area_entered(area):
 	
 	# GUI function, may need to change if the GUI is placed somewhere else
 	if GUI != null:
-		GUI.update_bars("hp", health)
+		GUI.update_bars("hp", stats['health'])
