@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Rooms/Area00/Area00 - Tiles/TileMap - Area00, Solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area00/Area00 - Objects/Area00 - Doorway_L.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Rooms/Area00/Area00 - Tiles/TileMap - Area00, Background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Rooms/Area00/Area00 - Tiles/TileMap - Area00, Platforms.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Pickups/Pickup.tscn" type="PackedScene" id=5]
 
 [node name="Area00 - Cockpit" type="Node2D"]
 
@@ -23,3 +24,31 @@ new_player_pos = Vector2( 240, 144 )
 
 [node name="RoomSizeReference" type="Position2D" parent="."]
 position = Vector2( 512, 224 )
+
+[node name="Pickup" parent="." instance=ExtResource( 5 )]
+position = Vector2( 177.924, 182.419 )
+pickup_name = "health_full"
+
+[node name="Pickup2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 195.529, 182.044 )
+pickup_name = "health_big"
+
+[node name="Pickup3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 217.255, 182.419 )
+pickup_name = "health_med"
+
+[node name="Pickup4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 233.736, 182.044 )
+pickup_name = "health_extend"
+
+[node name="Pickup5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 249.954, 182.089 )
+pickup_name = "sword"
+
+[node name="Pickup6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 267.63, 181.67 )
+pickup_name = "grenade"
+
+[node name="Pickup7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 285.488, 181.67 )
+pickup_name = "grapple"
