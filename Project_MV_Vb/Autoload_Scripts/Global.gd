@@ -6,21 +6,37 @@ var player_spawn_location = null	# variable for player location in the scene
 var player_node = null
 onready var root = get_tree().get_root()	# shortcut var for getting the root
 
+
+var player_spawn_correction = Vector2(0,18)	# a correction which prevents the player spawning in the ground
+
 var spn_on_in_goto_scene = true	# variable which determines whether a new player node will spawn or not
 
+# !Consider changing this when dealing introducing menus
 func _ready():
+	
 	
 	current_scene = root.get_child(root.get_child_count() - 1)
 	# gets the last child of the root, which generally is the loaded scene, the current level
 	
+	
+	# Changes the starting spawn location to the bottommiddle of the level
+	if true:
+		var roomsize_ready = current_scene.get_node_or_null("RoomSizeReference")
+		if roomsize_ready != null:
+			player_spawn_location = Vector2(
+				roomsize_ready.position.x / 2,
+				roomsize_ready.position.y - 20
+			)
+		# Current Start location is: Area01 - Start 001
+		#	turn to false or remove when changing respective lines
+	
 	# adds player node if player node is lacking
 	player_node = _spawn_player_node()
 	
-	
 	if player_spawn_location != null:
-		player_node.position = player_spawn_location
+		player_node.position = player_spawn_location - player_spawn_correction
 	else:
-		player_node.position = Vector2(128,176)
+		player_node.position = Vector2(150,150)
 	
 	# changes camera to fit current room, at the start of the game
 	_change_camera_limit()
@@ -58,7 +74,7 @@ func _deferred_goto_scene(path):
 	if player_spawn_location != null:
 		player_node = grab_current_level().get_node_or_null("Player")
 		if player_node != null:
-			player_node.set_position(player_spawn_location)
+			player_node.set_position(player_spawn_location - player_spawn_correction)
 		else:
 			print("player_node == null, player_node not found, written by Global/_deferred_goto_scene")
 		

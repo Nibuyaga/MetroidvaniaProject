@@ -1,0 +1,14 @@
+
+Added Area01
+	Added Tilemap + Background
+		!Tilemap is unfinished
+		!Background doesn't scroll yet
+
+Changed Player default spawn position from (128,176) to (150,150)
+
+Changed Project settings
+	Changed the window size:
+		Width: 	256 to 320
+		Height:	144 to 180
+		T.Width:	768 to 960
+		T.Height:	432 tot 540

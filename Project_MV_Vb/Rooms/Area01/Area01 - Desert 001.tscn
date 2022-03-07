@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Rooms/Area01/Area01 - Tiles/TileMap - Area01, SandBlocks.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/Area01/Area01 - Tiles/TileMap - Area01, SandBlock - Gravel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Rooms/Area01/Area01 - Tiles/Area01_Background_Placeholder.png" type="Texture" id=3]
+[ext_resource path="res://Rooms/SceneChanger.tscn" type="PackedScene" id=4]
+
+[node name="Area01 - Start 000" type="Node2D"]
+
+[node name="TileMap - Area01, SandBlocks" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 65532, 0, 8, 65533, 0, 9, 65535, 0, 8, 0, 0, 65547, 1, 0, 9, 20, 0, 8, 21, 0, 9, 131068, 0, 10, 131069, 0, 11, 131071, 0, 10, 65536, 0, 131083, 65537, 0, 11, 65556, 0, 10, 65557, 0, 11, 196604, 0, 10, 196605, 0, 11, 196607, 0, 10, 131072, 0, 131083, 131073, 0, 11, 131092, 0, 10, 131093, 0, 11, 262140, 0, 10, 262141, 0, 11, 262143, 0, 10, 196608, 0, 131083, 196609, 0, 11, 196628, 0, 10, 196629, 0, 11, 327676, 0, 10, 327677, 0, 11, 327679, 0, 10, 262144, 0, 131083, 262145, 0, 11, 262164, 0, 10, 262165, 0, 11, 393212, 0, 10, 393213, 0, 11, 393215, 0, 10, 327680, 0, 131083, 327681, 0, 11, 327700, 0, 10, 327701, 0, 11, 458748, 0, 10, 458749, 0, 11, 458751, 0, 10, 393216, 0, 131083, 393217, 0, 11, 393236, 0, 10, 393237, 0, 11, 524284, 0, 10, 524285, 0, 11, 524287, 0, 10, 458752, 0, 131083, 458753, 0, 11, 458772, 0, 10, 458773, 0, 11, 589820, 0, 10, 589821, 0, 196609, 589822, 0, 65547, 589823, 0, 196608, 524288, 0, 131083, 524289, 0, 196609, 524290, 0, 65547, 524291, 0, 65547, 524292, 0, 65547, 524293, 0, 65547, 524294, 0, 65547, 524295, 0, 65547, 524296, 0, 65547, 524297, 0, 65547, 524298, 0, 65547, 524299, 0, 65547, 524300, 0, 65547, 524301, 0, 65547, 524302, 0, 65547, 524303, 0, 65547, 524304, 0, 65547, 524305, 0, 65547, 524306, 0, 65547, 524307, 0, 65547, 524308, 0, 196608, 524309, 0, 11, 655356, 0, 65544, 655357, 0, 65546, 655358, 0, 65546, 655359, 0, 65546, 589824, 0, 65546, 589825, 0, 65546, 589826, 0, 65546, 589827, 0, 65546, 589828, 0, 65546, 589829, 0, 65546, 589830, 0, 65546, 589831, 0, 65546, 589832, 0, 65546, 589833, 0, 65546, 589834, 0, 65546, 589835, 0, 65546, 589836, 0, 65546, 589837, 0, 65546, 589838, 0, 65546, 589839, 0, 65546, 589840, 0, 65546, 589841, 0, 65546, 589842, 0, 65546, 589843, 0, 65546, 589844, 0, 65546, 589845, 0, 65545 )
+
+[node name="TileMap - Area01, SandBlock - Gravel" parent="." instance=ExtResource( 2 )]
+cell_size = Vector2( 20, 20 )
+cell_quadrant_size = 20
+cell_custom_transform = Transform2D( 20, 0, 0, 20, 0, 0 )
+tile_data = PoolIntArray( 327679, 0, 196609, 393217, 0, 196617, 393230, 0, 196613, 524287, 0, 196610, 458752, 0, 196608, 458764, 0, 196611, 524295, 0, 131080, 524298, 0, 1, 524300, 0, 131074, 524301, 0, 1, 524303, 0, 7, 524304, 0, 1, 524305, 0, 131077, 589827, 0, 131074, 589829, 0, 65545, 589830, 0, 65538, 589832, 0, 131080, 589834, 0, 65544, 589835, 0, 4, 589836, 0, 3, 589837, 0, 131081, 589838, 0, 131081, 589839, 0, 65540, 589840, 0, 65543 )
+
+[node name="SceneChanger" parent="." instance=ExtResource( 4 )]
+position = Vector2( 360, 160 )
+next_scene_path = "res://Rooms/Area01/Area01 - Start 001.tscn"
+new_player_pos = Vector2( 0, 160 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="BackgroundMain" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+__meta__ = {
+"_editor_description_": "*Tutorial used this, but it only made things unneccesary complicated.
+Still keeping this for future use"
+}
+
+[node name="RoomSizeReference" type="Position2D" parent="."]
+position = Vector2( 340, 180 )

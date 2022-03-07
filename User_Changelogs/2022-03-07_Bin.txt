@@ -1,0 +1,9 @@
+
+Added New Rooms to play around
+
+Changed Player default spawn position based on the room size
+
+Scenechanger can now spawn player at higher position, based on entry height
+
+
+
