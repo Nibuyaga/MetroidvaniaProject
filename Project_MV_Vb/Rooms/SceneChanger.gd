@@ -6,8 +6,12 @@ export(Vector2) var new_player_pos = Vector2.ZERO
 
 
 func _get_configuration_warning() -> String:
-	if next_scene_path == "":
-		return "next_scene_path must be set for the portal to work"
+	if next_scene_path == "" and new_player_pos == Vector2(0,0):
+		return " next_scene_path must be set for the portal to work \n new_player_pos is (0,0)"
+	elif next_scene_path == "":
+		return " next_scene_path must be set for the portal to work"
+	elif new_player_pos == Vector2(0,0):
+		return " new_player_pos is (0,0)"
 	else:
 		return ""
 

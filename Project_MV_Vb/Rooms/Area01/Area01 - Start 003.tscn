@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/TileMap - Area01, SandBlocks.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/TileMap - Area01, SandBlock - Gravel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Rooms/Area01/Area01 - Tiles/Area01_Background_Placeholder.png" type="Texture" id=3]
+[ext_resource path="res://Rooms/Area01/Area01 - Tiles/Area01_Background_Start.png" type="Texture" id=3]
 [ext_resource path="res://Rooms/SceneChanger.tscn" type="PackedScene" id=4]
 
 [node name="Area01 - Start 000" type="Node2D"]
@@ -27,17 +27,22 @@ next_scene_path = "res://Rooms/Area01/Area01 - Start 004.tscn"
 new_player_pos = Vector2( 0, 160 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-texture = ExtResource( 3 )
-centered = false
-
-[node name="BackgroundMain" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
+scroll_base_offset = Vector2( -76, 136 )
+scroll_base_scale = Vector2( 0.1, 0.2 )
 __meta__ = {
-"_editor_description_": "*Tutorial used this, but it only made things unneccesary complicated.
-Still keeping this for future use"
+"_editor_description_": ""
 }
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_offset = Vector2( -100, -150 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
 
 [node name="RoomSizeReference" type="Position2D" parent="."]
 position = Vector2( 640, 560 )
