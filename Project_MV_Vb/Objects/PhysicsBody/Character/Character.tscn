@@ -4,7 +4,8 @@
 [ext_resource path="res://Objects/PhysicsBody/Character/Character.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 15 )
+resource_local_to_scene = true
+extents = Vector2( 16.4696, 12.4623 )
 
 [node name="Character" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -25,4 +26,5 @@ collision_mask = 12288
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, 1 )
 shape = SubResource( 1 )
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

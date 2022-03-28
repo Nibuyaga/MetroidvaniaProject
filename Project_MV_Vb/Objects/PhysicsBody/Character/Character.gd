@@ -6,11 +6,11 @@ export var stats = {
 	'gun':0,
 	'health':10,
 	'max_health':10,
+	'alive': true,
 }
 
 var facing = 0
 var is_jumping = false
-var is_alive = true
 
 
 # Default jump function, overwrite in subclasses
@@ -34,17 +34,22 @@ func _on_Hurtbox_area_entered(area):
 	else:
 		calc_health(1)
 
+
 func calc_health(damage):
-	stats['health'] -= damage
-	if stats['health'] <= 0:
-		die()
+	if stats['alive']:
+		stats['health'] -= damage
+		if stats['health'] <= 0:
+			die()
+		else:
+			$AnimationPlayer.play("hurt")
 
 func die():
+	stats['alive'] = false
 	if get_node_or_null("AnimationPlayer") == null:
 		print("Object removed")
 		self.queue_free()
 	else:
-		$AnimationPlayer.play("Dying")
+		$AnimationPlayer.play("die")
 
 func at_dead_queue_free():
 	queue_free()

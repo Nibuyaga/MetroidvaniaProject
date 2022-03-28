@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spika.png-58f2df125b09f4f6573a6c407db17b37.stex"
+path="res://.import/waz.png-3f58b878af29db7aaf3728bf52c2294c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Creatures/spika.png"
-dest_files=[ "res://.import/spika.png-58f2df125b09f4f6573a6c407db17b37.stex" ]
+source_file="res://Assets/Creatures/waz.png"
+dest_files=[ "res://.import/waz.png-3f58b878af29db7aaf3728bf52c2294c.stex" ]
 
 [params]
 
