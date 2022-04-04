@@ -2,6 +2,7 @@ extends "res://Objects/PhysicsBody/Character/Character.gd"
 
 export var persistent = true
 export var jumper = true
+export var flyer = true
 export var jump_time = 1
 var jump_timer = jump_time
 
@@ -23,6 +24,8 @@ func hurt():
 
 func _process(delta):
 	$Health_Counter.set_health(stats['health'])
+	if flyer and not jumper and stats['alive']:
+		velocity.y = 0.0
 	if stats['health'] <= 0:
 		return 
 	# turn if standing still (only works directly after _physics_process)

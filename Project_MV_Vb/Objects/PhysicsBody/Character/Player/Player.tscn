@@ -2204,17 +2204,17 @@ nodes/Run/position = Vector2( -800, 360 )
 nodes/Stance/node = SubResource( 156 )
 nodes/Stance/position = Vector2( 400, -200 )
 nodes/output/position = Vector2( 880, 0 )
-node_connections = [ "output", 0, "Dead_trigger", "GroundAttack_2_Trigger", 0, "GroundAttack_1_Trigger", "GroundAttack_2_Trigger", 1, "GroundAttack_2_BlendSpace2D", "CrouchAttack_2_Trigger", 0, "CrouchAttack_1_Trigger", "CrouchAttack_2_Trigger", 1, "CrouchAttack_2_BlendSpace2D", "Dead_trigger", 0, "Damaged_Trigger", "Dead_trigger", 1, "Dead_BlendSpace2D", "GroundAttack_1_Trigger", 0, "Ground_State", "GroundAttack_1_Trigger", 1, "GroundAttack_1_BlendSpace2D", "CrouchAttack_1_Trigger", 0, "Crouch", "CrouchAttack_1_Trigger", 1, "CrouchAttack_1_BlendSpace2D", "Stance", 0, "JumpAttack_2_Trigger", "Stance", 1, "GroundAttack_2_Trigger", "Stance", 2, "CrouchAttack_2_Trigger", "Ground_State", 0, "Idle", "Ground_State", 1, "Run", "Damaged_Trigger", 0, "Stance", "Damaged_Trigger", 1, "Damaged_BlendSpace2D", "JumpAttack_2_Trigger", 0, "JumpAttack_1_Trigger", "JumpAttack_2_Trigger", 1, "JumpAttack_2_BlendSpace2D", "JumpAttack_1_Trigger", 0, "JumpNormal", "JumpAttack_1_Trigger", 1, "JumpAttack_1_BlendSpace2D" ]
+node_connections = [ "Damaged_Trigger", 0, "Stance", "Damaged_Trigger", 1, "Damaged_BlendSpace2D", "CrouchAttack_2_Trigger", 0, "CrouchAttack_1_Trigger", "CrouchAttack_2_Trigger", 1, "CrouchAttack_2_BlendSpace2D", "GroundAttack_1_Trigger", 0, "Ground_State", "GroundAttack_1_Trigger", 1, "GroundAttack_1_BlendSpace2D", "Dead_trigger", 0, "Damaged_Trigger", "Dead_trigger", 1, "Dead_BlendSpace2D", "JumpAttack_1_Trigger", 0, "JumpNormal", "JumpAttack_1_Trigger", 1, "JumpAttack_1_BlendSpace2D", "GroundAttack_2_Trigger", 0, "GroundAttack_1_Trigger", "GroundAttack_2_Trigger", 1, "GroundAttack_2_BlendSpace2D", "Stance", 0, "JumpAttack_2_Trigger", "Stance", 1, "GroundAttack_2_Trigger", "Stance", 2, "CrouchAttack_2_Trigger", "CrouchAttack_1_Trigger", 0, "Crouch", "CrouchAttack_1_Trigger", 1, "CrouchAttack_1_BlendSpace2D", "Ground_State", 0, "Idle", "Ground_State", 1, "Run", "JumpAttack_2_Trigger", 0, "JumpAttack_1_Trigger", "JumpAttack_2_Trigger", 1, "JumpAttack_2_BlendSpace2D", "output", 0, "Dead_trigger" ]
 
-[sub_resource type="RectangleShape2D" id=159]
+[sub_resource type="RectangleShape2D" id=161]
 resource_local_to_scene = true
-extents = Vector2( 16.4696, 12.4623 )
+extents = Vector2( 15, 20 )
 
 [sub_resource type="RectangleShape2D" id=158]
 extents = Vector2( 11.2748, 25.0676 )
 
 [node name="Player" instance=ExtResource( 1 )]
-collision_layer = 1025
+collision_layer = 1024
 script = ExtResource( 2 )
 gravity = 1200
 jumpforce = 330
@@ -2319,10 +2319,12 @@ parameters/Run/blend_position = Vector2( 0.0886999, -0.00209641 )
 parameters/Stance/current = 1
 
 [node name="Hurtbox" parent="." index="5"]
-collision_mask = 4096
+collision_layer = 0
+priority = 3.0
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 159 )
+position = Vector2( -0.999999, 1 )
+shape = SubResource( 161 )
 
 [node name="arm" parent="." index="6" instance=ExtResource( 3 )]
 
@@ -2344,8 +2346,8 @@ layer = 2
 visible = false
 
 [node name="sword" type="Area2D" parent="." index="9"]
-collision_layer = 8192
-collision_mask = 2048
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 6 )
 
 [node name="sword_shape" type="CollisionShape2D" parent="sword" index="0"]

@@ -8,11 +8,11 @@
 [sub_resource type="CapsuleShape2D" id=161]
 resource_local_to_scene = true
 radius = 9.0
-height = 14.0
+height = 18.0
 
 [sub_resource type="RectangleShape2D" id=158]
 resource_local_to_scene = true
-extents = Vector2( 15.5, 7.5 )
+extents = Vector2( 13.5, 7.5 )
 
 [sub_resource type="Animation" id=160]
 length = 0.001
@@ -92,7 +92,7 @@ tracks/0/keys = {
 }
 
 [node name="spika" instance=ExtResource( 1 )]
-collision_layer = 2049
+collision_layer = 2048
 script = ExtResource( 3 )
 speed = 20
 stats = {
@@ -103,6 +103,7 @@ stats = {
 }
 persistent = false
 jumper = false
+flyer = false
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -1 )
@@ -123,7 +124,7 @@ position = Vector2( 0, 4 )
 collision_mask = 8192
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 0, -3 )
+position = Vector2( -0.5, -3 )
 shape = SubResource( 158 )
 
 [node name="Health_Counter" type="Node2D" parent="." index="4"]

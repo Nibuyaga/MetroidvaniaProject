@@ -6,12 +6,11 @@
 [ext_resource path="res://Assets/Creatures/eybo.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=8]
-resource_local_to_scene = true
-radius = 7.0
-height = 19.589
+radius = 6.49997
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 17.5, 7 )
+[sub_resource type="RectangleShape2D" id=9]
+resource_local_to_scene = true
+extents = Vector2( 15, 7.5 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -104,7 +103,7 @@ tracks/0/keys = {
 }
 
 [node name="eybo" instance=ExtResource( 1 )]
-collision_layer = 2049
+collision_layer = 2048
 script = ExtResource( 2 )
 speed = 10
 stats = {
@@ -115,27 +114,32 @@ stats = {
 }
 persistent = false
 jumper = false
+flyer = false
 
 [node name="Sprite" parent="." index="0"]
+position = Vector2( 1, -10 )
 texture = ExtResource( 4 )
 hframes = 7
 vframes = 7
 frame = 31
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, 7 )
+position = Vector2( 0, -1 )
 rotation = 1.5708
 shape = SubResource( 8 )
+
+[node name="FloorRay" parent="." index="2"]
+position = Vector2( 0, 6 )
 
 [node name="Hurtbox" parent="." index="3"]
 collision_mask = 8192
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 0, 7 )
-shape = SubResource( 7 )
+position = Vector2( 1, -1.5 )
+shape = SubResource( 9 )
 
 [node name="Health_Counter" type="Node2D" parent="." index="4"]
-position = Vector2( 0, 2 )
+position = Vector2( 0, -4 )
 script = ExtResource( 3 )
 
 [node name="Health_Counter" type="Label" parent="Health_Counter" index="0"]

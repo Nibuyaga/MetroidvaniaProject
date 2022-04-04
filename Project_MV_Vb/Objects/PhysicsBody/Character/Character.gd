@@ -24,6 +24,9 @@ func knockback(force=Vector2(0,0), relative=false):
 	velocity += force
 
 func _on_Hurtbox_area_entered(area):
+	print('whaa')
+	if not stats['alive']:
+		return
 	if area.position.x > position.x:
 		knockback(Vector2(-1000,-100))
 	else:

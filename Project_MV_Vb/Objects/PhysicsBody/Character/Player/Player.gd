@@ -134,6 +134,7 @@ func _process(delta):
 
 # The player's Hurtbox function overwrites the Character function, fully
 func _on_Hurtbox_area_entered(area):
+	print('ouch!')
 	knockback(Vector2(-1000,-100), true)
 	
 	if "damage" in area:	# This needs to be tested
