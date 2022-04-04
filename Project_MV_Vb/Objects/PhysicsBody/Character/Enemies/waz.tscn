@@ -1,0 +1,144 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Objects/PhysicsBody/Character/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Enemy_Health.gd" type="Script" id=2]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Enemy.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Creatures/waz.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=164]
+resource_local_to_scene = true
+radius = 13.2799
+height = 14.0
+
+[sub_resource type="RectangleShape2D" id=163]
+resource_local_to_scene = true
+extents = Vector2( 16.4696, 12.4623 )
+
+[sub_resource type="Animation" id=159]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=160]
+resource_name = "die"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 23, 24, 25, 26, 28, 29, 30 ]
+}
+
+[sub_resource type="Animation" id=161]
+resource_name = "hurt"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 15, 16, 17, 18, 19 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.58 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "move", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=162]
+resource_name = "move"
+length = 1.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11 ]
+}
+
+[node name="waz" instance=ExtResource( 1 )]
+collision_layer = 2048
+script = ExtResource( 3 )
+speed = 64
+stats = {
+"alive": true,
+"gun": 0,
+"health": 8,
+"max_health": 10
+}
+jumper = false
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0, -1.171 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 4 )
+hframes = 7
+vframes = 6
+frame = 19
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -7.45058e-09, 2 )
+rotation = 1.53065
+scale = Vector2( 0.921026, 0.768067 )
+shape = SubResource( 164 )
+
+[node name="Hurtbox" parent="." index="3"]
+collision_mask = 8192
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 1.77636e-15, 2 )
+scale = Vector2( 0.885519, 1.04315 )
+shape = SubResource( 163 )
+
+[node name="Health_Counter" type="Node2D" parent="." index="4"]
+script = ExtResource( 2 )
+
+[node name="Health_Counter" type="Label" parent="Health_Counter" index="0"]
+margin_left = -20.0
+margin_top = -25.0
+margin_right = 20.0
+margin_bottom = -11.0
+text = "8"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+anims/RESET = SubResource( 159 )
+anims/die = SubResource( 160 )
+anims/hurt = SubResource( 161 )
+anims/move = SubResource( 162 )

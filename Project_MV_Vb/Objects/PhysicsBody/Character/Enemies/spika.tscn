@@ -1,0 +1,146 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Objects/PhysicsBody/Character/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Enemy_Health.gd" type="Script" id=2]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Enemy.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Creatures/spika.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=161]
+resource_local_to_scene = true
+radius = 9.0
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id=158]
+resource_local_to_scene = true
+extents = Vector2( 13.5, 7.5 )
+
+[sub_resource type="Animation" id=160]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=163]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27, 28, 30, 31, 32, 33, 36 ]
+}
+
+[sub_resource type="Animation" id=162]
+resource_name = "hurt"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 14, 15, 16, 20, 21 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "move", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=159]
+resource_name = "move"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 5, 6, 7, 8, 10, 11 ]
+}
+
+[node name="spika" instance=ExtResource( 1 )]
+collision_layer = 2048
+script = ExtResource( 3 )
+speed = 20
+stats = {
+"alive": true,
+"gun": 0,
+"health": 6,
+"max_health": 6
+}
+persistent = false
+jumper = false
+flyer = false
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0, -1 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 8
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -3 )
+rotation = 1.5708
+shape = SubResource( 161 )
+
+[node name="FloorRay" parent="." index="2"]
+position = Vector2( 0, 4 )
+
+[node name="Hurtbox" parent="." index="3"]
+collision_mask = 8192
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( -0.5, -3 )
+shape = SubResource( 158 )
+
+[node name="Health_Counter" type="Node2D" parent="." index="4"]
+position = Vector2( 0, -1 )
+script = ExtResource( 2 )
+
+[node name="Health_Counter" type="Label" parent="Health_Counter" index="0"]
+margin_left = -20.0
+margin_top = -26.0
+margin_right = 20.0
+margin_bottom = -12.0
+text = "8"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+anims/RESET = SubResource( 160 )
+anims/die = SubResource( 163 )
+anims/hurt = SubResource( 162 )
+anims/move = SubResource( 159 )
