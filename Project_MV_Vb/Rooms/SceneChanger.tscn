@@ -3,6 +3,7 @@
 [ext_resource path="res://Rooms/SceneChanger.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
+resource_local_to_scene = true
 radius = 1.0
 height = 500.0
 

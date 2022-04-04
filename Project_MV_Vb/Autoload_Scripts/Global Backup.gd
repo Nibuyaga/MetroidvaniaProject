@@ -8,8 +8,6 @@ onready var root = get_tree().get_root()	# shortcut var for getting the root
 
 
 var spn_on_in_goto_scene = true	# variable which determines whether a new player node will spawn or not
-var stored_path = ""
-
 
 # !Consider changing this when dealing introducing menus
 func _ready():
@@ -58,29 +56,8 @@ func grab_current_level():
 
 func goto_scene(path):
 	
-	# stores path in var after animation
-	stored_path = path
-	
-	#! Add a freeze playing node function here!
-	#	The game still plays during the fade animation
-	
-	# plays animation
-	$AnimationPlayer.play("FadeToBlackScreen")
-
-
-func goto_scene2():
-	
-	if stored_path != "":
-		call_deferred("_deferred_goto_scene", stored_path)
-		# call_deferred starts the function after all the code from the current scene has been completed
-		stored_path = ""
-		# reset stored_path
-		$AnimationPlayer.play("FadeToTransparent")
-		
-	else:
-		print("!Trying to start goto_scene2 without stored_path")
-	
-
+	call_deferred("_deferred_goto_scene", path)
+	# call_deferred starts the function after all the code from the current scene has been completed
 
 
 func _deferred_goto_scene(path):
