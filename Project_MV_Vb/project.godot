@@ -20,7 +20,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Autoload_Scripts/Global.gd"
+Global="*res://Autoload_Scripts/Global.tscn"
 PlayerVariables="*res://Autoload_Scripts/PlayerGlobal.gd"
 
 [display]
