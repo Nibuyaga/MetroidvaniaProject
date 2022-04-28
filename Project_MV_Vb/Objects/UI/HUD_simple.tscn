@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/UI/GUI_Assets/GenericBarUnder.png" type="Texture" id=1]
+[ext_resource path="res://Objects/UI/GUI_Assets/Icon_Background.png" type="Texture" id=2]
+[ext_resource path="res://Objects/UI/GUI_Assets/GenericBarOver.png" type="Texture" id=6]
+[ext_resource path="res://Objects/UI/GUI_Assets/GenericBarProgress.png" type="Texture" id=7]
+[ext_resource path="res://Objects/UI/HUD_simple.gd" type="Script" id=8]
+
+[node name="HUD_simple" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 0.2
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -2.0
+margin_bottom = -2.0
+script = ExtResource( 8 )
+
+[node name="HBox" type="HBoxContainer" parent="."]
+margin_right = 313.0
+margin_bottom = 29.0
+
+[node name="Icon_BulletBackground" type="NinePatchRect" parent="HBox"]
+margin_right = 21.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 21, 21 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Icon_Bullet" type="TextureRect" parent="HBox/Icon_BulletBackground"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 21.0
+margin_bottom = 21.0
+
+[node name="VBox_Gauge" type="VBoxContainer" parent="HBox"]
+margin_left = 25.0
+margin_right = 125.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 100, 0 )
+custom_constants/separation = 0
+
+[node name="HP_Bar" type="NinePatchRect" parent="HBox/VBox_Gauge"]
+margin_right = 100.0
+margin_bottom = 7.0
+rect_min_size = Vector2( 0, 7 )
+size_flags_horizontal = 3
+
+[node name="Bar" type="TextureProgress" parent="HBox/VBox_Gauge/HP_Bar"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -2.5
+margin_right = 20.0
+margin_bottom = 2.5
+size_flags_horizontal = 0
+size_flags_vertical = 0
+max_value = 10.0
+value = 5.0
+texture_under = ExtResource( 1 )
+texture_over = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
+tint_under = Color( 0, 0, 0, 1 )
+tint_progress = Color( 0.333333, 0.588235, 0.239216, 1 )
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 2
+
+[node name="EP_Bar" type="NinePatchRect" parent="HBox/VBox_Gauge"]
+margin_top = 7.0
+margin_right = 100.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 0, 7 )
+
+[node name="Bar" type="TextureProgress" parent="HBox/VBox_Gauge/EP_Bar"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -2.5
+margin_right = 20.0
+margin_bottom = 2.5
+size_flags_horizontal = 0
+size_flags_vertical = 0
+max_value = 10.0
+value = 5.0
+texture_under = ExtResource( 1 )
+texture_over = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
+tint_under = Color( 0, 0, 0, 1 )
+tint_progress = Color( 0.752941, 0.701961, 0.294118, 1 )
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 2

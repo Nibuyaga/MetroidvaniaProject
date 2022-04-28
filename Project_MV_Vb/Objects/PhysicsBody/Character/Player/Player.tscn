@@ -4,7 +4,7 @@
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/arm.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/Player_Placeholder.png" type="Texture" id=4]
-[ext_resource path="res://Objects/UI/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/UI/HUD_simple.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Weapons/Swords/sword.gd" type="Script" id=6]
 [ext_resource path="res://Objects/Weapons/Swords/slashes.png" type="Texture" id=7]
 
@@ -2204,7 +2204,7 @@ nodes/Run/position = Vector2( -800, 360 )
 nodes/Stance/node = SubResource( 156 )
 nodes/Stance/position = Vector2( 400, -200 )
 nodes/output/position = Vector2( 880, 0 )
-node_connections = [ "JumpAttack_2_Trigger", 0, "JumpAttack_1_Trigger", "JumpAttack_2_Trigger", 1, "JumpAttack_2_BlendSpace2D", "GroundAttack_2_Trigger", 0, "GroundAttack_1_Trigger", "GroundAttack_2_Trigger", 1, "GroundAttack_2_BlendSpace2D", "JumpAttack_1_Trigger", 0, "JumpNormal", "JumpAttack_1_Trigger", 1, "JumpAttack_1_BlendSpace2D", "CrouchAttack_2_Trigger", 0, "CrouchAttack_1_Trigger", "CrouchAttack_2_Trigger", 1, "CrouchAttack_2_BlendSpace2D", "Damaged_Trigger", 0, "Stance", "Damaged_Trigger", 1, "Damaged_BlendSpace2D", "GroundAttack_1_Trigger", 0, "Ground_State", "GroundAttack_1_Trigger", 1, "GroundAttack_1_BlendSpace2D", "Dead_trigger", 0, "Damaged_Trigger", "Dead_trigger", 1, "Dead_BlendSpace2D", "Ground_State", 0, "Idle", "Ground_State", 1, "Run", "CrouchAttack_1_Trigger", 0, "Crouch", "CrouchAttack_1_Trigger", 1, "CrouchAttack_1_BlendSpace2D", "Stance", 0, "JumpAttack_2_Trigger", "Stance", 1, "GroundAttack_2_Trigger", "Stance", 2, "CrouchAttack_2_Trigger", "output", 0, "Dead_trigger" ]
+node_connections = [ "output", 0, "Dead_trigger", "CrouchAttack_1_Trigger", 0, "Crouch", "CrouchAttack_1_Trigger", 1, "CrouchAttack_1_BlendSpace2D", "Dead_trigger", 0, "Damaged_Trigger", "Dead_trigger", 1, "Dead_BlendSpace2D", "Damaged_Trigger", 0, "Stance", "Damaged_Trigger", 1, "Damaged_BlendSpace2D", "Ground_State", 0, "Idle", "Ground_State", 1, "Run", "GroundAttack_2_Trigger", 0, "GroundAttack_1_Trigger", "GroundAttack_2_Trigger", 1, "GroundAttack_2_BlendSpace2D", "CrouchAttack_2_Trigger", 0, "CrouchAttack_1_Trigger", "CrouchAttack_2_Trigger", 1, "CrouchAttack_2_BlendSpace2D", "JumpAttack_2_Trigger", 0, "JumpAttack_1_Trigger", "JumpAttack_2_Trigger", 1, "JumpAttack_2_BlendSpace2D", "GroundAttack_1_Trigger", 0, "Ground_State", "GroundAttack_1_Trigger", 1, "GroundAttack_1_BlendSpace2D", "JumpAttack_1_Trigger", 0, "JumpNormal", "JumpAttack_1_Trigger", 1, "JumpAttack_1_BlendSpace2D", "Stance", 0, "JumpAttack_2_Trigger", "Stance", 1, "GroundAttack_2_Trigger", "Stance", 2, "CrouchAttack_2_Trigger" ]
 
 [sub_resource type="RectangleShape2D" id=161]
 resource_local_to_scene = true
@@ -2342,8 +2342,7 @@ smoothing_speed = 6.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
 layer = 2
 
-[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 5 )]
-visible = false
+[node name="HUD_simple" parent="CanvasLayer" index="0" instance=ExtResource( 5 )]
 
 [node name="sword" type="Area2D" parent="." index="9"]
 collision_layer = 0

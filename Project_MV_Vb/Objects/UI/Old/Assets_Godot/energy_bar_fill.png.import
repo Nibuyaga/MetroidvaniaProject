@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lifebar_fill.png-9e6059804dde8e7ee65786292f7461a9.stex"
+path="res://.import/energy_bar_fill.png-c46e070371277084ca37182f52342d5e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/UI/Assets_Godot/lifebar_fill.png"
-dest_files=[ "res://.import/lifebar_fill.png-9e6059804dde8e7ee65786292f7461a9.stex" ]
+source_file="res://Objects/UI/Old/Assets_Godot/energy_bar_fill.png"
+dest_files=[ "res://.import/energy_bar_fill.png-c46e070371277084ca37182f52342d5e.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

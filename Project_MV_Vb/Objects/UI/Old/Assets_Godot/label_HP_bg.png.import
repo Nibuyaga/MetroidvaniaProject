@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/label_HP_bg.png-750f9aa9762680208c146ee74740dd58.stex"
+path="res://.import/label_HP_bg.png-04492dbc3d342ba9b7726828e352f243.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/UI/Assets_Godot/label_HP_bg.png"
-dest_files=[ "res://.import/label_HP_bg.png-750f9aa9762680208c146ee74740dd58.stex" ]
+source_file="res://Objects/UI/Old/Assets_Godot/label_HP_bg.png"
+dest_files=[ "res://.import/label_HP_bg.png-04492dbc3d342ba9b7726828e352f243.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
