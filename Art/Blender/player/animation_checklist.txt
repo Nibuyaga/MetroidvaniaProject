@@ -1,0 +1,12 @@
+aim		X
+idle		X
+run		X
+jump up		X
+fall down	X
+jump forward	X
+hurt		X
+
+sword-slash	X
+sword-charge    X
+sword-jump
+
