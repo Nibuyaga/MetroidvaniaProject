@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/TileMap - Area01, BuildingBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/Area01_Background_Building_07-02-2022_2.png" type="Texture" id=2]
 [ext_resource path="res://Rooms/SceneChanger_S.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Rooms/Area01/Area01 - Objects/Door - Area01.tscn" type="PackedScene" id=4]
 
 [node name="Area01 - Building005" type="Node2D"]
 
@@ -27,3 +28,6 @@ centered = false
 
 [node name="RoomSizeReference" type="Position2D" parent="."]
 position = Vector2( 320, 720 )
+
+[node name="Door - Area01, 0" parent="." instance=ExtResource( 4 )]
+position = Vector2( 320, 70 )

@@ -18,10 +18,10 @@ onready var player_vars = get_node("/root/PlayerVariables")
 onready var arm = get_node("arm")
 onready var sword = get_node("sword")
 onready var guns = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"), get_node("arm/gun_hook")]
-export var gun = 0
+#export var gun = 0
 
-# var for GUI
-onready var GUI =  get_node_or_null("CanvasLayer/GUI")
+# var for HUD
+onready var HUD =  get_node_or_null("CanvasLayer/HUD_simple")
 
 
 func _ready():
@@ -31,6 +31,11 @@ func _ready():
 	
 		PlayerVariables.get_data(self)
 	
+	# gets stored playervariables
+	if PlayerVariables.gameplay_is_running:
+		PlayerVariables.get_data(self)
+	
+	HUD.update_multiple_at_ready(stats)
 	# !AT, sets the AnimationTree at active at ready
 	$AnimationTree.active = true
 
@@ -38,6 +43,13 @@ func _input(event):
 	# input for falling through 'pass' tiles
 	if event.is_action_pressed("aim_down") and $FloorRay.is_colliding():
 		velocity.y += 1
+	# input for cycling through bullets
+	elif event.is_action_pressed("cycle_bullet"):
+		stats["gun"] += 1
+		if stats["gun"] >= stats["gun_max_cycle"]:
+			stats["gun"] = 0
+
+		HUD.updateBulletIcon(stats["gun"])
 
 func update_aim():
 	var manual_aim_up = Input.get_action_strength("aim_up_right") - Input.get_action_strength("aim_up_left")
@@ -92,7 +104,7 @@ func _process(delta):
 		jumping = false
 	update_aim()
 	#TODO: check if gun in player_vars.stats['guns']
-	guns[gun].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
+	guns[stats["gun"]].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
 	if 'sword' in player_vars.stats:
 		sword.show()
 		sword.update_weapon(delta, aim, Input.get_action_strength("attack_b"))
@@ -142,6 +154,6 @@ func _on_Hurtbox_area_entered(area):
 	else:
 		calc_health(1)
 	
-	# GUI function, may need to change if the GUI is placed somewhere else
-	if GUI != null:
-		GUI.update_bars("hp", stats['health'])
+	# HUD function
+	if HUD != null:
+		HUD.update_hud("hp", stats['health'])

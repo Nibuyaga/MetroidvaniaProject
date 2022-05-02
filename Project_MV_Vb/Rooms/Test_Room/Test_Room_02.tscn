@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Pass.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Solid.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Rooms/SceneChanger.tscn" type="PackedScene" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Solid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Pass.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Rooms/SceneChanger.tscn" type="PackedScene" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Area2D
@@ -20,19 +20,19 @@ extents = Vector2( 31.1629, 31.9711 )
 
 [node name="Test_Room_02" type="Node2D"]
 
-[node name="TileMap - Test_Room_Solid" parent="." instance=ExtResource( 2 )]
+[node name="TileMap - Test_Room_Solid" parent="." instance=ExtResource( 1 )]
 tile_data = PoolIntArray( 1179645, 1, 8, 1179646, 1, 65547, 1179647, 1, 65547, 1114112, 1, 65547, 1114113, 1, 65547, 1114114, 1, 65547, 1114115, 1, 65547, 1114116, 1, 65547, 1114117, 1, 65547, 1114118, 1, 65547, 1114119, 1, 65547, 1114120, 1, 65547, 1114121, 1, 65547, 1114122, 1, 65547, 1114123, 1, 65547, 1114124, 1, 65547, 1114125, 1, 65547, 1114126, 1, 65547, 1114127, 1, 65547, 1114128, 1, 65547, 1114129, 1, 65547, 1114130, 1, 65547, 1114131, 1, 65547, 1114132, 1, 65547, 1114133, 1, 65547, 1114134, 1, 65547, 1114135, 1, 65547, 1114136, 1, 65547, 1114137, 1, 65547, 1114138, 1, 65547, 1114139, 1, 65547, 1114140, 1, 65547, 1114141, 1, 65547, 1114142, 1, 65547, 1114143, 1, 65547, 1114144, 1, 65547, 1114145, 1, 65547, 1114146, 1, 9, 1245181, 1, 10, 1245182, 1, 131083, 1245183, 1, 131083, 1179648, 1, 131083, 1179649, 1, 131083, 1179650, 1, 131083, 1179651, 1, 131083, 1179652, 1, 131083, 1179653, 1, 131083, 1179654, 1, 131083, 1179655, 1, 131083, 1179656, 1, 131083, 1179657, 1, 131083, 1179658, 1, 131083, 1179659, 1, 131083, 1179660, 1, 131083, 1179661, 1, 131083, 1179662, 1, 131083, 1179663, 1, 131083, 1179664, 1, 131083, 1179665, 1, 131083, 1179666, 1, 131083, 1179667, 1, 131083, 1179668, 1, 131083, 1179669, 1, 131083, 1179670, 1, 131083, 1179671, 1, 131083, 1179672, 1, 131083, 1179673, 1, 131083, 1179674, 1, 131083, 1179675, 1, 131083, 1179676, 1, 131083, 1179677, 1, 131083, 1179678, 1, 131083, 1179679, 1, 131083, 1179680, 1, 131083, 1179681, 1, 131083, 1179682, 1, 11, 1310717, 1, 65544, 1310718, 1, 65546, 1310719, 1, 65546, 1245184, 1, 65546, 1245185, 1, 65546, 1245186, 1, 65546, 1245187, 1, 65546, 1245188, 1, 65546, 1245189, 1, 65546, 1245190, 1, 65546, 1245191, 1, 65546, 1245192, 1, 65546, 1245193, 1, 65546, 1245194, 1, 65546, 1245195, 1, 65546, 1245196, 1, 65546, 1245197, 1, 65546, 1245198, 1, 65546, 1245199, 1, 65546, 1245200, 1, 65546, 1245201, 1, 65546, 1245202, 1, 65546, 1245203, 1, 65546, 1245204, 1, 65546, 1245205, 1, 65546, 1245206, 1, 65546, 1245207, 1, 65546, 1245208, 1, 65546, 1245209, 1, 65546, 1245210, 1, 65546, 1245211, 1, 65546, 1245212, 1, 65546, 1245213, 1, 65546, 1245214, 1, 65546, 1245215, 1, 65546, 1245216, 1, 65546, 1245217, 1, 65546, 1245218, 1, 65545 )
 
-[node name="TileMap - Test_Room_Pass" parent="." instance=ExtResource( 1 )]
+[node name="TileMap - Test_Room_Pass" parent="." instance=ExtResource( 2 )]
 
-[node name="SceneChanger_Left" parent="." instance=ExtResource( 4 )]
+[node name="SceneChanger_Left" parent="." instance=ExtResource( 3 )]
 position = Vector2( -29, 546 )
-next_scene_path = "res://Rooms/Test_Room_02.tscn"
+next_scene_path = "res://Rooms/Test_Room/Test_Room_02.tscn"
 new_player_pos = Vector2( 1024, 528 )
 
-[node name="SceneChanger_Right" parent="." instance=ExtResource( 4 )]
+[node name="SceneChanger_Right" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1060, 546 )
-next_scene_path = "res://Rooms/Test_Room.tscn"
+next_scene_path = "res://Rooms/Test_Room/Test_Room.tscn"
 new_player_pos = Vector2( 0, 464 )
 
 [node name="Test_Player_Damage" type="Area2D" parent="."]
@@ -45,7 +45,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Test_Player_Damage"]
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="Test_Player_Damage"]
 shape = SubResource( 2 )

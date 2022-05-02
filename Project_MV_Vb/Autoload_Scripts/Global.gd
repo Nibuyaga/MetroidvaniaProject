@@ -61,6 +61,9 @@ func goto_scene(path):
 	# stores path in var after animation
 	stored_path = path
 	
+	# a check to make sure the playervariable storing is done proper
+	PlayerVariables.gameplay_is_running = true
+	
 	#! Add a freeze playing node function here!
 	#	The game still plays during the fade animation
 	
@@ -69,6 +72,12 @@ func goto_scene(path):
 
 
 func goto_scene2():
+	
+	# stores the current stats of player
+	player_node = grab_current_level().get_node_or_null("Player")
+	if player_node != null:
+		PlayerVariables.store_data(player_node)
+	
 	
 	if stored_path != "":
 		call_deferred("_deferred_goto_scene", stored_path)

@@ -4,9 +4,11 @@ export var speed = 2400
 export var jumpforce = 380
 export var stats = {
 	'gun':0,
-	'health':10,
+	'gun_max_cycle': 3,
 	'max_health':10,
+	'health':10,
 	'alive': true,
+	
 }
 
 var facing = 0
