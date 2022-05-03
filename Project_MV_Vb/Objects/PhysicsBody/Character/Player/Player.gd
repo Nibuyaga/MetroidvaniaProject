@@ -16,7 +16,7 @@ export var wall_jump_force = 128
 
 onready var player_vars = get_node("/root/PlayerVariables")
 onready var arm = get_node("arm")
-onready var sword = get_node("sword")
+#onready var sword = get_node("sword")
 onready var guns = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"), get_node("arm/gun_hook")]
 #export var gun = 0
 
@@ -105,39 +105,23 @@ func _process(delta):
 	update_aim()
 	#TODO: check if gun in player_vars.stats['guns']
 	guns[stats["gun"]].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
-	if 'sword' in player_vars.stats:
-		sword.show()
-		sword.update_weapon(delta, aim, Input.get_action_strength("attack_b"))
-	else:
-		sword.hide()
+	#if 'sword' in player_vars.stats:
+	#	sword.show()
+	#	sword.update_weapon(delta, aim, Input.get_action_strength("attack_b"))
+	#else:
+	#	sword.hide()
 		
 	# !Camera and Blendspace2D.x correction
 	$CameraDirection.position.x = facing * 20
 	
-	# !AT, not optimal
-	# Also PhysicBody's _physics_process() still applies flip.h 
-	$AnimationTree.set("parameters/Idle/blend_position", Vector2(facing, 0))
-	$AnimationTree.set("parameters/Run/blend_position", Vector2(facing, 0))
-	$AnimationTree.set("parameters/GroundAttack_1_BlendSpace2D/blend_position", Vector2(facing, 0))
-	$AnimationTree.set("parameters/GroundAttack_2_BlendSpace2D/blend_position", Vector2(facing, 0))
-	$AnimationTree.set("parameters/JumpNormal/blend_position", Vector2(facing, 0))
-	$AnimationTree.set("parameters/JumpAttack_1_BlendSpace2D/blend_position", Vector2(facing, 0))
-	$AnimationTree.set("parameters/JumpAttack_2_BlendSpace2D/blend_position", Vector2(facing, 0))
-	$AnimationTree.set("parameters/Crouch/blend_position", Vector2(facing, 0))
-	$AnimationTree.set("parameters/CrouchAttack_1_BlendSpace2D/blend_position", Vector2(facing, 0))
-	$AnimationTree.set("parameters/CroundAttack_2_BlendSpace2D/blend_position", Vector2(facing, 0))
-	$AnimationTree.set("parameters/Damaged_BlendSpace2D/blend_position", Vector2(facing, 0))
-	$AnimationTree.set("parameters/Dead_BlendSpace2D/blend_position", Vector2(facing, 0))
-		
 	
-	# !AT, animationtree section
-	if $FloorRay.is_colliding():
-		# Ground Animation
-		$AnimationTree.set("parameters/Stance/current", 1)
+	$AnimationTree.set("parameters/action/current", 1)
+	if is_on_floor():
+		if abs(velocity.x) > 0.01: 
+			$AnimationTree.set("parameters/movement/current", 1)
+		else:
+			$AnimationTree.set("parameters/movement/current", 0)
 
-	else:
-		# Jump Animation
-		$AnimationTree.set("parameters/Stance/current", 0)
 
 # note by nib, can be helpful when implementing AnimationTree
 # $AnimationTree.set("parameters/Idle/blend_position", Vector2(0,0))
