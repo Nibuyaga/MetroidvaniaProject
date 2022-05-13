@@ -1,10 +1,10 @@
 extends StaticBody2D
 
-
+# listKeys, basically all the nodes it can interact to open
 var listKeys = [
 	"NormalBullet"
 ]
-var closeDirectly = true
+export var closeDirectly = true
 
 export var flip_h = false
 

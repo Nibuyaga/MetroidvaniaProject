@@ -149,8 +149,8 @@ func _on_Hurtbox_area_entered(area):
 	print('ouch!')
 	knockback(Vector2(-1000,-100), true)
 	
-	if "damage" in area:	# This needs to be tested
-		calc_health(area.damage)
+	if "damage" in area.get_owner():	# This needs to be tested
+		calc_health(area.get_owner().damage)
 	else:
 		calc_health(1)
 	

@@ -30,3 +30,8 @@ flip_h = true
 position = Vector2( -20, 140 )
 next_scene_path = "res://Rooms/Area01/Area01 - Building002.tscn"
 new_player_pos = Vector2( 720, 180 )
+
+[node name="SceneChanger_ Building007" parent="." instance=ExtResource( 4 )]
+position = Vector2( 340, 140 )
+next_scene_path = "res://Rooms/Area01/Area01 - Building007.tscn"
+new_player_pos = Vector2( 0, 160 )

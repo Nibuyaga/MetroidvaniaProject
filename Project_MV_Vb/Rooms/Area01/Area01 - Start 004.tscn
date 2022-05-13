@@ -29,7 +29,7 @@ new_player_pos = Vector2( 640, 400 )
 [node name="SceneChanger_ Building001" parent="." instance=ExtResource( 5 )]
 position = Vector2( 580, 140 )
 next_scene_path = "res://Rooms/Area01/Area01 - Building001.tscn"
-new_player_pos = Vector2( 0, 420 )
+new_player_pos = Vector2( 0, 440 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_base_offset = Vector2( -107, 100 )
