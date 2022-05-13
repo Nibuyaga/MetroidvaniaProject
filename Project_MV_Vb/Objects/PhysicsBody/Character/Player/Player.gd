@@ -8,7 +8,7 @@ var double_jump = 0
 var wall_jump = 0
 var jumping = false
 
-var aim = 0 # multiply by 45 degrees 
+var aim = 0 # multiply by 45 degrees
 var ani_aim = 0
 
 export var double_jumps = 1
@@ -29,13 +29,13 @@ func _ready():
 	# used for setting player position when changing scenes
 	if PlayerVariables.player_spawn_location != null:
 		global_position = PlayerVariables.player_spawn_location
-	
+
 		PlayerVariables.get_data(self)
-	
+
 	# gets stored playervariables
 	if PlayerVariables.gameplay_is_running:
 		PlayerVariables.get_data(self)
-	
+
 	HUD.update_multiple_at_ready(stats)
 	# !AT, sets the AnimationTree at active at ready
 	$AnimationTree.active = true
@@ -61,7 +61,7 @@ func update_aim():
 	elif manual_aim_down:
 		aim = int(manual_aim_down)
 	# If not manually aiming, figure it out with up and down.
-	else: 
+	else:
 		if horizontal_movement:
 			aim = round(horizontal_movement)*2
 			if aim < 0:
@@ -93,7 +93,7 @@ func jump():
 
 func animate():
 	if is_on_floor():
-		if abs(velocity.x) > 100: 
+		if abs(velocity.x) > 100:
 			$AnimationTree.set("parameters/movement/current", 1)
 		else:
 			$AnimationTree.set("parameters/movement/current", 0)
@@ -105,7 +105,7 @@ func animate():
 				$AnimationTree.set("parameters/movement/current", 3)
 		elif velocity.y > 100:
 			$AnimationTree.set("parameters/movement/current", 4)
-	
+
 	# Set aim. A bit messy atm.
 	if facing < 0:
 		ani_aim = int((aim*facing)+8)%5
@@ -115,7 +115,7 @@ func animate():
 		ani_aim = 0
 	for anim in ["idle", "walk", "jump_up", "jump_forward", "fall"]:
 		$AnimationTree.set("parameters/"+anim+"/current", ani_aim)
-		
+
 func _process(delta):
 	horizontal_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	if horizontal_movement:
@@ -130,8 +130,8 @@ func _process(delta):
 		jumping = false
 	update_aim()
 	animate()
-	# Overwrite the physicsbody flip because control is more responsive than velocity 
-	if facing > 0: 
+	# Overwrite the physicsbody flip because control is more responsive than velocity
+	if facing > 0:
 		$Sprite.flip_h = false
 	elif facing < 0:
 		$Sprite.flip_h = true
@@ -143,7 +143,7 @@ func _process(delta):
 	#	sword.update_weapon(delta, aim, Input.get_action_strength("attack_b"))
 	#else:
 	#	sword.hide()
-		
+
 	# !Camera and Blendspace2D.x correction
 	$CameraDirection.position.x = facing * 20
 
@@ -161,7 +161,7 @@ func _on_Hurtbox_area_entered(area):
 		calc_health(area.damage)
 	else:
 		calc_health(1)
-	
+
 	# HUD function
 	if HUD != null:
 		HUD.update_hud("hp", stats['health'])

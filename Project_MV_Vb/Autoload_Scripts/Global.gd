@@ -17,32 +17,34 @@ func _ready():
 	# gets the last child of the root, which generally is the loaded scene, the current level
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
-	# checks and if confirmed copies the player_spawn_location of level
-	#	if not changes the spawn location to the bottom middle of the level
-	if "player_spawn_location" in current_scene:
-		if current_scene.player_spawn_location.x == 0 or current_scene.player_spawn_location.y == 0:
-			print("player spawn location contain 0")
+	# A convenience check whether or not the player will spawn
+	if false:
+		# checks and if confirmed copies the player_spawn_location of level
+		#	if not changes the spawn location to the bottom middle of the level
+		if "player_spawn_location" in current_scene:
+			if current_scene.player_spawn_location.x == 0 or current_scene.player_spawn_location.y == 0:
+				print("player spawn location contain 0")
+			else:
+				player_spawn_location = current_scene.player_spawn_location
+				player_spawn_location.y += -18	# a correction
 		else:
-			player_spawn_location = current_scene.player_spawn_location
-			player_spawn_location.y += -18	# a correction
-	else:
-		print("player spawn location not found in starting scene")
-	# Changes the starting spawn location to the bottommiddle of the level
-	#	If the player_spawn_location == null
-		var roomsize_ready = current_scene.get_node_or_null("RoomSizeReference")
-		if roomsize_ready != null:
-			player_spawn_location = Vector2(
-				roomsize_ready.position.x / 2,
-				roomsize_ready.position.y - 38
-			)
-	
-	# adds player node if player node is lacking
-	player_node = _spawn_player_node()
-	
-	if player_spawn_location != null:
-		player_node.position = player_spawn_location
-	else:
-		player_node.position = Vector2(150,150)
+			print("player spawn location not found in starting scene")
+		# Changes the starting spawn location to the bottommiddle of the level
+		#	If the player_spawn_location == null
+			var roomsize_ready = current_scene.get_node_or_null("RoomSizeReference")
+			if roomsize_ready != null:
+				player_spawn_location = Vector2(
+					roomsize_ready.position.x / 2,
+					roomsize_ready.position.y - 38
+				)
+		
+		# adds player node if player node is lacking
+		player_node = _spawn_player_node()
+		
+		if player_spawn_location != null:
+			player_node.position = player_spawn_location
+		else:
+			player_node.position = Vector2(150,150)
 	
 	# changes camera to fit current room, at the start of the game
 	_change_camera_limit()
