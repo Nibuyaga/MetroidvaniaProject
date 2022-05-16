@@ -1,15 +1,17 @@
 extends KinematicBody2D
 
-# add animationplayer
-# 
 enum STATE {
 	detect,
 	prepare,
 	shoot
 }
 
-var state = STATE.shoot
+var state = STATE.detect
 onready var RC: RayCast2D = get_node("RayCast2D")
+onready var RCD: RayCast2D = get_node("RayCastDetect")
+
+export var damage = 2
+
 
 func _physics_process(_delta):
 	
@@ -19,21 +21,57 @@ func _physics_process(_delta):
 	
 	if RC.is_colliding():
 		# collide with player or enemy
-		if RC.get_collision_mask_bit(10) or RC.get_collision_mask_bit(11):
-			change_to_prepare()
+
 		# When the Raycast hits the world layer
 			# collision with the tilemap etc
-		if RC.get_collision_mask_bit(0):
-			cast_point = to_local(RC.get_collision_point())
+		cast_point = to_local(RC.get_collision_point())
 	
 	# Changes the cast_point in the respective state
 	match state:
 		STATE.detect:
+			RCD.cast_to = cast_point
 			$DetectionLine.points[1] = cast_point
+			RCD.force_raycast_update()
+			if RCD.is_colliding():
+				change_to_prepare()
+			
 		STATE.shoot:
 			$Laser.points[1] = cast_point
+			$LaserHitbox/CollisionShape2D.shape.height = cast_point.y
+			$LaserHitbox/CollisionShape2D.position.y = cast_point.y/2
+	
 
+func change_to_detect():
+	state = STATE.detect
+	
+	$AnimationPlayer.play("detect_appear")
 
 func change_to_prepare():
 	state = STATE.prepare
 	$DetectionLine.visible = false
+	$AnimationPlayer.play("prepare")
+
+func change_to_shoot():
+	state = STATE.shoot
+	$AnimationPlayer.play("shoot")
+
+# tween functions !Unused
+#func laser_appear():
+#	$Tween.stop_all()
+#	$Tween.interpolate_property($Laser, "width", 0, 10, 0.1)
+#	$Tween.start()
+#
+#func laser_disappear():
+#	$Tween.stop_all()
+#	$Tween.interpolate_property($Laser, "width", 10, 0, 0.1)
+#	$Tween.start()
+#
+#func detect_appear():
+#	$Tween.stop_all()
+#	$Tween.interpolate_property($DetectionLine, "width", 0, 10, 0.1)
+#	$Tween.start()
+#
+#func detect_disappear():
+#	$Tween.stop_all()
+#	$Tween.interpolate_property($DetectionLine, "width", 10, 0, 0.1)
+#	$Tween.start()

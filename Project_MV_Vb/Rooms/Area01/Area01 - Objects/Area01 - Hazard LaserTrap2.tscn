@@ -1,24 +1,226 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Rooms/Area01/Area01 - Objects/Area01 - Hazard LaserTrap2.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 0.0
 
-[sub_resource type="GDScript" id=3]
-script/source = "extends StaticBody2D
+[sub_resource type="CapsuleShape2D" id=4]
+resource_local_to_scene = true
+radius = 5.0
+height = 100.0
 
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("PrepareFeedback:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LaserHitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Laser:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("DetectionLine:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("DetectionLine:width")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 10.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Laser:width")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 10.0 ]
+}
 
-func _input(event):
-	if event is InputEventMouseButton:
-		position = get_global_mouse_position() - get_node(\"..\").position
-"
+[sub_resource type="Animation" id=7]
+resource_name = "detect_appear"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("DetectionLine:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DetectionLine:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="CapsuleShape2D" id=2]
-height = 60.0
+[sub_resource type="Animation" id=6]
+resource_name = "prepare"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PrepareFeedback:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -20, 10 ), Vector2( 0, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PrepareFeedback:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 40, 40 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PrepareFeedback:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "change_to_shoot"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "shoot"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Laser:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, 10.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Laser:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LaserHitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "change_to_detect"
+} ]
+}
 
 [node name="Area01 - Hazard LaserTrap2" type="KinematicBody2D"]
-position = Vector2( 80, 30 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -27,25 +229,45 @@ shape = SubResource( 1 )
 [node name="RayCast2D" type="RayCast2D" parent="."]
 cast_to = Vector2( 0, 1000 )
 
+[node name="RayCastDetect" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, 1000 )
+collision_mask = 1536
+
 [node name="DetectionLine" type="Line2D" parent="."]
 points = PoolVector2Array( 0, 0, 0, 100 )
 default_color = Color( 0.4, 0.501961, 1, 0.494118 )
 
+[node name="PrepareFeedback" type="ColorRect" parent="."]
+visible = false
+margin_left = -20.0
+margin_top = 10.0
+margin_right = 20.0
+margin_bottom = 50.0
+color = Color( 1, 0.341176, 0.341176, 0.498039 )
+
 [node name="Laser" type="Line2D" parent="."]
+visible = false
 points = PoolVector2Array( 0, 0, 0, 100 )
 default_color = Color( 1, 0, 0, 1 )
 
-[node name="TestCollision_DeleteLater" type="StaticBody2D" parent="."]
-position = Vector2( 0, 100 )
-rotation = 1.5708
-script = SubResource( 3 )
+[node name="LaserHitbox" type="Area2D" parent="."]
+collision_layer = 12288
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestCollision_DeleteLater"]
-shape = SubResource( 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaserHitbox"]
+position = Vector2( 0, 50 )
+shape = SubResource( 4 )
+disabled = true
 
-[node name="ColorRect" type="ColorRect" parent="TestCollision_DeleteLater"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/detect_appear = SubResource( 7 )
+anims/prepare = SubResource( 6 )
+anims/shoot = SubResource( 9 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -10.0
-margin_top = -30.0
+margin_top = -10.0
 margin_right = 10.0
-margin_bottom = 30.0
-color = Color( 0.227451, 0.0627451, 0.0627451, 1 )
+margin_bottom = 10.0
+color = Color( 0.407843, 0.407843, 0.407843, 1 )
