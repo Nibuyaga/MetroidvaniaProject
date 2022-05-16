@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Objects/PhysicsBody/PhysicsBody.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/PhysicsBody/Character/Character.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=2]
+resource_local_to_scene = true
+load_path = "res://.import/player.png-5fe826d179e8297c657fd07c30124f2f.stex"
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -11,7 +15,7 @@ extents = Vector2( 15, 20 )
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( 1, 1 )
+texture = SubResource( 2 )
 
 [node name="FloorRay" type="RayCast2D" parent="." index="2"]
 position = Vector2( 0, 16 )
