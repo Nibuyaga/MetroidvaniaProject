@@ -103,6 +103,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=227]
 resource_name = "hurt"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -385,6 +386,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=170]
 resource_name = "walk_d"
+length = 0.7
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -393,7 +395,7 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 43, 53 ]
@@ -401,6 +403,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=167]
 resource_name = "walk_f"
+length = 0.7
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -409,7 +412,7 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 10, 19 ]
@@ -417,6 +420,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=169]
 resource_name = "walk_fd"
+length = 0.7
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -425,7 +429,7 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 32, 42 ]
@@ -433,6 +437,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=168]
 resource_name = "walk_fu"
+length = 0.7
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -441,7 +446,7 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 21, 31 ]
@@ -449,6 +454,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=171]
 resource_name = "walk_u"
+length = 0.7
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -457,7 +463,7 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 54, 63 ]
@@ -639,7 +645,7 @@ animation = "walk_fu"
 animation = "walk_u"
 
 [sub_resource type="AnimationNodeBlendTree" id=195]
-graph_offset = Vector2( -294.808, -1112.03 )
+graph_offset = Vector2( 126.165, -1449.3 )
 nodes/Animation/node = SubResource( 228 )
 nodes/Animation/position = Vector2( 520, -1280 )
 nodes/OneShot/node = SubResource( 225 )
@@ -715,19 +721,18 @@ nodes/walk_fu/node = SubResource( 193 )
 nodes/walk_fu/position = Vector2( -20, -420 )
 nodes/walk_u/node = SubResource( 194 )
 nodes/walk_u/position = Vector2( -20, -520 )
-node_connections = [ "action", 0, "OneShot", "action", 1, "movement", "idle", 0, "idle_u", "idle", 1, "idle_fu", "idle", 2, "idle_f", "idle", 3, "idle_fd", "idle", 4, "idle_d", "output", 0, "hurt", "movement", 0, "idle", "movement", 1, "walk", "movement", 2, "jump_forward", "movement", 3, "jump_up", "movement", 4, "fall", "walk", 0, "walk_u", "walk", 1, "walk_fu", "walk", 2, "walk_f", "walk", 3, "walk_fd", "walk", 4, "walk_d", "jump_up", 0, "jump_up_u", "jump_up", 1, "jump_up_fu", "jump_up", 2, "jump_up_f", "jump_up", 3, "jump_up_fd", "jump_up", 4, "jump_up_d", "OneShot", 0, "charge", "OneShot", 1, "slash", "fall", 0, "fall_u", "fall", 1, "fall_fu", "fall", 2, "fall_f", "fall", 3, "fall_fd", "fall", 4, "fall_d", "jump_forward", 0, "jump_forward_u", "jump_forward", 1, "jump_forward_fu", "jump_forward", 2, "jump_forward_f", "jump_forward", 3, "jump_forward_fd", "jump_forward", 4, "jump_forward_d", "hurt", 0, "action", "hurt", 1, "Animation" ]
+node_connections = [ "action", 0, "OneShot", "action", 1, "movement", "idle", 0, "idle_u", "idle", 1, "idle_fu", "idle", 2, "idle_f", "idle", 3, "idle_fd", "idle", 4, "idle_d", "output", 0, "hurt", "hurt", 0, "action", "hurt", 1, "Animation", "movement", 0, "idle", "movement", 1, "walk", "movement", 2, "jump_forward", "movement", 3, "jump_up", "movement", 4, "fall", "OneShot", 0, "charge", "OneShot", 1, "slash", "fall", 0, "fall_u", "fall", 1, "fall_fu", "fall", 2, "fall_f", "fall", 3, "fall_fd", "fall", 4, "fall_d", "walk", 0, "walk_u", "walk", 1, "walk_fu", "walk", 2, "walk_f", "walk", 3, "walk_fd", "walk", 4, "walk_d", "jump_up", 0, "jump_up_u", "jump_up", 1, "jump_up_fu", "jump_up", 2, "jump_up_f", "jump_up", 3, "jump_up_fd", "jump_up", 4, "jump_up_d", "jump_forward", 0, "jump_forward_u", "jump_forward", 1, "jump_forward_fu", "jump_forward", 2, "jump_forward_f", "jump_forward", 3, "jump_forward_fd", "jump_forward", 4, "jump_forward_d" ]
 
 [sub_resource type="CapsuleShape2D" id=160]
 resource_local_to_scene = true
-radius = 12.0
-height = 16.0
+height = 18.0
 
 [sub_resource type="RectangleShape2D" id=161]
 resource_local_to_scene = true
 extents = Vector2( 15, 20 )
 
-[sub_resource type="RectangleShape2D" id=158]
-extents = Vector2( 11.2748, 25.0676 )
+[sub_resource type="RectangleShape2D" id=230]
+extents = Vector2( 5.45975, 14.6433 )
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 1024
@@ -739,10 +744,10 @@ jumpforce = 330
 position = Vector2( 3, -4 )
 
 [node name="Sprite" parent="." index="1"]
-position = Vector2( 0, -5 )
+position = Vector2( 0, -7 )
 scale = Vector2( -1, 1 )
 texture = SubResource( 226 )
-frame = 13
+frame = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 anims/charge = SubResource( 224 )
@@ -790,7 +795,7 @@ parameters/movement/current = 1
 parameters/walk/current = 2
 
 [node name="CollisionShape2D" parent="." index="4"]
-visible = false
+position = Vector2( 0, -3 )
 shape = SubResource( 160 )
 
 [node name="FloorRay" parent="." index="5"]
@@ -831,8 +836,8 @@ collision_mask = 0
 script = ExtResource( 6 )
 
 [node name="sword_shape" type="CollisionShape2D" parent="sword" index="0"]
-position = Vector2( 13.0805, -0.713478 )
-shape = SubResource( 158 )
+position = Vector2( 8.54025, -5.35674 )
+shape = SubResource( 230 )
 
 [node name="swoosh" type="Sprite" parent="sword" index="1"]
 position = Vector2( -4.12552, -7.41498 )

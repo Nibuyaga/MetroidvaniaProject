@@ -148,7 +148,6 @@ func _process(delta):
 	$CameraDirection.position.x = facing * 20
 
 
-
 # note by nib, can be helpful when implementing AnimationTree
 # $AnimationTree.set("parameters/Idle/blend_position", Vector2(0,0))
 # "parameters/GroundAttack_1_BlendSpace2D/blend_position"
@@ -157,7 +156,7 @@ func _process(delta):
 # The player's Hurtbox function overwrites the Character function, fully
 func _on_Hurtbox_area_entered(area):
 	knockback(Vector2(-1000,-100), true)
-	
+	$AnimationTree.set("parameters/hurt/active", 1)
 	if "damage" in area:	# This needs to be tested
 		calc_health(area.damage)
 	else:
