@@ -28,8 +28,7 @@ func _process(delta):
 		velocity.y = 0.0
 	if stats['health'] <= 0:
 		return 
-	# turn if standing still (only works directly after _physics_process)
-	if $WallRay.is_colliding():
+	if abs(velocity.x) == 0:
 		turn_around()
 	elif is_on_floor() and not $FloorRay.is_colliding() and not persistent and not jumper:
 		turn_around()

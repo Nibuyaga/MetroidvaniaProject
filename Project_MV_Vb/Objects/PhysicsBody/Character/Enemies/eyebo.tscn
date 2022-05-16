@@ -6,7 +6,11 @@
 [ext_resource path="res://Assets/Creatures/eybo.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=8]
-radius = 6.49997
+radius = 8.99996
+
+[sub_resource type="RectangleShape2D" id=9]
+resource_local_to_scene = true
+extents = Vector2( 15, 7.5 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -98,10 +102,6 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19 ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
-resource_local_to_scene = true
-extents = Vector2( 15, 7.5 )
-
 [node name="eybo" instance=ExtResource( 1 )]
 collision_layer = 2048
 script = ExtResource( 2 )
@@ -124,15 +124,19 @@ vframes = 7
 frame = 31
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, -1 )
+position = Vector2( 0, -3 )
 rotation = 1.5708
 shape = SubResource( 8 )
 
 [node name="FloorRay" parent="." index="2"]
 position = Vector2( 18, -1 )
 
-[node name="WallRay" parent="." index="3"]
-position = Vector2( 18, -1 )
+[node name="Hurtbox" parent="." index="3"]
+collision_mask = 8192
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 1, -1.5 )
+shape = SubResource( 9 )
 
 [node name="Health_Counter" type="Node2D" parent="." index="4"]
 position = Vector2( 0, -4 )
@@ -151,10 +155,3 @@ anims/RESET = SubResource( 2 )
 anims/die = SubResource( 6 )
 anims/hurt = SubResource( 3 )
 anims/move = SubResource( 4 )
-
-[node name="Hurtbox" parent="." index="6"]
-collision_mask = 8192
-
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 1, -1.5 )
-shape = SubResource( 9 )

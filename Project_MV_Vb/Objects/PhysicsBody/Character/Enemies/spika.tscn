@@ -10,6 +10,10 @@ resource_local_to_scene = true
 radius = 9.0
 height = 18.0
 
+[sub_resource type="RectangleShape2D" id=158]
+resource_local_to_scene = true
+extents = Vector2( 13.5, 7.5 )
+
 [sub_resource type="Animation" id=160]
 length = 0.001
 tracks/0/type = "value"
@@ -87,10 +91,6 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 5, 6, 7, 8, 10, 11 ]
 }
 
-[sub_resource type="RectangleShape2D" id=158]
-resource_local_to_scene = true
-extents = Vector2( 13.5, 7.5 )
-
 [node name="spika" instance=ExtResource( 1 )]
 collision_layer = 2048
 script = ExtResource( 3 )
@@ -118,7 +118,14 @@ rotation = 1.5708
 shape = SubResource( 161 )
 
 [node name="FloorRay" parent="." index="2"]
-position = Vector2( 19, 1 )
+position = Vector2( 17, 1 )
+
+[node name="Hurtbox" parent="." index="3"]
+collision_mask = 8192
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( -0.5, -3 )
+shape = SubResource( 158 )
 
 [node name="Health_Counter" type="Node2D" parent="." index="4"]
 position = Vector2( 0, -1 )
@@ -137,10 +144,3 @@ anims/RESET = SubResource( 160 )
 anims/die = SubResource( 163 )
 anims/hurt = SubResource( 162 )
 anims/move = SubResource( 159 )
-
-[node name="Hurtbox" parent="." index="6"]
-collision_mask = 8192
-
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( -0.5, -3 )
-shape = SubResource( 158 )
