@@ -9,6 +9,7 @@ var wall_jump = 0
 var jumping = false
 
 var aim = 0 # multiply by 45 degrees 
+var ani_aim = 0
 
 export var double_jumps = 1
 export var wall_jumps = 2
@@ -90,6 +91,31 @@ func jump():
 		jumping = true
 		velocity.y = -jumpforce
 
+func animate():
+	if is_on_floor():
+		if abs(velocity.x) > 100: 
+			$AnimationTree.set("parameters/movement/current", 1)
+		else:
+			$AnimationTree.set("parameters/movement/current", 0)
+	else:
+		if velocity.y < 0:
+			if abs(velocity.x) > 50:
+				$AnimationTree.set("parameters/movement/current", 2)
+			else:
+				$AnimationTree.set("parameters/movement/current", 3)
+		elif velocity.y > 100:
+			$AnimationTree.set("parameters/movement/current", 4)
+	
+	# Set aim. A bit messy atm.
+	if facing < 0:
+		ani_aim = int((aim*facing)+8)%5
+	else:
+		ani_aim = aim%5
+	if aim == 0:
+		ani_aim = 0
+	for anim in ["idle", "walk", "jump_up", "jump_forward", "fall"]:
+		$AnimationTree.set("parameters/"+anim+"/current", ani_aim)
+		
 func _process(delta):
 	horizontal_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	if horizontal_movement:
@@ -103,6 +129,13 @@ func _process(delta):
 	else:
 		jumping = false
 	update_aim()
+	animate()
+	# Overwrite the physicsbody flip because control is more responsive than velocity 
+	if facing > 0: 
+		$Sprite.flip_h = false
+	elif facing < 0:
+		$Sprite.flip_h = true
+
 	#TODO: check if gun in player_vars.stats['guns']
 	guns[stats["gun"]].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
 	#if 'sword' in player_vars.stats:
@@ -113,14 +146,7 @@ func _process(delta):
 		
 	# !Camera and Blendspace2D.x correction
 	$CameraDirection.position.x = facing * 20
-	
-	
-	$AnimationTree.set("parameters/action/current", 1)
-	if is_on_floor():
-		if abs(velocity.x) > 0.01: 
-			$AnimationTree.set("parameters/movement/current", 1)
-		else:
-			$AnimationTree.set("parameters/movement/current", 0)
+
 
 
 # note by nib, can be helpful when implementing AnimationTree
@@ -130,7 +156,6 @@ func _process(delta):
 
 # The player's Hurtbox function overwrites the Character function, fully
 func _on_Hurtbox_area_entered(area):
-	print('ouch!')
 	knockback(Vector2(-1000,-100), true)
 	
 	if "damage" in area:	# This needs to be tested

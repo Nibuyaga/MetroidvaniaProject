@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://Objects/PhysicsBody/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/Player.gd" type="Script" id=2]
@@ -99,6 +99,21 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 70 ]
+}
+
+[sub_resource type="Animation" id=227]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 3 ]
 }
 
 [sub_resource type="Animation" id=163]
@@ -448,14 +463,19 @@ tracks/0/keys = {
 "values": [ 54, 63 ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=228]
+animation = "hurt"
+
 [sub_resource type="AnimationNodeOneShot" id=225]
 
 [sub_resource type="AnimationNodeTransition" id=221]
-input_count = 2
+input_count = 3
 input_0/name = "slash"
 input_0/auto_advance = false
 input_1/name = "move"
 input_1/auto_advance = false
+input_2/name = "hurt"
+input_2/auto_advance = false
 
 [sub_resource type="AnimationNodeAnimation" id=223]
 animation = "charge"
@@ -487,6 +507,8 @@ animation = "fall_fu"
 
 [sub_resource type="AnimationNodeAnimation" id=208]
 animation = "fall_u"
+
+[sub_resource type="AnimationNodeOneShot" id=229]
 
 [sub_resource type="AnimationNodeTransition" id=196]
 input_count = 5
@@ -617,11 +639,13 @@ animation = "walk_fu"
 animation = "walk_u"
 
 [sub_resource type="AnimationNodeBlendTree" id=195]
-graph_offset = Vector2( 0, -21 )
+graph_offset = Vector2( -294.808, -1112.03 )
+nodes/Animation/node = SubResource( 228 )
+nodes/Animation/position = Vector2( 520, -1280 )
 nodes/OneShot/node = SubResource( 225 )
 nodes/OneShot/position = Vector2( 261, -1476 )
 nodes/action/node = SubResource( 221 )
-nodes/action/position = Vector2( 441, -1395 )
+nodes/action/position = Vector2( 440, -1460 )
 nodes/charge/node = SubResource( 223 )
 nodes/charge/position = Vector2( 108, -1476 )
 nodes/fall/node = SubResource( 202 )
@@ -636,6 +660,8 @@ nodes/fall_fu/node = SubResource( 207 )
 nodes/fall_fu/position = Vector2( -783, -1368 )
 nodes/fall_u/node = SubResource( 208 )
 nodes/fall_u/position = Vector2( -783, -1467 )
+nodes/hurt/node = SubResource( 229 )
+nodes/hurt/position = Vector2( 700, -1420 )
 nodes/idle/node = SubResource( 196 )
 nodes/idle/position = Vector2( -27, -756 )
 nodes/idle_d/node = SubResource( 197 )
@@ -674,7 +700,7 @@ nodes/jump_up_u/node = SubResource( 219 )
 nodes/jump_up_u/position = Vector2( -621, -1233 )
 nodes/movement/node = SubResource( 220 )
 nodes/movement/position = Vector2( 270, -1287 )
-nodes/output/position = Vector2( 603, -1395 )
+nodes/output/position = Vector2( 1000, -1500 )
 nodes/slash/node = SubResource( 222 )
 nodes/slash/position = Vector2( 108, -1368 )
 nodes/walk/node = SubResource( 189 )
@@ -689,7 +715,7 @@ nodes/walk_fu/node = SubResource( 193 )
 nodes/walk_fu/position = Vector2( -20, -420 )
 nodes/walk_u/node = SubResource( 194 )
 nodes/walk_u/position = Vector2( -20, -520 )
-node_connections = [ "action", 0, "OneShot", "action", 1, "movement", "idle", 0, "idle_u", "idle", 1, "idle_fu", "idle", 2, "idle_f", "idle", 3, "idle_fd", "idle", 4, "idle_d", "output", 0, "action", "fall", 0, "fall_u", "fall", 1, "fall_fu", "fall", 2, "fall_f", "fall", 3, "fall_fd", "fall", 4, "fall_d", "walk", 0, "walk_u", "walk", 1, "walk_fu", "walk", 2, "walk_f", "walk", 3, "walk_fd", "walk", 4, "walk_d", "jump_up", 0, "jump_up_u", "jump_up", 1, "jump_up_fu", "jump_up", 2, "jump_up_f", "jump_up", 3, "jump_up_fd", "jump_up", 4, "jump_up_d", "jump_forward", 0, "jump_forward_u", "jump_forward", 1, "jump_forward_fu", "jump_forward", 2, "jump_forward_f", "jump_forward", 3, "jump_forward_fd", "jump_forward", 4, "jump_forward_d", "OneShot", 0, "charge", "OneShot", 1, "slash", "movement", 0, "idle", "movement", 1, "walk", "movement", 2, "jump_forward", "movement", 3, "jump_up", "movement", 4, "fall" ]
+node_connections = [ "action", 0, "OneShot", "action", 1, "movement", "idle", 0, "idle_u", "idle", 1, "idle_fu", "idle", 2, "idle_f", "idle", 3, "idle_fd", "idle", 4, "idle_d", "output", 0, "hurt", "movement", 0, "idle", "movement", 1, "walk", "movement", 2, "jump_forward", "movement", 3, "jump_up", "movement", 4, "fall", "walk", 0, "walk_u", "walk", 1, "walk_fu", "walk", 2, "walk_f", "walk", 3, "walk_fd", "walk", 4, "walk_d", "jump_up", 0, "jump_up_u", "jump_up", 1, "jump_up_fu", "jump_up", 2, "jump_up_f", "jump_up", 3, "jump_up_fd", "jump_up", 4, "jump_up_d", "OneShot", 0, "charge", "OneShot", 1, "slash", "fall", 0, "fall_u", "fall", 1, "fall_fu", "fall", 2, "fall_f", "fall", 3, "fall_fd", "fall", 4, "fall_d", "jump_forward", 0, "jump_forward_u", "jump_forward", 1, "jump_forward_fu", "jump_forward", 2, "jump_forward_f", "jump_forward", 3, "jump_forward_fd", "jump_forward", 4, "jump_forward_d", "hurt", 0, "action", "hurt", 1, "Animation" ]
 
 [sub_resource type="CapsuleShape2D" id=160]
 resource_local_to_scene = true
@@ -709,18 +735,23 @@ script = ExtResource( 2 )
 gravity = 1200
 jumpforce = 330
 
-[node name="Sprite" parent="." index="0"]
+[node name="arm" parent="." index="0" instance=ExtResource( 3 )]
+position = Vector2( 3, -4 )
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2( 0, -5 )
 scale = Vector2( -1, 1 )
 texture = SubResource( 226 )
-frame = 14
+frame = 13
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 anims/charge = SubResource( 224 )
 anims/fall_d = SubResource( 175 )
 anims/fall_f = SubResource( 172 )
 anims/fall_fd = SubResource( 173 )
 anims/fall_fu = SubResource( 174 )
 anims/fall_u = SubResource( 176 )
+anims/hurt = SubResource( 227 )
 anims/idle_d = SubResource( 163 )
 anims/idle_f = SubResource( 162 )
 anims/idle_fd = SubResource( 164 )
@@ -744,27 +775,28 @@ anims/walk_fd = SubResource( 169 )
 anims/walk_fu = SubResource( 168 )
 anims/walk_u = SubResource( 171 )
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
 tree_root = SubResource( 195 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/OneShot/active = false
 parameters/action/current = 1
 parameters/fall/current = 2
+parameters/hurt/active = false
 parameters/idle/current = 2
 parameters/jump_forward/current = 2
 parameters/jump_up/current = 2
 parameters/movement/current = 1
 parameters/walk/current = 2
 
-[node name="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" parent="." index="4"]
 visible = false
 shape = SubResource( 160 )
 
-[node name="FloorRay" parent="." index="4"]
+[node name="FloorRay" parent="." index="5"]
 visible = false
 
-[node name="Hurtbox" parent="." index="5"]
+[node name="Hurtbox" parent="." index="6"]
 visible = false
 collision_layer = 0
 priority = 3.0
@@ -773,9 +805,6 @@ priority = 3.0
 visible = false
 position = Vector2( -0.999999, 1 )
 shape = SubResource( 161 )
-
-[node name="arm" parent="." index="6" instance=ExtResource( 3 )]
-visible = false
 
 [node name="CameraDirection" type="Position2D" parent="." index="7"]
 visible = false
