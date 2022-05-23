@@ -13,7 +13,10 @@ func _ready():
 func _physics_process(delta):
 	position -= transform.y * speed * delta
 	if len(get_overlapping_bodies()) > 0:
-		queue_free()
+		for body in get_overlapping_bodies():
+			if "stats" in body:
+				if body.stats["alive"]:
+					queue_free()
 	if position.x < -5000 or position.x > 5000:
 		queue_free()
 	if position.y < -5000 or position.y > 5000:
