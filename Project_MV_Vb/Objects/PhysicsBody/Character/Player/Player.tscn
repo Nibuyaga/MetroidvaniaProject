@@ -1,11 +1,9 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://Objects/PhysicsBody/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/arm.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/UI/HUD_simple.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Weapons/Swords/sword.gd" type="Script" id=6]
-[ext_resource path="res://Objects/Weapons/Swords/slashes.png" type="Texture" id=7]
 
 [sub_resource type="StreamTexture" id=226]
 resource_local_to_scene = true
@@ -721,7 +719,7 @@ nodes/walk_fu/node = SubResource( 193 )
 nodes/walk_fu/position = Vector2( -20, -420 )
 nodes/walk_u/node = SubResource( 194 )
 nodes/walk_u/position = Vector2( -20, -520 )
-node_connections = [ "action", 0, "OneShot", "action", 1, "movement", "idle", 0, "idle_u", "idle", 1, "idle_fu", "idle", 2, "idle_f", "idle", 3, "idle_fd", "idle", 4, "idle_d", "output", 0, "hurt", "hurt", 0, "action", "hurt", 1, "Animation", "movement", 0, "idle", "movement", 1, "walk", "movement", 2, "jump_forward", "movement", 3, "jump_up", "movement", 4, "fall", "OneShot", 0, "charge", "OneShot", 1, "slash", "fall", 0, "fall_u", "fall", 1, "fall_fu", "fall", 2, "fall_f", "fall", 3, "fall_fd", "fall", 4, "fall_d", "walk", 0, "walk_u", "walk", 1, "walk_fu", "walk", 2, "walk_f", "walk", 3, "walk_fd", "walk", 4, "walk_d", "jump_up", 0, "jump_up_u", "jump_up", 1, "jump_up_fu", "jump_up", 2, "jump_up_f", "jump_up", 3, "jump_up_fd", "jump_up", 4, "jump_up_d", "jump_forward", 0, "jump_forward_u", "jump_forward", 1, "jump_forward_fu", "jump_forward", 2, "jump_forward_f", "jump_forward", 3, "jump_forward_fd", "jump_forward", 4, "jump_forward_d" ]
+node_connections = [ "action", 0, "OneShot", "action", 1, "movement", "idle", 0, "idle_u", "idle", 1, "idle_fu", "idle", 2, "idle_f", "idle", 3, "idle_fd", "idle", 4, "idle_d", "output", 0, "hurt", "walk", 0, "walk_u", "walk", 1, "walk_fu", "walk", 2, "walk_f", "walk", 3, "walk_fd", "walk", 4, "walk_d", "fall", 0, "fall_u", "fall", 1, "fall_fu", "fall", 2, "fall_f", "fall", 3, "fall_fd", "fall", 4, "fall_d", "OneShot", 0, "charge", "OneShot", 1, "slash", "jump_forward", 0, "jump_forward_u", "jump_forward", 1, "jump_forward_fu", "jump_forward", 2, "jump_forward_f", "jump_forward", 3, "jump_forward_fd", "jump_forward", 4, "jump_forward_d", "movement", 0, "idle", "movement", 1, "walk", "movement", 2, "jump_forward", "movement", 3, "jump_up", "movement", 4, "fall", "jump_up", 0, "jump_up_u", "jump_up", 1, "jump_up_fu", "jump_up", 2, "jump_up_f", "jump_up", 3, "jump_up_fd", "jump_up", 4, "jump_up_d", "hurt", 0, "action", "hurt", 1, "Animation" ]
 
 [sub_resource type="CapsuleShape2D" id=160]
 resource_local_to_scene = true
@@ -729,16 +727,20 @@ height = 18.0
 
 [sub_resource type="RectangleShape2D" id=161]
 resource_local_to_scene = true
-extents = Vector2( 15, 20 )
-
-[sub_resource type="RectangleShape2D" id=230]
-extents = Vector2( 5.45975, 14.6433 )
+extents = Vector2( 5, 16.5 )
 
 [node name="Player" instance=ExtResource( 1 )]
-collision_layer = 1024
+collision_layer = 0
 script = ExtResource( 2 )
 gravity = 1200
 jumpforce = 330
+stats = {
+"alive": true,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10
+}
 
 [node name="arm" parent="." index="0" instance=ExtResource( 3 )]
 position = Vector2( 3, -4 )
@@ -798,17 +800,13 @@ parameters/walk/current = 2
 position = Vector2( 0, -3 )
 shape = SubResource( 160 )
 
-[node name="FloorRay" parent="." index="5"]
-visible = false
-
 [node name="Hurtbox" parent="." index="6"]
-visible = false
-collision_layer = 0
-priority = 3.0
+collision_layer = 4096
+collision_mask = 4096
+monitorable = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-visible = false
-position = Vector2( -0.999999, 1 )
+position = Vector2( 4.76837e-07, -2.5 )
 shape = SubResource( 161 )
 
 [node name="CameraDirection" type="Position2D" parent="." index="7"]
@@ -828,19 +826,3 @@ smoothing_speed = 6.0
 layer = 2
 
 [node name="HUD_simple" parent="CanvasLayer" index="0" instance=ExtResource( 5 )]
-
-[node name="sword" type="Area2D" parent="." index="9"]
-visible = false
-collision_layer = 0
-collision_mask = 0
-script = ExtResource( 6 )
-
-[node name="sword_shape" type="CollisionShape2D" parent="sword" index="0"]
-position = Vector2( 8.54025, -5.35674 )
-shape = SubResource( 230 )
-
-[node name="swoosh" type="Sprite" parent="sword" index="1"]
-position = Vector2( -4.12552, -7.41498 )
-scale = Vector2( 0.807647, 0.554075 )
-texture = ExtResource( 7 )
-hframes = 2

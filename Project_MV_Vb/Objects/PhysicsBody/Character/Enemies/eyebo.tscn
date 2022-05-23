@@ -105,14 +105,7 @@ tracks/0/keys = {
 [node name="eybo" instance=ExtResource( 1 )]
 collision_layer = 2048
 script = ExtResource( 2 )
-speed = 10
-stats = {
-"alive": true,
-"gun": 0,
-"health": 4,
-"max_health": 4
-}
-persistent = false
+speed = 20
 jumper = false
 flyer = false
 
@@ -132,6 +125,7 @@ shape = SubResource( 8 )
 position = Vector2( 18, -1 )
 
 [node name="Hurtbox" parent="." index="3"]
+collision_layer = 4096
 collision_mask = 8192
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]

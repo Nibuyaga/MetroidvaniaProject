@@ -27,6 +27,7 @@ func _process(delta):
 	if flyer and not jumper and stats['alive']:
 		velocity.y = 0.0
 	if stats['health'] <= 0:
+		get_node("Hurtbox/CollisionShape2D").set_deferred("disabled", 1)
 		return 
 	if abs(velocity.x) == 0:
 		turn_around()
