@@ -26,6 +26,7 @@
 0/z_index = 0
 
 [node name="TileMap - Area01, SandBlock - Gravel" type="TileMap"]
+z_index = 110
 tile_set = SubResource( 1 )
 collision_layer = 0
 collision_mask = 0

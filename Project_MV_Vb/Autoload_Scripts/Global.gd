@@ -18,7 +18,7 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
 	# A convenience check whether or not the player will spawn
-	if false:
+	if true:
 		# checks and if confirmed copies the player_spawn_location of level
 		#	if not changes the spawn location to the bottom middle of the level
 		if "player_spawn_location" in current_scene:

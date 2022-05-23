@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Smoke-Sheet.png-f535f41437e37dba627dc8d12bf2a991.stex"
+path="res://.import/Area01_TileMap_Spikes.png-841ba7a3bf0a305567721f7efa99cee4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Effects/Smoke-Sheet.png"
-dest_files=[ "res://.import/Smoke-Sheet.png-f535f41437e37dba627dc8d12bf2a991.stex" ]
+source_file="res://Rooms/Area01/Area01 - Tiles/Area01_TileMap_Spikes.png"
+dest_files=[ "res://.import/Area01_TileMap_Spikes.png-841ba7a3bf0a305567721f7efa99cee4.stex" ]
 
 [params]
 

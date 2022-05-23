@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Unassigned/Laser_T.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Effects/Particle_Green(Test).png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 157.071
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.0107527, 0.712366, 0.994624, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.206522, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.501266, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -0.142322, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 120.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 250.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+tangential_accel = 100.0
+
+[node name="Laser" type="RayCast2D"]
+position = Vector2( 30, 50 )
+enabled = true
+cast_to = Vector2( 1000, 0 )
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "from \"Make a Laser Beam in Godot\" tutorial
+https://www.youtube.com/watch?v=dg0CQ6NPDn8"
+}
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 0, 100, 0 )
+default_color = Color( 0.485413, 0.865407, 0.941406, 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="DeleteLater" type="StaticBody2D" parent="."]
+position = Vector2( 224.587, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeleteLater"]
+shape = SubResource( 1 )
+
+[node name="CastingParticles" type="Particles2D" parent="."]
+emitting = false
+lifetime = 0.3
+process_material = SubResource( 6 )
+texture = ExtResource( 2 )
+
+[node name="CollisionParticles" type="Particles2D" parent="."]
+emitting = false
+lifetime = 0.3
+process_material = SubResource( 7 )
+texture = ExtResource( 2 )
+
+[node name="BeamParticle" type="Particles2D" parent="."]
+emitting = false
+lifetime = 0.3
+visibility_rect = Rect2( -1, -1, 2, 20 )
+local_coords = false
+process_material = SubResource( 8 )
+texture = ExtResource( 2 )

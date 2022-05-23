@@ -6,6 +6,9 @@ enum STATE {
 	shoot
 }
 
+signal enemyFound
+signal shotFired
+
 var state = STATE.detect
 onready var RC: RayCast2D = get_node("RayCast2D")
 onready var RCD: RayCast2D = get_node("RayCastDetect")
@@ -31,19 +34,22 @@ func _physics_process(_delta):
 		STATE.detect:
 			RCD.cast_to = cast_point
 			$DetectionLine.points[1] = cast_point
+			$DetectionLine.points[1].y += 3	#correction
 			RCD.force_raycast_update()
 			if RCD.is_colliding():
 				change_to_prepare()
+				emit_signal("enemyFound")
 			
 		STATE.shoot:
 			$Laser.points[1] = cast_point
+			$Laser.points[1].y += 3	#correction
 			$LaserHitbox/CollisionShape2D.shape.height = cast_point.y
 			$LaserHitbox/CollisionShape2D.position.y = cast_point.y/2
 	
 
 func change_to_detect():
 	state = STATE.detect
-	
+	emit_signal("shotFired")
 	$AnimationPlayer.play("detect_appear")
 
 func change_to_prepare():
@@ -54,6 +60,9 @@ func change_to_prepare():
 func change_to_shoot():
 	state = STATE.shoot
 	$AnimationPlayer.play("shoot")
+
+
+
 
 # tween functions !Unused
 #func laser_appear():
