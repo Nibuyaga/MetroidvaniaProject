@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Creatures/eybo.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=8]
-radius = 6.49997
+radius = 8.99996
 
 [sub_resource type="RectangleShape2D" id=9]
 resource_local_to_scene = true
@@ -105,14 +105,7 @@ tracks/0/keys = {
 [node name="eybo" instance=ExtResource( 1 )]
 collision_layer = 2048
 script = ExtResource( 2 )
-speed = 10
-stats = {
-"alive": true,
-"gun": 0,
-"health": 4,
-"max_health": 4
-}
-persistent = false
+speed = 20
 jumper = false
 flyer = false
 
@@ -124,14 +117,15 @@ vframes = 7
 frame = 31
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, -1 )
+position = Vector2( 0, -3 )
 rotation = 1.5708
 shape = SubResource( 8 )
 
 [node name="FloorRay" parent="." index="2"]
-position = Vector2( 0, 6 )
+position = Vector2( 18, -1 )
 
 [node name="Hurtbox" parent="." index="3"]
+collision_layer = 4096
 collision_mask = 8192
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
