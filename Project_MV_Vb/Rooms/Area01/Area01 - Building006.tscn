@@ -35,8 +35,9 @@ new_player_pos = Vector2( 720, 180 )
 [node name="SceneChanger_ Building007" parent="." instance=ExtResource( 4 )]
 position = Vector2( 340, 140 )
 next_scene_path = "res://Rooms/Area01/Area01 - Building007.tscn"
-new_player_pos = Vector2( 0, 340 )
+new_player_pos = Vector2( 0, 300 )
 
 [node name="Spikes - Area01" parent="." instance=ExtResource( 5 )]
-collision_layer = 12288
-collision_mask = 12288
+show_collision = true
+collision_layer = 32
+tile_data = PoolIntArray( 393226, 0, 0, 393227, 0, 0, 393228, 0, 0 )

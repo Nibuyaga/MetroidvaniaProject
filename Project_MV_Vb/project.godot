@@ -108,6 +108,7 @@ pause={
 2d_physics/layer_3="World 2 (Drop down)"
 2d_physics/layer_4="World 3 (Water)"
 2d_physics/layer_5="World 4 (Grappling hook)"
+2d_physics/layer_6="World 5 (Environment damage)"
 2d_physics/layer_11="Player"
 2d_physics/layer_12="Enemy"
 2d_physics/layer_13="Hurt Player"
