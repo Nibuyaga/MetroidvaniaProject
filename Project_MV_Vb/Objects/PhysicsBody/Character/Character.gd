@@ -20,7 +20,8 @@ var is_jumping = false
 #may need expanding if wanting to use status
 var envi_damage = {
 	"state": false	,
-	"damage tick": 1,
+	"type": "generic tile",
+	"damage tick": 0,
 	"cooldown set": 1,
 	"cooldown current": 0
 }
@@ -65,6 +66,12 @@ func _on_Hurtbox_area_entered(area):
 
 func _on_Hurtbox__Environment_body_entered(_body):
 	envi_damage["state"] = true
+	if "tiletype" in _body:
+		if envi_damage["type"] != _body.tiletype:
+			envi_damage["type"] = _body.tiletype
+			envi_damage["damage tick"] = _body.damagetick
+			envi_damage["cooldown set"] = _body.cooldownset
+
 
 func _on_Hurtbox__Environment_body_exited(_body):
 	envi_damage["state"] = false
@@ -74,6 +81,12 @@ func envi_handling(delta):
 		if envi_damage["cooldown current"] <= 0:
 			calc_health(envi_damage["damage tick"])
 			envi_damage["cooldown current"] = envi_damage["cooldown set"]
+			
+			# unique cases
+			if envi_damage["type"] == "spikes":
+				# set stun behaviour here
+				knockback(Vector2(-1000, -100), true)
+
 		else:
 			envi_damage["cooldown current"] -= delta
 	else:
@@ -89,11 +102,17 @@ func envi_handling(delta):
 func calc_health(damage, animation = true):
 	if stats['alive']:
 		stats['health'] -= damage
-		print(self.name + "'s health: " + str(stats["health"]))
 		if stats['health'] <= 0:
 			die()
 		elif animation:
 			$AnimationPlayer.play("hurt")
+		
+		# line below prints health of characters when damaged
+		#print(self.name + "'s health: " + str(stats["health"]))
+		
+		# unique cases
+		if get_node_or_null("CanvasLayer/HUD_simple") != null:
+			get_node_or_null("CanvasLayer/HUD_simple").update_hud("hp", stats['health'])
 
 func die():
 	stats['alive'] = false
