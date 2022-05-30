@@ -3,12 +3,11 @@
 [ext_resource path="res://Objects/Weapons/Guns/Bullets/normal_bullet.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Weapons/Guns/Bullets/NormalBullet.gd" type="Script" id=2]
 
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 5.42707
 
 [node name="NormalBullet" type="Area2D"]
-collision_layer = 8193
+collision_layer = 8192
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

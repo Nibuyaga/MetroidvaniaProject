@@ -1,5 +1,5 @@
 extends "res://Objects/PhysicsBody/Character/Character.gd"
-
+const vfx = preload("res://Objects/vfx.tscn")
 
 # TODO: https://docs.godotengine.org/en/3.1/getting_started/step_by_step/singletons_autoload.html
 var horizontal_movement = 0
@@ -99,6 +99,12 @@ func update_sword(delta, aim, attack):
 		if attack:
 			sword['charge'] += delta
 		else:
+			var swing = vfx.instance()
+			add_child(swing)
+			swing.position.y -= 4
+			swing.position.x += 8*facing
+			swing.scale.x = -facing
+			swing.get_node('animation').play('swing')
 			$AnimationTree.set("parameters/doslash/active", 1)
 			$AnimationTree.set("parameters/slash/current", int(not is_on_floor()))
 			sword['charging'] = false
@@ -176,10 +182,12 @@ func _process(delta):
 	elif facing < 0:
 		$Sprite.flip_h = true
 
-	#TODO: check if gun in player_vars.stats['guns']
-	guns[stats["gun"]].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
 	if 'sword' in stats:
 		update_sword(delta, aim, Input.get_action_strength("attack_b"))
+		if not stats['sword']['charging']:
+			guns[stats["gun"]].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
+	else:
+		guns[stats["gun"]].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
 
 	# !Camera and Blendspace2D.x correction
 	$CameraDirection.position.x = facing * 20

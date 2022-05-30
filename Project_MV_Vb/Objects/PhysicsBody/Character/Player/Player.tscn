@@ -695,7 +695,7 @@ animation = "walk_fu"
 animation = "walk_u"
 
 [sub_resource type="AnimationNodeBlendTree" id=195]
-graph_offset = Vector2( -33.0683, -576.522 )
+graph_offset = Vector2( 0, -21 )
 nodes/Animation/node = SubResource( 228 )
 nodes/Animation/position = Vector2( 1420, -1000 )
 nodes/action/node = SubResource( 221 )
@@ -779,7 +779,7 @@ nodes/walk_fu/node = SubResource( 193 )
 nodes/walk_fu/position = Vector2( -20, -420 )
 nodes/walk_u/node = SubResource( 194 )
 nodes/walk_u/position = Vector2( -20, -520 )
-node_connections = [ "action", 0, "movement", "action", 1, "charge", "action", 2, "charge_walk", "action", 3, "charge_jump", "idle", 0, "idle_u", "idle", 1, "idle_fu", "idle", 2, "idle_f", "idle", 3, "idle_fd", "idle", 4, "idle_d", "output", 0, "hurt", "hurt", 0, "doslash", "hurt", 1, "Animation", "jump_up", 0, "jump_up_u", "jump_up", 1, "jump_up_fu", "jump_up", 2, "jump_up_f", "jump_up", 3, "jump_up_fd", "jump_up", 4, "jump_up_d", "fall", 0, "fall_u", "fall", 1, "fall_fu", "fall", 2, "fall_f", "fall", 3, "fall_fd", "fall", 4, "fall_d", "movement", 0, "idle", "movement", 1, "walk", "movement", 2, "jump_forward", "movement", 3, "jump_up", "movement", 4, "fall", "doslash", 0, "action", "doslash", 1, "slash", "walk", 0, "walk_u", "walk", 1, "walk_fu", "walk", 2, "walk_f", "walk", 3, "walk_fd", "walk", 4, "walk_d", "slash", 0, "slash_normal", "slash", 1, "jump_slash", "jump_forward", 0, "jump_forward_u", "jump_forward", 1, "jump_forward_fu", "jump_forward", 2, "jump_forward_f", "jump_forward", 3, "jump_forward_fd", "jump_forward", 4, "jump_forward_d" ]
+node_connections = [ "action", 0, "movement", "action", 1, "charge", "action", 2, "charge_walk", "action", 3, "charge_jump", "idle", 0, "idle_u", "idle", 1, "idle_fu", "idle", 2, "idle_f", "idle", 3, "idle_fd", "idle", 4, "idle_d", "output", 0, "hurt", "hurt", 0, "doslash", "hurt", 1, "Animation", "slash", 0, "slash_normal", "slash", 1, "jump_slash", "movement", 0, "idle", "movement", 1, "walk", "movement", 2, "jump_forward", "movement", 3, "jump_up", "movement", 4, "fall", "jump_forward", 0, "jump_forward_u", "jump_forward", 1, "jump_forward_fu", "jump_forward", 2, "jump_forward_f", "jump_forward", 3, "jump_forward_fd", "jump_forward", 4, "jump_forward_d", "jump_up", 0, "jump_up_u", "jump_up", 1, "jump_up_fu", "jump_up", 2, "jump_up_f", "jump_up", 3, "jump_up_fd", "jump_up", 4, "jump_up_d", "doslash", 0, "action", "doslash", 1, "slash", "fall", 0, "fall_u", "fall", 1, "fall_fu", "fall", 2, "fall_f", "fall", 3, "fall_fd", "fall", 4, "fall_d", "walk", 0, "walk_u", "walk", 1, "walk_fu", "walk", 2, "walk_f", "walk", 3, "walk_fd", "walk", 4, "walk_d" ]
 
 [sub_resource type="CapsuleShape2D" id=160]
 resource_local_to_scene = true
@@ -790,7 +790,7 @@ resource_local_to_scene = true
 extents = Vector2( 5, 16.5 )
 
 [node name="Player" instance=ExtResource( 1 )]
-collision_layer = 0
+collision_layer = 1024
 script = ExtResource( 2 )
 gravity = 1200
 jumpforce = 330
@@ -810,7 +810,7 @@ position = Vector2( 0, -7 )
 scale = Vector2( -1, 1 )
 texture = SubResource( 226 )
 hframes = 16
-frame = 218
+frame = 210
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 anims/charge = SubResource( 224 )
@@ -885,3 +885,7 @@ smoothing_speed = 6.0
 layer = 2
 
 [node name="HUD_simple" parent="CanvasLayer" index="0" instance=ExtResource( 5 )]
+
+[node name="CollisionShape2D" parent="Hurtbox - Environment" index="0"]
+position = Vector2( 0, -3 )
+scale = Vector2( 1.00304, 1 )
