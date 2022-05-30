@@ -12,7 +12,7 @@ resource_local_to_scene = true
 extents = Vector2( 15, 20 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 15, 20 )
+extents = Vector2( 5.98182, 15.25 )
 
 [node name="Character" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
