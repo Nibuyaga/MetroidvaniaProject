@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://Objects/PhysicsBody/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/Player.gd" type="Script" id=2]
@@ -11,6 +11,7 @@ load_path = "res://.import/player.png-5fe826d179e8297c657fd07c30124f2f.stex"
 
 [sub_resource type="Animation" id=224]
 resource_name = "charge"
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -18,10 +19,43 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1 ),
-"transitions": PoolRealArray( 1, 0.517632, 0.517632 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 210 ]
+}
+
+[sub_resource type="Animation" id=236]
+resource_name = "charge_jump"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 218 ]
+}
+
+[sub_resource type="Animation" id=231]
+resource_name = "charge_walk"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 210, 215, 215 ]
+"values": [ 200, 208 ]
 }
 
 [sub_resource type="Animation" id=175]
@@ -280,10 +314,10 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 198, 209 ]
+"values": [ 218, 230, 230 ]
 }
 
 [sub_resource type="Animation" id=180]
@@ -368,7 +402,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=188]
 resource_name = "slash"
-loop = true
+length = 0.532
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 2
@@ -376,10 +410,10 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 215, 219 ]
+"values": [ 210, 215, 217 ]
 }
 
 [sub_resource type="Animation" id=170]
@@ -470,19 +504,27 @@ tracks/0/keys = {
 [sub_resource type="AnimationNodeAnimation" id=228]
 animation = "hurt"
 
-[sub_resource type="AnimationNodeOneShot" id=225]
-
 [sub_resource type="AnimationNodeTransition" id=221]
-input_count = 3
-input_0/name = "slash"
+input_count = 4
+input_0/name = "move"
 input_0/auto_advance = false
-input_1/name = "move"
+input_1/name = "charge"
 input_1/auto_advance = false
-input_2/name = "hurt"
+input_2/name = "charge_move"
 input_2/auto_advance = false
+input_3/name = "charge_jump"
+input_3/auto_advance = false
 
 [sub_resource type="AnimationNodeAnimation" id=223]
 animation = "charge"
+
+[sub_resource type="AnimationNodeAnimation" id=235]
+animation = "charge_jump"
+
+[sub_resource type="AnimationNodeAnimation" id=232]
+animation = "charge_walk"
+
+[sub_resource type="AnimationNodeOneShot" id=230]
 
 [sub_resource type="AnimationNodeTransition" id=202]
 input_count = 5
@@ -570,6 +612,9 @@ animation = "jump_forward_fu"
 [sub_resource type="AnimationNodeAnimation" id=214]
 animation = "jump_forward_u"
 
+[sub_resource type="AnimationNodeAnimation" id=233]
+animation = "jump_slash"
+
 [sub_resource type="AnimationNodeTransition" id=203]
 input_count = 5
 input_0/name = "u"
@@ -611,6 +656,13 @@ input_3/auto_advance = false
 input_4/name = "fall"
 input_4/auto_advance = false
 
+[sub_resource type="AnimationNodeTransition" id=234]
+input_count = 2
+input_0/name = "state 0"
+input_0/auto_advance = false
+input_1/name = "state 1"
+input_1/auto_advance = false
+
 [sub_resource type="AnimationNodeAnimation" id=222]
 animation = "slash"
 
@@ -643,15 +695,19 @@ animation = "walk_fu"
 animation = "walk_u"
 
 [sub_resource type="AnimationNodeBlendTree" id=195]
-graph_offset = Vector2( 126.165, -1449.3 )
+graph_offset = Vector2( -33.0683, -576.522 )
 nodes/Animation/node = SubResource( 228 )
-nodes/Animation/position = Vector2( 520, -1280 )
-nodes/OneShot/node = SubResource( 225 )
-nodes/OneShot/position = Vector2( 261, -1476 )
+nodes/Animation/position = Vector2( 1420, -1000 )
 nodes/action/node = SubResource( 221 )
-nodes/action/position = Vector2( 440, -1460 )
+nodes/action/position = Vector2( 880, -1040 )
 nodes/charge/node = SubResource( 223 )
-nodes/charge/position = Vector2( 108, -1476 )
+nodes/charge/position = Vector2( 80, -760 )
+nodes/charge_jump/node = SubResource( 235 )
+nodes/charge_jump/position = Vector2( 680, -780 )
+nodes/charge_walk/node = SubResource( 232 )
+nodes/charge_walk/position = Vector2( 680, -900 )
+nodes/doslash/node = SubResource( 230 )
+nodes/doslash/position = Vector2( 1420, -1160 )
 nodes/fall/node = SubResource( 202 )
 nodes/fall/position = Vector2( -621, -1467 )
 nodes/fall_d/node = SubResource( 204 )
@@ -665,7 +721,7 @@ nodes/fall_fu/position = Vector2( -783, -1368 )
 nodes/fall_u/node = SubResource( 208 )
 nodes/fall_u/position = Vector2( -783, -1467 )
 nodes/hurt/node = SubResource( 229 )
-nodes/hurt/position = Vector2( 700, -1420 )
+nodes/hurt/position = Vector2( 1600, -1180 )
 nodes/idle/node = SubResource( 196 )
 nodes/idle/position = Vector2( -27, -756 )
 nodes/idle_d/node = SubResource( 197 )
@@ -690,6 +746,8 @@ nodes/jump_forward_fu/node = SubResource( 213 )
 nodes/jump_forward_fu/position = Vector2( -423, -891 )
 nodes/jump_forward_u/node = SubResource( 214 )
 nodes/jump_forward_u/position = Vector2( -423, -999 )
+nodes/jump_slash/node = SubResource( 233 )
+nodes/jump_slash/position = Vector2( 1080, -940 )
 nodes/jump_up/node = SubResource( 203 )
 nodes/jump_up/position = Vector2( -432, -1233 )
 nodes/jump_up_d/node = SubResource( 215 )
@@ -703,10 +761,12 @@ nodes/jump_up_fu/position = Vector2( -621, -1134 )
 nodes/jump_up_u/node = SubResource( 219 )
 nodes/jump_up_u/position = Vector2( -621, -1233 )
 nodes/movement/node = SubResource( 220 )
-nodes/movement/position = Vector2( 270, -1287 )
-nodes/output/position = Vector2( 1000, -1500 )
-nodes/slash/node = SubResource( 222 )
-nodes/slash/position = Vector2( 108, -1368 )
+nodes/movement/position = Vector2( 680, -1160 )
+nodes/output/position = Vector2( 1780, -1180 )
+nodes/slash/node = SubResource( 234 )
+nodes/slash/position = Vector2( 1260, -1060 )
+nodes/slash_normal/node = SubResource( 222 )
+nodes/slash_normal/position = Vector2( 1080, -1060 )
 nodes/walk/node = SubResource( 189 )
 nodes/walk/position = Vector2( 153, -522 )
 nodes/walk_d/node = SubResource( 190 )
@@ -719,7 +779,7 @@ nodes/walk_fu/node = SubResource( 193 )
 nodes/walk_fu/position = Vector2( -20, -420 )
 nodes/walk_u/node = SubResource( 194 )
 nodes/walk_u/position = Vector2( -20, -520 )
-node_connections = [ "action", 0, "OneShot", "action", 1, "movement", "idle", 0, "idle_u", "idle", 1, "idle_fu", "idle", 2, "idle_f", "idle", 3, "idle_fd", "idle", 4, "idle_d", "output", 0, "hurt", "walk", 0, "walk_u", "walk", 1, "walk_fu", "walk", 2, "walk_f", "walk", 3, "walk_fd", "walk", 4, "walk_d", "fall", 0, "fall_u", "fall", 1, "fall_fu", "fall", 2, "fall_f", "fall", 3, "fall_fd", "fall", 4, "fall_d", "OneShot", 0, "charge", "OneShot", 1, "slash", "jump_forward", 0, "jump_forward_u", "jump_forward", 1, "jump_forward_fu", "jump_forward", 2, "jump_forward_f", "jump_forward", 3, "jump_forward_fd", "jump_forward", 4, "jump_forward_d", "movement", 0, "idle", "movement", 1, "walk", "movement", 2, "jump_forward", "movement", 3, "jump_up", "movement", 4, "fall", "jump_up", 0, "jump_up_u", "jump_up", 1, "jump_up_fu", "jump_up", 2, "jump_up_f", "jump_up", 3, "jump_up_fd", "jump_up", 4, "jump_up_d", "hurt", 0, "action", "hurt", 1, "Animation" ]
+node_connections = [ "action", 0, "movement", "action", 1, "charge", "action", 2, "charge_walk", "action", 3, "charge_jump", "idle", 0, "idle_u", "idle", 1, "idle_fu", "idle", 2, "idle_f", "idle", 3, "idle_fd", "idle", 4, "idle_d", "output", 0, "hurt", "hurt", 0, "doslash", "hurt", 1, "Animation", "jump_up", 0, "jump_up_u", "jump_up", 1, "jump_up_fu", "jump_up", 2, "jump_up_f", "jump_up", 3, "jump_up_fd", "jump_up", 4, "jump_up_d", "fall", 0, "fall_u", "fall", 1, "fall_fu", "fall", 2, "fall_f", "fall", 3, "fall_fd", "fall", 4, "fall_d", "movement", 0, "idle", "movement", 1, "walk", "movement", 2, "jump_forward", "movement", 3, "jump_up", "movement", 4, "fall", "doslash", 0, "action", "doslash", 1, "slash", "walk", 0, "walk_u", "walk", 1, "walk_fu", "walk", 2, "walk_f", "walk", 3, "walk_fd", "walk", 4, "walk_d", "slash", 0, "slash_normal", "slash", 1, "jump_slash", "jump_forward", 0, "jump_forward_u", "jump_forward", 1, "jump_forward_fu", "jump_forward", 2, "jump_forward_f", "jump_forward", 3, "jump_forward_fd", "jump_forward", 4, "jump_forward_d" ]
 
 [sub_resource type="CapsuleShape2D" id=160]
 resource_local_to_scene = true
@@ -749,10 +809,13 @@ position = Vector2( 3, -4 )
 position = Vector2( 0, -7 )
 scale = Vector2( -1, 1 )
 texture = SubResource( 226 )
-frame = 10
+hframes = 16
+frame = 218
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 anims/charge = SubResource( 224 )
+anims/charge_jump = SubResource( 236 )
+anims/charge_walk = SubResource( 231 )
 anims/fall_d = SubResource( 175 )
 anims/fall_f = SubResource( 172 )
 anims/fall_fd = SubResource( 173 )
@@ -785,15 +848,15 @@ anims/walk_u = SubResource( 171 )
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]
 tree_root = SubResource( 195 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/OneShot/active = false
-parameters/action/current = 1
+parameters/action/current = 0
+parameters/doslash/active = false
 parameters/fall/current = 2
 parameters/hurt/active = false
 parameters/idle/current = 2
 parameters/jump_forward/current = 2
 parameters/jump_up/current = 2
 parameters/movement/current = 1
+parameters/slash/current = 0
 parameters/walk/current = 2
 
 [node name="CollisionShape2D" parent="." index="4"]
@@ -801,8 +864,6 @@ position = Vector2( 0, -3 )
 shape = SubResource( 160 )
 
 [node name="Hurtbox" parent="." index="6"]
-collision_layer = 4096
-collision_mask = 4096
 monitorable = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -810,11 +871,9 @@ position = Vector2( 4.76837e-07, -2.5 )
 shape = SubResource( 161 )
 
 [node name="CameraDirection" type="Position2D" parent="." index="7"]
-visible = false
 position = Vector2( 20, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="CameraDirection" index="0"]
-visible = false
 current = true
 limit_left = 0
 limit_top = 0

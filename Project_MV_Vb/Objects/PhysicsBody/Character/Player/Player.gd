@@ -17,12 +17,19 @@ export var wall_jump_force = 128
 
 onready var player_vars = get_node("/root/PlayerVariables")
 onready var arm = get_node("arm")
-#onready var sword = get_node("sword")
 onready var guns = [get_node("arm/gun_normal"), get_node("arm/gun_grenade"), get_node("arm/gun_hook")]
-#export var gun = 0
 
 # var for HUD
 onready var HUD =  get_node_or_null("CanvasLayer/HUD_simple")
+
+var sword =  {
+	'cooldown': 0.15,
+	'timer': 0,
+	'charging': false,
+	'charge': 0,
+	'slash duration': 0.4,
+	'slash timer': 0,
+}
 
 
 func _ready():
@@ -39,6 +46,7 @@ func _ready():
 	HUD.update_multiple_at_ready(stats)
 	# !AT, sets the AnimationTree at active at ready
 	$AnimationTree.active = true
+	stats['sword'] = sword
 
 func _input(event):
 	# input for falling through 'pass' tiles
@@ -73,6 +81,38 @@ func update_aim():
 	aim = int(aim+8)%8
 	arm.rotation = deg2rad(aim*45)
 	arm.apply_scale(Vector2(1,1))
+
+func update_sword(delta, aim, attack):
+	sword['timer'] -= delta
+	if sword['timer'] < 0 and attack:
+		sword['timer'] = sword['cooldown']
+		sword['charging'] = true
+		sword['charge'] = 0
+		
+		if abs(velocity.x) > 100 and is_on_floor():
+			$AnimationTree.set("parameters/action/current", 2)
+		elif abs(velocity.x) > 100:
+			$AnimationTree.set("parameters/action/current", 3)
+		else:
+			$AnimationTree.set("parameters/action/current", 1)
+	if sword['charging']:
+		if attack:
+			sword['charge'] += delta
+		else:
+			$AnimationTree.set("parameters/doslash/active", 1)
+			$AnimationTree.set("parameters/slash/current", int(not is_on_floor()))
+			sword['charging'] = false
+			sword['slash timer'] = sword['slash duration']
+			if velocity.y < 5:
+				knockback(Vector2(500,-10), true)
+			else:
+				knockback(Vector2(128,-10), true)
+	else:
+		if sword['slash timer'] > 0:
+			sword['slash timer'] -= delta
+		else:
+			$AnimationTree.set("parameters/slash/current", 0)
+			$AnimationTree.set("parameters/action/current", 0)
 
 func jump():
 	if not jumping:
@@ -138,11 +178,8 @@ func _process(delta):
 
 	#TODO: check if gun in player_vars.stats['guns']
 	guns[stats["gun"]].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
-	#if 'sword' in player_vars.stats:
-	#	sword.show()
-	#	sword.update_weapon(delta, aim, Input.get_action_strength("attack_b"))
-	#else:
-	#	sword.hide()
+	if 'sword' in stats:
+		update_sword(delta, aim, Input.get_action_strength("attack_b"))
 
 	# !Camera and Blendspace2D.x correction
 	$CameraDirection.position.x = facing * 20
