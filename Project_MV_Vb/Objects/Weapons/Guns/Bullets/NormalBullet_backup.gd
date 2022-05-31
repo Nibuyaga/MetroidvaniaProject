@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 
 # Declare member variables here. Examples:
@@ -12,7 +12,7 @@ func _ready():
 
 func _physics_process(delta):
 	position -= transform.y * speed * delta
-	if false:	#change later
+	if len(get_overlapping_bodies()) > 0:
 		dqffunc()
 	if position.x < -5000 or position.x > 5000:
 		dqffunc()
