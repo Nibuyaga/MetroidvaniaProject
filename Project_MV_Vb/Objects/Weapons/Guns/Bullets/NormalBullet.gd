@@ -13,9 +13,12 @@ func _ready():
 func _physics_process(delta):
 	position -= transform.y * speed * delta
 	if len(get_overlapping_bodies()) > 0:
-		queue_free()
+		dqffunc()
 	if position.x < -5000 or position.x > 5000:
-		queue_free()
+		dqffunc()
 	if position.y < -5000 or position.y > 5000:
-		queue_free()
+		dqffunc()
 	
+
+func dqffunc():
+	call_deferred("queue_free")
