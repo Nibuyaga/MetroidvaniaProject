@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Unassigned/TDfunc.gd" type="Script" id=1]
+
+[node name="TDfunc" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Tile Destruction function,
+Used to add Tile destruction in the "
+}
