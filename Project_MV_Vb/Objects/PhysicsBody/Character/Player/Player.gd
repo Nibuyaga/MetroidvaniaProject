@@ -7,6 +7,7 @@ var wall_jump_distance = 16 # relative to tile-size
 var double_jump = 0
 var wall_jump = 0
 var jumping = false
+var initial_jump = false
 
 var aim = 0 # multiply by 45 degrees
 var ani_aim = 0
@@ -125,7 +126,9 @@ func jump():
 		var space_state = get_world_2d().direct_space_state
 		var to = global_position + Vector2(facing * wall_jump_distance, 0)
 		var wall_ray_results = space_state.intersect_ray(global_position, to, [self])
-		if is_on_floor():
+		# initial_jump is so "pixel-perfect" edge jump is not counted as a double-jump
+		# 200 being the fall-speed limit.
+		if is_on_floor() or (initial_jump and velocity.y <= 200 and velocity.y >= 0):
 			pass
 		elif len(wall_ray_results) > 0 and wall_jump < wall_jumps:
 			wall_jump += 1
@@ -134,6 +137,8 @@ func jump():
 			double_jump += 1
 		else:
 			return
+		if initial_jump:
+			initial_jump = false
 		jumping = true
 		velocity.y = -jumpforce
 
@@ -170,6 +175,7 @@ func _process(delta):
 	if is_on_floor():
 		double_jump = 0
 		wall_jump = 0
+		initial_jump = true
 	if Input.is_action_pressed('jump'):
 		jump()
 	else:
