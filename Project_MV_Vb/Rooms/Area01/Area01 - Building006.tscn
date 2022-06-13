@@ -39,4 +39,3 @@ new_player_pos = Vector2( 0, 300 )
 
 [node name="Spikes - Area01" parent="." instance=ExtResource( 5 )]
 show_collision = true
-tile_data = PoolIntArray( 393226, 0, 0, 393227, 0, 0, 393228, 0, 0 )

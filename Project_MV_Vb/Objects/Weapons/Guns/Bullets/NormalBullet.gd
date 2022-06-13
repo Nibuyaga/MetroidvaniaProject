@@ -1,12 +1,8 @@
 extends Area2D
 const vfx = preload("res://Objects/vfx.tscn")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var speed = 512
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	position -= transform.y * 16
 
@@ -26,8 +22,16 @@ func _physics_process(delta):
 					destroy()
 			else:
 				destroy()
+		
+		$TDfunc.TD_multibodies(get_overlapping_bodies(), self)
+		
+		
+		dqffunc()
 	if position.x < -5000 or position.x > 5000:
-		queue_free()
+		dqffunc()
 	if position.y < -5000 or position.y > 5000:
-		queue_free()
+		dqffunc()
 	
+
+func dqffunc():
+	call_deferred("queue_free")
