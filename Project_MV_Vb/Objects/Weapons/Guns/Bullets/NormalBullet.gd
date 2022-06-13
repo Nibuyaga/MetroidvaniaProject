@@ -8,7 +8,7 @@ func _ready():
 
 func destroy():
 	var poof = vfx.instance()
-	get_tree().get_root().add_child(poof)
+	Global.grab_current_level().add_child(poof)
 	poof.get_node('animation').play('explosion_a')
 	poof.position = self.position
 	queue_free()

@@ -18,7 +18,7 @@ var arrayCell = []
 
 
 # references and preloads
-var dummyTile = preload("res://Unassigned/TileSingle - Dummy.tscn")
+var dummyTile = preload("res://Rooms/Base_Script/TileSingle - Dummy.tscn")
 
 onready var tileD = get_node_or_null("TileMap - DestructableTiles")
 
@@ -83,8 +83,9 @@ func check_destructible(cellposition):
 		
 		# When it's an empty cell
 		-1:
-			print("tilecell is empty, by " + self.get_name())
-
+			#print("tilecell is empty, by " + self.get_name())
+			pass
+			
 		# When it's from an unknown cell
 		_:
 			print("tilecell is not recognized, by " + self.get_name())

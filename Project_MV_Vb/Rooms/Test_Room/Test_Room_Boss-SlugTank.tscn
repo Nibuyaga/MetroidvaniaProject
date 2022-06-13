@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Boss-SlugTank/Boss-SlugTank.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Pass.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Rooms/Test_Room/Test_Room - Tiles/TileMap - Test_Room_Pass.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Rooms/SceneChanger.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Rooms/TileMap/TileMap - Test_Room_Solid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Rooms/Test_Room/Test_Room - Tiles/TileMap - Test_Room_Solid.tscn" type="PackedScene" id=4]
 
 [node name="Test_Room_Boss-SlugTank" type="Node2D"]
 

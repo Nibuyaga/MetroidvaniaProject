@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Rooms/TileMap/Resources/Test_Room_Platforms_Jump-Through.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Test_Room/Resources/Test_Room_Platforms_Jump-Through.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 30, 10, 2, 10, 2, 2, 30, 2 )

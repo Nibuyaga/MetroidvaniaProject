@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends StaticBody2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	print(global_position)
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/Destructable_Tiles.png-7d3a62f5bd51da488b5fcf0c45b290ac.stex"
+
+[node name="TileSingle - Dummy" type="StaticBody2D"]
+collision_mask = 0
+script = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 10, 10 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 3 )
+centered = false
+hframes = 5
+frame = 1

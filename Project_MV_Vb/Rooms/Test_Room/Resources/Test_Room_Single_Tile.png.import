@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Destructable_Tiles.png-7d3a62f5bd51da488b5fcf0c45b290ac.stex"
+path="res://.import/Test_Room_Single_Tile.png-c43c79c9b743a6bb4ae2f516cfa2339b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/TileMap/Destructable_Tiles.png"
-dest_files=[ "res://.import/Destructable_Tiles.png-7d3a62f5bd51da488b5fcf0c45b290ac.stex" ]
+source_file="res://Rooms/Test_Room/Resources/Test_Room_Single_Tile.png"
+dest_files=[ "res://.import/Test_Room_Single_Tile.png-c43c79c9b743a6bb4ae2f516cfa2339b.stex" ]
 
 [params]
 

@@ -98,9 +98,9 @@ func _deferred_goto_scene(path):
 	
 	current_scene.free()
 	
-	var s = ResourceLoader.load(path)
+	var sceneLoad = ResourceLoader.load(path)
 	
-	current_scene = s.instance()
+	current_scene = sceneLoad.instance()
 	
 	get_tree().get_root().add_child(current_scene)
 	

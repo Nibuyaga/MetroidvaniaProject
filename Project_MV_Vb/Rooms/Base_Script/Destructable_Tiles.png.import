@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Test_Room_Tiles - Solid.png-14426a79ffb3d028e2e182e3cb536b0d.stex"
+path="res://.import/Destructable_Tiles.png-d4b29bf14ecec3c90442bf3b56f64657.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/TileMap/Resources/Test_Room_Tiles - Solid.png"
-dest_files=[ "res://.import/Test_Room_Tiles - Solid.png-14426a79ffb3d028e2e182e3cb536b0d.stex" ]
+source_file="res://Rooms/Base_Script/Destructable_Tiles.png"
+dest_files=[ "res://.import/Destructable_Tiles.png-d4b29bf14ecec3c90442bf3b56f64657.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

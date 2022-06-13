@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Test_Room_Single_Tile.png-2413eaf466a2941b7fdc266c6ef2c6a6.stex"
+path="res://.import/Test_Room_Tiles - Grappling.png-74b1fb07f77d217fcb7ce8863327eb82.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/TileMap/Resources/Test_Room_Single_Tile.png"
-dest_files=[ "res://.import/Test_Room_Single_Tile.png-2413eaf466a2941b7fdc266c6ef2c6a6.stex" ]
+source_file="res://Rooms/Test_Room/Resources/Test_Room_Tiles - Grappling.png"
+dest_files=[ "res://.import/Test_Room_Tiles - Grappling.png-74b1fb07f77d217fcb7ce8863327eb82.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

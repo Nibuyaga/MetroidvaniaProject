@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/Area01_TileMap_Spikes.png" type="Texture" id=1]
-[ext_resource path="res://Rooms/Area01/Area01 - Tiles/tilemap_script.gd" type="Script" id=2]
+[ext_resource path="res://Rooms/Base_Script/tilemap_script.gd" type="Script" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
