@@ -27,7 +27,8 @@ onready var tileD = get_node_or_null("TileMap - DestructableTiles")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# turns tileD invisible
-	tileD.visible = false
+	if tileD:
+		tileD.visible = false
 
 
 func tiledamage(input_pos):

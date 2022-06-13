@@ -8,7 +8,9 @@ export var stats = {
 	'max_health':10,
 	'health':10,
 	'alive': true,
-	
+	'wall_jump': true,
+	'double_jump': 0,
+	'double_jumps': 1,
 }
 export var invincibility = 0
 var invi_timer = 0
