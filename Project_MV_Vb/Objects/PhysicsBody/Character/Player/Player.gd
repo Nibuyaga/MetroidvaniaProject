@@ -4,16 +4,14 @@ const vfx = preload("res://Objects/vfx.tscn")
 # TODO: https://docs.godotengine.org/en/3.1/getting_started/step_by_step/singletons_autoload.html
 var horizontal_movement = 0
 var wall_jump_distance = 16 # relative to tile-size
-var double_jump = 0
-var wall_jump = 0
+var on_wall = false
 var jumping = false
+var initial_jump = false
 
 var aim = 0 # multiply by 45 degrees
 var ani_aim = 0
 
-export var double_jumps = 1
-export var wall_jumps = 2
-export var wall_jump_force = 128
+export var wall_jump_force = 400
 
 onready var player_vars = get_node("/root/PlayerVariables")
 onready var arm = get_node("arm")
@@ -122,20 +120,23 @@ func update_sword(delta, aim, attack):
 
 func jump():
 	if not jumping:
-		var space_state = get_world_2d().direct_space_state
-		var to = global_position + Vector2(facing * wall_jump_distance, 0)
-		var wall_ray_results = space_state.intersect_ray(global_position, to, [self])
-		if is_on_floor():
-			pass
-		elif len(wall_ray_results) > 0 and wall_jump < wall_jumps:
-			wall_jump += 1
-			velocity.x -= (facing * wall_jump_force)
-		elif double_jump < double_jumps:
-			double_jump += 1
+		# initial_jump is so "pixel-perfect" edge jump is not counted as a double-jump
+		# 200 being the fall-speed limit.
+		if is_on_floor() or (initial_jump and velocity.y <= 200 and velocity.y >= 0):
+			velocity.y = -jumpforce
+		elif on_wall and (stats['wall_jump'] == true):
+			velocity.x -= (facing * wall_jump_force)*2.5
+			velocity.y = -jumpforce/1.5
+			facing = -facing
+		elif stats['double_jump'] < stats['double_jumps']:
+			stats['double_jump'] += 1
+			velocity.y = -jumpforce
 		else:
 			return
+		if initial_jump:
+			initial_jump = false
 		jumping = true
-		velocity.y = -jumpforce
+
 
 func animate():
 	if is_on_floor():
@@ -161,6 +162,19 @@ func animate():
 		ani_aim = 0
 	for anim in ["idle", "walk", "jump_up", "jump_forward", "fall"]:
 		$AnimationTree.set("parameters/"+anim+"/current", ani_aim)
+	if on_wall and not is_on_floor():
+		$AnimationTree.set("parameters/movement/current", 5)
+
+func wall_slide():
+	var space_state = get_world_2d().direct_space_state
+	var to = global_position + Vector2(facing * wall_jump_distance, 0)
+	if len(space_state.intersect_ray(global_position, to, [self])) > 0:
+		on_wall = true
+		# Slide down slower unless aiming down
+		if velocity.y > 100 and not Input.is_action_pressed("aim_down"):
+			velocity.y *= 0.8
+	else:
+		on_wall = false
 
 func _process(delta):
 	horizontal_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -168,8 +182,10 @@ func _process(delta):
 		facing = horizontal_movement
 		velocity.x += speed * facing * delta
 	if is_on_floor():
-		double_jump = 0
-		wall_jump = 0
+		stats['double_jump'] = 0
+		initial_jump = true
+	else:
+		wall_slide()
 	if Input.is_action_pressed('jump'):
 		jump()
 	else:
