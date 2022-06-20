@@ -16,6 +16,9 @@ const tilecorr = Vector2(10,10)
 var arrayDistance = []
 var arrayCell = []
 
+export var cameraborder = false
+export var lowest_border_correction = Vector2(20,20)
+export var highest_border_correction = Vector2(-20,-20)
 
 # references and preloads
 var dummyTile = preload("res://Rooms/Base_Script/TileSingle - Dummy.tscn")
@@ -27,7 +30,16 @@ onready var tileD = get_node_or_null("TileMap - DestructableTiles")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# turns tileD invisible
-	tileD.visible = false
+	if tileD != null:
+		tileD.visible = false
+
+func provide_border():
+	# information
+	return [
+		world_to_map(get_used_rect().position),
+		world_to_map(get_used_rect().end)
+	]
+
 
 
 func tiledamage(input_pos):
@@ -88,4 +100,6 @@ func check_destructible(cellposition):
 			
 		# When it's from an unknown cell
 		_:
-			print("tilecell is not recognized, by " + self.get_name())
+			#print("tilecell is not recognized, by " + self.get_name())
+			pass
+

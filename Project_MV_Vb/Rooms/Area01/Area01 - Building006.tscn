@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/TileMap - Area01, BuildingBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/Area01_Background_Building_07-02-2022_2.png" type="Texture" id=2]
 [ext_resource path="res://Rooms/Area01/Area01 - Objects/Door - Area01.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Rooms/SceneChanger_S.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Rooms/Area01/Area01 - Tiles/Spikes - Area01.tscn" type="PackedScene" id=5]
 
 [node name="Area01 - Building000" type="Node2D"]
 
@@ -17,15 +16,18 @@ tile_data = PoolIntArray( -65538, 0, 8, -65537, 0, 65547, -131072, 0, 65547, -13
 texture = ExtResource( 2 )
 centered = false
 
-[node name="RoomSizeReference" type="Position2D" parent="."]
-position = Vector2( 320, 180 )
-
 [node name="Door - Area01, 0" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 110 )
 
 [node name="Door - Area01, 1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 110 )
 flip_h = true
+
+[node name="RoomSizeReferenc" type="Position2D" parent="."]
+position = Vector2( 320, 180 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="SceneChanger_ Building002" parent="." instance=ExtResource( 4 )]
 position = Vector2( -20, 140 )
@@ -36,6 +38,3 @@ new_player_pos = Vector2( 720, 180 )
 position = Vector2( 340, 140 )
 next_scene_path = "res://Rooms/Area01/Area01 - Building007.tscn"
 new_player_pos = Vector2( 0, 300 )
-
-[node name="Spikes - Area01" parent="." instance=ExtResource( 5 )]
-show_collision = true

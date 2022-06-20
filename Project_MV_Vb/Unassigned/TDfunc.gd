@@ -14,5 +14,5 @@ func TDf(node_tilemap, node_self):
 	if "TileMap" in str(node_tilemap):
 		node_tilemap.tiledamage(node_self.position)
 	else:
-		print("TDf sees a non-Tilemap, from " + get_parent().get_name() + "/TDfunc")
-	
+		#print("TDf sees a non-Tilemap, from " + get_parent().get_name() + "/TDfunc")
+		pass

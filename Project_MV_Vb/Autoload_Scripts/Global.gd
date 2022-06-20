@@ -10,6 +10,9 @@ onready var root = get_tree().get_root()	# shortcut var for getting the root
 var spn_on_in_goto_scene = true	# variable which determines whether a new player node will spawn or not
 var stored_path = ""
 
+# for tilemap borders
+var tilemap_border_low = []
+var tilemap_border_high = []
 
 # !Consider changing this when dealing introducing menus
 func _ready():
@@ -44,7 +47,8 @@ func _ready():
 		if player_spawn_location != null:
 			player_node.position = player_spawn_location
 		else:
-			player_node.position = Vector2(150,150)
+			player_node.position = Vector2(150,100)
+			player_spawn_location = Vector2(150,100)
 	
 	# changes camera to fit current room, at the start of the game
 	_change_camera_limit()
@@ -148,16 +152,56 @@ func _change_camera_limit():
 	current_scene_ccl = root.get_child(root.get_child_count()-1)
 	roomsize_ccl = current_scene_ccl.get_node_or_null("RoomSizeReference")
 	
+	# new code
+	checkon_tilemap_size()
+	
 	if camera_ccl != null and current_scene_ccl != null:
 		# starting roomsize check
+		
+		# for when camera ranges are based on "Roomsizereference"
 		if roomsize_ccl != null:
 			camera_ccl.limit_right = roomsize_ccl.position.x
 			camera_ccl.limit_bottom = roomsize_ccl.position.y
 		
+		# for when camera ranges are based on tilemap size
+		elif tilemap_border_low.size() != 0 or tilemap_border_high.size() != 0:
+			if tilemap_border_low.size() != 0:
+				pass
+			else:
+				print("tilemap_border_low is empty, used for camera, written by Global")
+				camera_ccl.limit_left = -100000
+				camera_ccl.limit_top = -100000
+			
+			if tilemap_border_high.size() != 0:
+				pass
+			else:
+				print("tilemap_border_high is empty, used for camera, written by Global")
+				camera_ccl.limit_right = 100000
+				camera_ccl.limit_bottom = 100000
+			
+			tilemap_border_high.clear()
+			tilemap_border_low.clear()
+		
+		# When any of the camera ranges fails to work completely
 		else:
-			print("unable to find RoomSizeReference node, written by GlobalScript/_change_camera_limit")
-			camera_ccl.limit_right = 10000000
-			camera_ccl.limit_bottom = 10000000
+			print("unable to find information for camera, written by GlobalScript/_change_camera_limit")
+			# lower limits, point is left under
+			camera_ccl.limit_left = -100000
+			camera_ccl.limit_top = -100000
+			
+			# Upper limits, point is right under
+			camera_ccl.limit_right = 100000
+			camera_ccl.limit_bottom = 100000
 			
 	else:
 		print("unable to find camera or current_scene node, written by GlobalScript/_change_camera_limit")
+	
+
+func checkon_tilemap_size():
+	var level_nodes = grab_current_level().get_children()
+	
+	for currentNode in level_nodes:
+		if currentNode.is_class("TileMap"):
+			print("notice TileMap")
+	
+	pass
