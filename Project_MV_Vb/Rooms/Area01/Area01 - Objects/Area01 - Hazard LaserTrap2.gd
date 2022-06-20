@@ -9,6 +9,9 @@ enum STATE {
 signal enemyFound
 signal shotFired
 
+export var prepare_playrate = 1.0
+export var shoot_playrate = 1.0
+
 var state = STATE.detect
 onready var RC: RayCast2D = get_node("RayCast2D")
 onready var RCD: RayCast2D = get_node("RayCastDetect")
@@ -49,16 +52,19 @@ func _physics_process(_delta):
 
 func change_to_detect():
 	state = STATE.detect
+	$AnimationPlayer.playback_speed = 1
 	emit_signal("shotFired")
 	$AnimationPlayer.play("detect_appear")
 
 func change_to_prepare():
 	state = STATE.prepare
 	$DetectionLine.visible = false
+	$AnimationPlayer.playback_speed = prepare_playrate
 	$AnimationPlayer.play("prepare")
 
 func change_to_shoot():
 	state = STATE.shoot
+	$AnimationPlayer.playback_speed = shoot_playrate
 	$AnimationPlayer.play("shoot")
 
 
