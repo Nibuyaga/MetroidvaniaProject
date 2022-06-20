@@ -49,7 +49,7 @@ func _ready():
 func _input(event):
 	# input for falling through 'pass' tiles
 	if event.is_action_pressed("aim_down") and $FloorRay.is_colliding():
-		velocity.y += 1
+		position.y += 1
 	# input for cycling through bullets
 	elif event.is_action_pressed("cycle_bullet"):
 		stats["gun"] += 1

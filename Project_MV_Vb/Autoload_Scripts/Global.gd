@@ -152,8 +152,8 @@ func _change_camera_limit():
 	current_scene_ccl = root.get_child(root.get_child_count()-1)
 	roomsize_ccl = current_scene_ccl.get_node_or_null("RoomSizeReference")
 	
-	# new code
-	checkon_tilemap_size()
+	# !!!new code
+	# checkon_tilemap_size()
 	
 	if camera_ccl != null and current_scene_ccl != null:
 		# starting roomsize check
@@ -203,5 +203,6 @@ func checkon_tilemap_size():
 	for currentNode in level_nodes:
 		if currentNode.is_class("TileMap"):
 			print("notice TileMap")
+			pass
 	
 	pass

@@ -23,7 +23,7 @@ position = Vector2( 320, 110 )
 position = Vector2( 0, 110 )
 flip_h = true
 
-[node name="RoomSizeReferenc" type="Position2D" parent="."]
+[node name="RoomSizeReference" type="Position2D" parent="."]
 position = Vector2( 320, 180 )
 __meta__ = {
 "_editor_description_": ""
