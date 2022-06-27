@@ -115,7 +115,6 @@ shape = SubResource( 161 )
 position = Vector2( 17, 1 )
 
 [node name="Hurtbox" parent="." index="3"]
-collision_layer = 4096
 collision_mask = 8192
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -139,3 +138,6 @@ anims/RESET = SubResource( 160 )
 anims/die = SubResource( 163 )
 anims/hurt = SubResource( 162 )
 anims/move = SubResource( 159 )
+
+[node name="CollisionShape2D" parent="Hurtbox - Environment" index="0"]
+position = Vector2( -0.5, -2.5 )
