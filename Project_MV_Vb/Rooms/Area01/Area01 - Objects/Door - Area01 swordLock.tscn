@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Rooms/Area01/Area01 - Objects/Door - Area01.gd" type="Script" id=1]
+[ext_resource path="res://Rooms/Area01/Area01 - Objects/Area01_Building_Door-Sheet swordLock.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=7]
+resource_name = "Instant Close"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Open"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 16.0
+height = 19.0
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 19.0
+height = 17.0
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 14.25
+
+[node name="Door - Area01 swordLock, 0" type="StaticBody2D"]
+z_index = 10
+collision_mask = 0
+script = ExtResource( 1 )
+listKeys = [ "Hurtbox - Sword" ]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 5
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Instant Close" = SubResource( 7 )
+anims/Open = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 4 )
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8193
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 5 )
+
+[node name="Player Detect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Detect"]
+shape = SubResource( 6 )
+
+[node name="Timer InstantClose" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="Player Detect" to="." method="_on_Player_Detect_body_entered"]
+[connection signal="body_exited" from="Player Detect" to="." method="_on_Player_Detect_body_exited"]
+[connection signal="timeout" from="Timer InstantClose" to="." method="_on_Timer_InstantClose_timeout"]

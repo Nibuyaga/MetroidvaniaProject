@@ -55,7 +55,7 @@ func _on_Hurtbox_area_entered(area):
 	print('whaa')
 	if not stats['alive']:
 		return
-	if area.position.x > position.x:
+	if area.global_position.x > global_position.x:
 		knockback(Vector2(-1000,-100))
 	else:
 		knockback(Vector2(1000,-100))

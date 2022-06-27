@@ -21,7 +21,7 @@ export var lowest_border_correction = Vector2(20,20)
 export var highest_border_correction = Vector2(-20,-20)
 
 # references and preloads
-var dummyTile = preload("res://Rooms/Base_Script/TileSingle - Dummy.tscn")
+var dummyTile = preload("res://Rooms/Base_Script/TileSingle - Destructable.tscn")
 
 onready var tileD = get_node_or_null("TileMap - DestructableTiles")
 
@@ -42,18 +42,18 @@ func provide_border():
 
 
 
-func tiledamage(input_pos):
+func tiledamage(input_pos, destruct_name = "no name", point1 = Vector2(-5,-5), point2 = Vector2(5,5)):
 	if destructible:
 		var cellposition = world_to_map(input_pos)
 		
 		#get_cellv(cellposition, -1)
 		# above line is for getting tile index
 		if get_cellv(cellposition) != -1:
-			check_destructible(cellposition)
+			check_destructible(cellposition, destruct_name)
 		else:
 			cellposition = nearbyhandling(input_pos)	# Check function below
 			if cellposition != null:
-				check_destructible(cellposition)
+				check_destructible(cellposition, destruct_name)
 		# when set_cellv(inputVector2, -1), -1 removes tile
 
 func nearbyhandling(input_pos):
@@ -78,7 +78,7 @@ func nearbyhandling(input_pos):
 		return null
 	
 
-func check_destructible(cellposition):
+func check_destructible(cellposition, destruct_name = "no name"):
 	var tile_id = tileD.get_cellv(cellposition)
 	
 	match tile_id:
@@ -91,7 +91,26 @@ func check_destructible(cellposition):
 			set_cellv(cellposition,-1)
 			var added_tile = dummyTile.instance()
 			added_tile.position = map_to_world(cellposition)
+			added_tile.destructableTile_created("dummy")
 			Global.grab_current_level().add_child(added_tile)
+		
+		# for the sword
+		2:
+			set_cellv(cellposition,-1)
+			if not destruct_name in ["sword"]:	#list should contain checks
+				var added_tile = dummyTile.instance()
+				added_tile.position = map_to_world(cellposition)
+				added_tile.destructableTile_created("sword")
+				Global.grab_current_level().add_child(added_tile)
+		
+		# for the grenade
+		3:
+			set_cellv(cellposition,-1)
+			if not destruct_name in ["grenade"]:	#list should contain checks
+				var added_tile = dummyTile.instance()
+				added_tile.position = map_to_world(cellposition)
+				added_tile.destructableTile_created("grenade")
+				Global.grab_current_level().add_child(added_tile)
 		
 		# When it's an empty cell
 		-1:

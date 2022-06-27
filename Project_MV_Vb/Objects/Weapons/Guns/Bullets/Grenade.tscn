@@ -17,9 +17,10 @@ bounce = 0.5
 air_drag = 20.0
 
 [node name="Sprite" parent="." index="0"]
-position = Vector2( 0.1537, -0.1537 )
-scale = Vector2( 0.75256, 0.75256 )
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 1 )
+hframes = 1
+vframes = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( -0.323547, 1.29413 )

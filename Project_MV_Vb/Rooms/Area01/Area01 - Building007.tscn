@@ -34,7 +34,9 @@ next_scene_path = "res://Rooms/Area01/Area01 - Building008.tscn"
 new_player_pos = Vector2( 0, 140 )
 
 [node name="SceneChanger_ Building009" parent="." instance=ExtResource( 3 )]
-position = Vector2( -80, 160 )
+position = Vector2( -20, 160 )
+next_scene_path = "res://Rooms/Area01/Area01 - Building009.tscn"
+new_player_pos = Vector2( 760, 420 )
 
 [node name="Door - Area01, 0" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, 270 )
@@ -65,3 +67,5 @@ rotation = -1.5708
 
 [node name="StopAndShootLaser2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 220, 230 )
+
+[editable path="TileMap - Area01, BuildingBlock"]
