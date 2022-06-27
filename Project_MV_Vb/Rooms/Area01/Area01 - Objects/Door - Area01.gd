@@ -1,8 +1,9 @@
 extends StaticBody2D
 
 # listKeys, basically all the nodes it can interact to open
-var listKeys = [
-	"NormalBullet"
+export var listKeys = [
+	"NormalBullet",
+	"Hurtbox - Sword"
 ]
 export var closeDirectly = true
 

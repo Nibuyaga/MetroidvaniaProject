@@ -111,6 +111,7 @@ func update_sword(delta, aim, attack):
 				knockback(Vector2(500,-10), true)
 			else:
 				knockback(Vector2(128,-10), true)
+			$"Hurtbox - Sword".activate_sword_hitbox(swing.position)
 	else:
 		if sword['slash timer'] > 0:
 			sword['slash timer'] -= delta

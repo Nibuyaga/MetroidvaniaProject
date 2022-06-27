@@ -4,16 +4,16 @@
 [ext_resource path="res://Rooms/Base_Script/tilemap_script.gd" type="Script" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
+points = PoolVector2Array( 18, 17, 20, 17, 20, 20, 0, 20, 0, 17, 2, 17, 10, 2, 10, 2, 10, 2 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
+points = PoolVector2Array( 3, 2, 18, 10, 3, 18, 3, 20, 0, 20, 0, 0, 3, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
+points = PoolVector2Array( 0, 3, 0, 0, 20, 0, 20, 3, 18, 3, 10, 18, 2, 3 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
+points = PoolVector2Array( 2, 10, 17, 2, 17, 0, 20, 0, 20, 20, 17, 20, 17, 18 )
 
 [sub_resource type="TileSet" id=1]
 0/name = "Area01_TileMap_Spikes.png 0"
@@ -104,7 +104,7 @@ points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
 [node name="Spikes - Area01" type="TileMap"]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 20, 20 )
-collision_layer = 33
+collision_layer = 32
 collision_mask = 0
 format = 1
 script = ExtResource( 2 )

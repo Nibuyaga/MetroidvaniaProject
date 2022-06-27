@@ -1,10 +1,12 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://Objects/PhysicsBody/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Objects/PhysicsBody/Character/Player/arm.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/player.png" type="Texture" id=4]
 [ext_resource path="res://Objects/UI/HUD_simple.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Weapons/Swords/Hurtbox - Sword.gd" type="Script" id=6]
+[ext_resource path="res://Unassigned/TDfunc.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=224]
 resource_name = "charge"
@@ -799,7 +801,7 @@ nodes/walk_u/node = SubResource( 194 )
 nodes/walk_u/position = Vector2( -20, -520 )
 nodes/wallslide/node = SubResource( 240 )
 nodes/wallslide/position = Vector2( 440, -1200 )
-node_connections = [ "hurt", 0, "doslash", "hurt", 1, "Animation", "slash", 0, "slash_normal", "slash", 1, "jump_slash", "fall", 0, "fall_u", "fall", 1, "fall_fu", "fall", 2, "fall_f", "fall", 3, "fall_fd", "fall", 4, "fall_d", "jump_up", 0, "jump_up_u", "jump_up", 1, "jump_up_fu", "jump_up", 2, "jump_up_f", "jump_up", 3, "jump_up_fd", "jump_up", 4, "jump_up_d", "doslash", 0, "action", "doslash", 1, "slash", "walk", 0, "walk_u", "walk", 1, "walk_fu", "walk", 2, "walk_f", "walk", 3, "walk_fd", "walk", 4, "walk_d", "movement", 0, "idle", "movement", 1, "walk", "movement", 2, "jump_forward", "movement", 3, "jump_up", "movement", 4, "fall", "movement", 5, "wallslide", "jump_forward", 0, "jump_forward_u", "jump_forward", 1, "jump_forward_fu", "jump_forward", 2, "jump_forward_f", "jump_forward", 3, "jump_forward_fd", "jump_forward", 4, "jump_forward_d", "action", 0, "movement", "action", 1, "charge", "action", 2, "charge_walk", "action", 3, "charge_jump", "idle", 0, "idle_u", "idle", 1, "idle_fu", "idle", 2, "idle_f", "idle", 3, "idle_fd", "idle", 4, "idle_d", "output", 0, "hurt" ]
+node_connections = [ "action", 0, "movement", "action", 1, "charge", "action", 2, "charge_walk", "action", 3, "charge_jump", "idle", 0, "idle_u", "idle", 1, "idle_fu", "idle", 2, "idle_f", "idle", 3, "idle_fd", "idle", 4, "idle_d", "output", 0, "hurt", "doslash", 0, "action", "doslash", 1, "slash", "slash", 0, "slash_normal", "slash", 1, "jump_slash", "jump_forward", 0, "jump_forward_u", "jump_forward", 1, "jump_forward_fu", "jump_forward", 2, "jump_forward_f", "jump_forward", 3, "jump_forward_fd", "jump_forward", 4, "jump_forward_d", "movement", 0, "idle", "movement", 1, "walk", "movement", 2, "jump_forward", "movement", 3, "jump_up", "movement", 4, "fall", "movement", 5, "wallslide", "hurt", 0, "doslash", "hurt", 1, "Animation", "jump_up", 0, "jump_up_u", "jump_up", 1, "jump_up_fu", "jump_up", 2, "jump_up_f", "jump_up", 3, "jump_up_fd", "jump_up", 4, "jump_up_d", "walk", 0, "walk_u", "walk", 1, "walk_fu", "walk", 2, "walk_f", "walk", 3, "walk_fd", "walk", 4, "walk_d", "fall", 0, "fall_u", "fall", 1, "fall_fu", "fall", 2, "fall_f", "fall", 3, "fall_fd", "fall", 4, "fall_d" ]
 
 [sub_resource type="CapsuleShape2D" id=160]
 resource_local_to_scene = true
@@ -813,6 +815,9 @@ extents = Vector2( 5, 16.5 )
 [sub_resource type="CapsuleShape2D" id=237]
 radius = 5.98182
 height = 18.5606
+
+[sub_resource type="CapsuleShape2D" id=241]
+height = 15.0
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 1024
@@ -890,7 +895,7 @@ collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 4.76837e-07, -2.5 )
+position = Vector2( 0, -2.5 )
 shape = SubResource( 161 )
 
 [node name="CameraDirection" type="Position2D" parent="." index="7"]
@@ -913,3 +918,16 @@ layer = 2
 position = Vector2( 0, -3 )
 scale = Vector2( 1.00304, 1 )
 shape = SubResource( 237 )
+
+[node name="Hurtbox - Sword" type="Area2D" parent="." index="10"]
+collision_layer = 8192
+script = ExtResource( 6 )
+active_time = 0.34
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox - Sword" index="0"]
+rotation = 1.5708
+shape = SubResource( 241 )
+disabled = true
+
+[node name="TDfunc" parent="Hurtbox - Sword" index="1" instance=ExtResource( 7 )]
+destructname_export = "sword"
