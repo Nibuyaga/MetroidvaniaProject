@@ -5,13 +5,13 @@
 [ext_resource path="res://Rooms/Base_Script/TileMap - DestructableTiles.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
+points = PoolVector2Array( 0, 0, 20, 0, 20, 1, 0, 1 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
+points = PoolVector2Array( 0, 0, 20, 0, 20, 1, 0, 1 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
+points = PoolVector2Array( 0, 0, 20, 0, 20, 1, 0, 1 )
 
 [sub_resource type="TileSet" id=5]
 0/name = "Area01_TileMap_BuildingJumpThrough.png 0"

@@ -1,6 +1,9 @@
 extends Node
 
 export var destructname_export= "no name"
+export var radius = 5
+var onetime = true	# helps getting that one time trigger per bullet
+export var continuous = false
 
 # When area2D or similiar returns multiple nodes
 # !this is not a function for handling multiple tiles from the same node!
@@ -12,7 +15,7 @@ func TD_multibodies(overlapping_bodies, node_self, destructname = destructname_e
 # Tile destruction function 
 func TDf(node_tilemap, node_self, destructname = "no name"):
 	if "TileMap" in str(node_tilemap):
-		node_tilemap.tiledamage(node_self.global_position, destructname)
+		node_tilemap.tiledamage(node_self.global_position, destructname, radius, self)
 	elif "TileSingle - Destructable" in str(node_tilemap):
 		node_tilemap.destructableTile_destroyed(destructname)
 	else:

@@ -13,8 +13,7 @@ var listexplosion = [
 	Vector2(5,5)
 	]
 const tilecorr = Vector2(10,10)
-var arrayDistance = []
-var arrayCell = []
+
 
 export var cameraborder = false
 export var lowest_border_correction = Vector2(20,20)
@@ -26,6 +25,8 @@ var dummyTile = preload("res://Rooms/Base_Script/TileSingle - Destructable.tscn"
 onready var tileD = get_node_or_null("TileMap - DestructableTiles")
 
 
+var listpositions = []
+var listcells = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,44 +43,66 @@ func provide_border():
 
 
 
-func tiledamage(input_pos, destruct_name = "no name", point1 = Vector2(-5,-5), point2 = Vector2(5,5)):
+func tiledamage(input_pos, destruct_name = "no name", radius = 5, nodeself = null):
 	if destructible:
-		var cellposition = world_to_map(input_pos)
 		
-		#get_cellv(cellposition, -1)
-		# above line is for getting tile index
-		if get_cellv(cellposition) != -1:
-			check_destructible(cellposition, destruct_name)
-		else:
-			cellposition = nearbyhandling(input_pos)	# Check function below
-			if cellposition != null:
-				check_destructible(cellposition, destruct_name)
-		# when set_cellv(inputVector2, -1), -1 removes tile
-
-func nearbyhandling(input_pos):
-	# returns cell coördinate which can be used
-	arrayDistance.clear()	#clears the array
-	arrayCell.clear()
-	for curr in listexplosion:
-		if get_cellv(world_to_map(curr + input_pos)) != -1:
-			var cellpos = map_to_world(world_to_map(curr+input_pos)) + tilecorr
+		if nodeself == null or nodeself.onetime:
+			if nodeself != null and nodeself.continuous == false:
+				nodeself.onetime = false
 			
-			arrayCell.append(world_to_map(curr + input_pos))
-			arrayDistance.append(cellpos.distance_to(curr))
+			listpositions = radiushandling(input_pos, radius)
+			
+			# listcells becomes filled and checked for duplicates
+			for x in listpositions:
+				if not world_to_map(x) in listcells:
+					listcells.append(world_to_map(x))
+			
+			# applies tile destruction
+			for cell in listcells:
+				check_destructible(cell, destruct_name)
+			
+			# clears the lists after use
+			listpositions.clear()
+			listcells.clear()
+
+
+
+
+func radiushandling(input_pos, radius):
+	var tilesize = 20/5	# use maybe half
+	var listpos = []
 	
-	if not arrayCell.empty():
+	var min_y = input_pos.y - radius
+	var max_y = input_pos.y + radius
+	var min_x = input_pos.x - radius
+	var max_x = input_pos.x + radius
+	
+	
+	var loop_y = min_y	# loop_xy are the coordinate in the world
+	var loop_x = 0	# is determined in the loop
+	var loop_x_max = 0	# is to determine what the border is
+	var calculation = 0
+	while loop_y <= max_y:
+		# create loop_x
+		calculation = sqrt(pow(radius,2) - pow((input_pos.y - loop_y),2))
+		loop_x = input_pos.x - calculation
+		loop_x_max = input_pos.x + calculation
 		
-		return arrayCell[
-			arrayDistance.find(
-				arrayDistance.min()
-				)
-			]
-	else:
-		return null
+		
+		while loop_x <= loop_x_max:
+			listpos.append(Vector2(loop_x, loop_y))
+			loop_x += tilesize
+		listpos.append(Vector2(loop_x_max, loop_y))	# a bit of fine tuning
+		
+		loop_y += tilesize	# readies loop_y for next loop
 	
+	
+	return listpos
 
 func check_destructible(cellposition, destruct_name = "no name"):
 	var tile_id = tileD.get_cellv(cellposition)
+	if get_cellv(cellposition) == -1:
+		tile_id = -1
 	
 	match tile_id:
 		# When the cell is destructable by everything
