@@ -13,3 +13,7 @@ func _process(delta):
 	timer -= delta
 	if timer <= 0:
 		queue_free()
+	
+	# Tile destruction
+	if len(get_overlapping_bodies()) > 0:
+		$TDfunc.TD_multibodies(get_overlapping_bodies(), self)

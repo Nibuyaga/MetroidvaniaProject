@@ -13,10 +13,12 @@ func activate_sword_hitbox(hitboxPosition=Vector2.ZERO):
 	$CollisionShape2D.position = hitboxPosition
 	active_bool = true
 	timerz = active_time
+	$TDfunc.onetime = true	# is for tile destruction
 
 
 func deactivate_sword_hitbox():
 	$CollisionShape2D.disabled = true
+
 
 
 func _physics_process(delta):
