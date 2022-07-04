@@ -1,5 +1,8 @@
 extends "res://Objects/PhysicsBody/Character/Character.gd"
+
 const vfx = preload("res://Objects/vfx.tscn")
+const dash_vfx = preload("res://Objects/dash.tscn")
+const djump_vfx = preload("res://Objects/djump.tscn")
 
 # TODO: https://docs.godotengine.org/en/3.1/getting_started/step_by_step/singletons_autoload.html
 var horizontal_movement = 0
@@ -101,7 +104,8 @@ func update_sword(delta, aim, attack):
 		else:
 			var swing = vfx.instance()
 			add_child(swing)
-			swing.position.y -= 4
+			
+			swing.position.y = -10
 			swing.position.x += 8*facing
 			swing.scale.x = -facing
 			swing.get_node('animation').play('swing')
@@ -132,10 +136,21 @@ func jump():
 			facing = -on_wall
 			# temporary air_drag when wall jumping 
 			air_drag = wall_jump_air_drag
+			var dash = dash_vfx.instance()
+			
+			Global.grab_current_level().add_child(dash)
+			dash.get_node('animation').play('dash')
+			dash.scale.x = -facing
+			dash.position = self.position
 		elif stats['double_jump'] < stats['double_jumps']:
 			stats['double_jump'] += 1
 			velocity.y = -jumpforce
 			air_drag = real_air_drag
+			
+			var djump = djump_vfx.instance()
+			Global.grab_current_level().add_child(djump)
+			djump.get_node('animation').play('dash')
+			djump.position = self.position
 		else:
 			return
 		if initial_jump:
