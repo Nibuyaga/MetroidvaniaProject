@@ -19,7 +19,7 @@ func _get_configuration_warning() -> String:
 func _on_SceneChanger_body_entered(body):
 	# first line changes player data location
 	Global.player_spawn_location.x = new_player_pos.x
-	Global.player_spawn_location.y = new_player_pos.y  + (body.position.y - self.position.y)
+	Global.player_spawn_location.y = new_player_pos.y  + (body.global_position.y - self.global_position.y)
 	Global.goto_scene(next_scene_path)
 
 
