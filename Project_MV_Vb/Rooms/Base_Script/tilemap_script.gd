@@ -96,8 +96,8 @@ func radiushandling(input_pos, radius):
 
 	var min_y = input_pos.y - radius
 	var max_y = input_pos.y + radius
-	var min_x = input_pos.x - radius
-	var max_x = input_pos.x + radius
+	var _min_x = input_pos.x - radius
+	var _max_x = input_pos.x + radius
 
 
 	var loop_y = min_y	# loop_xy are the coordinate in the world
