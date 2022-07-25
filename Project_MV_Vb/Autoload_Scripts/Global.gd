@@ -16,7 +16,7 @@ var tilemap_border_high = []
 
 # !Consider changing this when dealing introducing menus
 func _ready():
-
+	
 	# gets the last child of the root, which generally is the loaded scene, the current level
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
@@ -203,6 +203,4 @@ func checkon_tilemap_size():
 	for currentNode in level_nodes:
 		if currentNode.is_class("TileMap"):
 			print("notice TileMap")
-			pass
-	
-	pass
+

@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Rooms/Area01/Area01 - Objects/Area01 - Hazard LaserTrap2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/Area01/Area01 - Objects/Area01 - Hazard LaserTrap2.gd" type="Script" id=2]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Node2D
+
+
+
+enum STATE {
+	detect,
+	shooting,
+	reload
+}
+
+var detect_clockwise = true
+var rotation_speed = 50
+export var flip_h = false
+onready var laser = get_node(\"Area01 - Hazard LaserTrap2\")
+onready var state = STATE.detect
+
+var timer = 1
+var timer_go = 1
+
+func _ready():
+	timer_go = timer
+
+
+func _process(delta):
+	
+	match state:
+		STATE.detect:
+			printCheck(state)
+			if flip_h:
+				if detect_clockwise:
+					rotation_degrees += rotation_speed * delta
+					if rotation_degrees >= 90:
+						detect_clockwise = false
+				else:
+					rotation_degrees -= rotation_speed * delta
+					if rotation_degrees <= 0:
+						detect_clockwise = true
+			else:
+				if detect_clockwise:
+					rotation_degrees += rotation_speed * delta
+					if rotation_degrees >= 0:
+						detect_clockwise = false
+				else:
+					rotation_degrees -= rotation_speed * delta
+					if rotation_degrees <= -90:
+						detect_clockwise = true
+			
+		STATE.shooting:
+			printCheck(state)
+			pass
+		
+		STATE.reload:
+			printCheck(state)
+			timer_go -= delta
+			if timer_go <= 0:
+				state = STATE.detect
+				laser_ready()
+				timer_go = timer
+
+
+func laser_ready():
+	laser.normalhandling = true
+	laser.change_to_detect()
+	state = STATE.detect
+	print(\"laser ready\")
+
+func _on_Area01__Hazard_LaserTrap2_enemyFound():
+	state = STATE.shooting
+	laser.normalhandling = false
+
+
+func _on_Area01__Hazard_LaserTrap2_shotFired():
+	state = STATE.reload
+	print(\"shot fired\")
+
+
+var mio = 0
+func printCheck(something = true):
+	if something != mio:
+		print(something)
+		mio = something
+"
+
+[node name="Laser_Turret" type="Node2D"]
+position = Vector2( 30, 50 )
+script = SubResource( 3 )
+
+[node name="Area01 - Hazard LaserTrap2" type="KinematicBody2D" parent="." instance=ExtResource( 1 )]
+z_index = 100
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 2 )
+
+[connection signal="enemyFound" from="Area01 - Hazard LaserTrap2" to="." method="_on_Area01__Hazard_LaserTrap2_enemyFound"]
+[connection signal="shotFired" from="Area01 - Hazard LaserTrap2" to="." method="_on_Area01__Hazard_LaserTrap2_shotFired"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Boss_Computer/Small_nodes/Enemy_Bullet.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Blocks/Red_block.png" type="Texture" id=2]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/Boss_Computer/Small_nodes/Enemy_Bullet_CollisionShape.tres" type="Shape2D" id=3]
+
+[node name="Enemy_Bullet" type="KinematicBody2D"]
+collision_layer = 4096
+collision_mask = 1025
+script = ExtResource( 1 )
+speed = 200
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.4, 0.2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = ExtResource( 3 )

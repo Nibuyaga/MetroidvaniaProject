@@ -19,6 +19,8 @@ var damage_invincibility = false
 var facing = 0
 var is_jumping = false
 
+
+
 #may need expanding if wanting to use status
 var envi_damage = {
 	"state": false	,
@@ -106,7 +108,7 @@ func calc_health(damage, animation = true):
 		stats['health'] -= damage
 		if stats['health'] <= 0:
 			die()
-		elif animation:
+		elif animation and get_node_or_null("AnimationPlayer") != null:
 			$AnimationPlayer.play("hurt")
 		
 		# line below prints health of characters when damaged

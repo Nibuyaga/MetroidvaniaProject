@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sword_charge.wav-89944a5c9af62314fa51610d5dc73947.sample"
+
+[deps]
+
+source_file="res://Assets/Sfx/player/sword_charge.wav"
+dest_files=[ "res://.import/sword_charge.wav-89944a5c9af62314fa51610d5dc73947.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
