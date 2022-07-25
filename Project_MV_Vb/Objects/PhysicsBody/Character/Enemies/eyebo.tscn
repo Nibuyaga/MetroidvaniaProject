@@ -150,4 +150,4 @@ anims/hurt = SubResource( 3 )
 anims/move = SubResource( 4 )
 
 [node name="CollisionShape2D" parent="Hurtbox - Environment" index="0"]
-position = Vector2( 1, -2 )
+position = Vector2( 0.5, -2 )

@@ -12,7 +12,7 @@ func TD_multibodies(overlapping_bodies, node_self, destructname = destructname_e
 		TDf(current, node_self, destructname)
 
 
-# Tile destruction function 
+# Tile destruction function
 func TDf(node_tilemap, node_self, destructname = "no name"):
 	if "TileMap" in str(node_tilemap):
 		node_tilemap.tiledamage(node_self.global_position, destructname, radius, self)

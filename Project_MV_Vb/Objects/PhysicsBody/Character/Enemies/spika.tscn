@@ -94,10 +94,10 @@ tracks/0/keys = {
 [node name="spika" instance=ExtResource( 1 )]
 collision_layer = 2048
 script = ExtResource( 3 )
-speed = 20
+speed = 100
 persistent = false
-jumper = false
 flyer = false
+jump_time = 3
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -1 )

@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/Spikes - Area01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/TileMap - Area01, BuildingBlock.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Rooms/AreaScript Generic.gd" type="Script" id=3]
 [ext_resource path="res://Rooms/Area01/Area01 - Objects/Door - Area01 swordLock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Rooms/SceneChanger_S.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/spika.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/waz.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/eyebo.tscn" type="PackedScene" id=8]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource( 3 )
 player_spawn_location = Vector2( 80, 750 )
 
@@ -62,5 +65,146 @@ new_player_pos = Vector2( 50, 140 )
 
 [node name="Spikes - Area01" parent="chunk_b" instance=ExtResource( 1 )]
 show_collision = true
+
+[node name="waz" parent="." instance=ExtResource( 7 )]
+position = Vector2( 980, 520 )
+stats = {
+"alive": true,
+"gun": 0,
+"health": 8,
+"max_health": 10
+}
+
+[node name="spika" parent="." instance=ExtResource( 6 )]
+position = Vector2( 410, 770 )
+
+[node name="spika2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 670, 770 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="spika3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 650, 590 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="spika4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 900, 670 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="spika5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1230, 770 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="spika6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1670, 770 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="spika7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1670, 770 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="waz2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 730, 520 )
+stats = {
+"alive": true,
+"gun": 0,
+"health": 8,
+"max_health": 10
+}
+
+[node name="eybo" parent="." instance=ExtResource( 8 )]
+position = Vector2( 140, 390 )
+
+[node name="eybo2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 440, 390 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="eybo3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1180, 390 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="eybo4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1500, 390 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
 
 [editable path="chunk_b/TileMap - Area01, BuildingBlock"]

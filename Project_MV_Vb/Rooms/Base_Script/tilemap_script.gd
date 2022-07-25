@@ -43,24 +43,46 @@ func provide_border():
 
 
 
+func tiledamage(input_pos, destruct_name = "no name", point1 = Vector2(-5,-5), point2 = Vector2(5,5)):
+	if destructible:
+
+		#get_cellv(cellposition, -1)
+		# above line is for getting tile index
+		if get_cellv(cellposition) != -1:
+			check_destructible(cellposition, destruct_name)
+		else:
+			cellposition = nearbyhandling(input_pos)	# Check function below
+			if cellposition != null:
+				check_destructible(cellposition, destruct_name)
+		# when set_cellv(inputVector2, -1), -1 removes tile
+
+func nearbyhandling(input_pos):
+	# returns cell coördinate which can be used
+	arrayDistance.clear()	#clears the array
+	arrayCell.clear()
+	for curr in listexplosion:
+		if get_cellv(world_to_map(curr + input_pos)) != -1:
+			var cellpos = map_to_world(world_to_map(curr+input_pos)) + tilecorr
+=======
 func tiledamage(input_pos, destruct_name = "no name", radius = 5, nodeself = null):
 	if destructible:
-		
+
 		if nodeself == null or nodeself.onetime:
 			if nodeself != null and nodeself.continuous == false:
 				nodeself.onetime = false
-			
+>>>>>>> fda4a90 (multiple tiles can now be destroyed simultanously.)
+
 			listpositions = radiushandling(input_pos, radius)
-			
+
 			# listcells becomes filled and checked for duplicates
 			for x in listpositions:
 				if not world_to_map(x) in listcells:
 					listcells.append(world_to_map(x))
-			
+
 			# applies tile destruction
 			for cell in listcells:
 				check_destructible(cell, destruct_name)
-			
+
 			# clears the lists after use
 			listpositions.clear()
 			listcells.clear()
@@ -71,13 +93,13 @@ func tiledamage(input_pos, destruct_name = "no name", radius = 5, nodeself = nul
 func radiushandling(input_pos, radius):
 	var tilesize = 20/5	# use maybe half
 	var listpos = []
-	
+
 	var min_y = input_pos.y - radius
 	var max_y = input_pos.y + radius
 	var _min_x = input_pos.x - radius
 	var _max_x = input_pos.x + radius
-	
-	
+
+
 	var loop_y = min_y	# loop_xy are the coordinate in the world
 	var loop_x = 0	# is determined in the loop
 	var loop_x_max = 0	# is to determine what the border is
@@ -87,28 +109,28 @@ func radiushandling(input_pos, radius):
 		calculation = sqrt(pow(radius,2) - pow((input_pos.y - loop_y),2))
 		loop_x = input_pos.x - calculation
 		loop_x_max = input_pos.x + calculation
-		
-		
+
+
 		while loop_x <= loop_x_max:
 			listpos.append(Vector2(loop_x, loop_y))
 			loop_x += tilesize
 		listpos.append(Vector2(loop_x_max, loop_y))	# a bit of fine tuning
-		
+
 		loop_y += tilesize	# readies loop_y for next loop
-	
-	
+
+
 	return listpos
 
 func check_destructible(cellposition, destruct_name = "no name"):
 	var tile_id = tileD.get_cellv(cellposition)
 	if get_cellv(cellposition) == -1:
 		tile_id = -1
-	
+
 	match tile_id:
 		# When the cell is destructable by everything
 		0:
 			set_cellv(cellposition,-1)
-		
+
 		# When it hits the dummy block
 		1:
 			set_cellv(cellposition,-1)
@@ -116,7 +138,7 @@ func check_destructible(cellposition, destruct_name = "no name"):
 			added_tile.position = map_to_world(cellposition)
 			added_tile.destructableTile_created("dummy")
 			Global.grab_current_level().add_child(added_tile)
-		
+
 		# for the sword
 		2:
 			set_cellv(cellposition,-1)
@@ -125,7 +147,7 @@ func check_destructible(cellposition, destruct_name = "no name"):
 				added_tile.position = map_to_world(cellposition)
 				added_tile.destructableTile_created("sword")
 				Global.grab_current_level().add_child(added_tile)
-		
+
 		# for the grenade
 		3:
 			set_cellv(cellposition,-1)
@@ -134,14 +156,13 @@ func check_destructible(cellposition, destruct_name = "no name"):
 				added_tile.position = map_to_world(cellposition)
 				added_tile.destructableTile_created("grenade")
 				Global.grab_current_level().add_child(added_tile)
-		
+
 		# When it's an empty cell
 		-1:
 			#print("tilecell is empty, by " + self.get_name())
 			pass
-			
+
 		# When it's from an unknown cell
 		_:
 			#print("tilecell is not recognized, by " + self.get_name())
 			pass
-

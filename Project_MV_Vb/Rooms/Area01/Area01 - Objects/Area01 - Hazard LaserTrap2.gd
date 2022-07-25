@@ -13,6 +13,7 @@ export var prepare_playrate = 1.0
 export var shoot_playrate = 1.0
 
 var state = STATE.detect
+var normalhandling = true
 onready var RC: RayCast2D = get_node("RayCast2D")
 onready var RCD: RayCast2D = get_node("RayCastDetect")
 
@@ -51,10 +52,10 @@ func _physics_process(_delta):
 	
 
 func change_to_detect():
-	state = STATE.detect
-	$AnimationPlayer.playback_speed = 1
-	emit_signal("shotFired")
-	$AnimationPlayer.play("detect_appear")
+	if normalhandling:	# a "quickfix" to control the detection timing
+		state = STATE.detect
+		$AnimationPlayer.playback_speed = 1
+		$AnimationPlayer.play("detect_appear")
 
 func change_to_prepare():
 	state = STATE.prepare
@@ -67,7 +68,8 @@ func change_to_shoot():
 	$AnimationPlayer.playback_speed = shoot_playrate
 	$AnimationPlayer.play("shoot")
 
-
+func signal_shotfired():
+	emit_signal("shotFired")
 
 
 # tween functions !Unused

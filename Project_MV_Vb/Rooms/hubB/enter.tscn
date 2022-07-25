@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/TileMap - Area01, BuildingBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/Spikes - Area01.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Rooms/AreaScript Generic.gd" type="Script" id=3]
 [ext_resource path="res://Rooms/Area01/Area01 - Objects/Door - Area01 swordLock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Rooms/SceneChanger_S.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/eyebo.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/PhysicsBody/Character/Enemies/waz.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Rooms/Area01/Area01 - Objects/Area01 - Hazard LaserTrap2.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -43,7 +46,151 @@ position = Vector2( 12, 30 )
 next_scene_path = "res://Rooms/hubB/split1.tscn"
 new_player_pos = Vector2( 0, 780 )
 
+[node name="Area01 - Hazard LaserTrap2" parent="chunk_b/TileMap - Area01, BuildingBlock/Door - Area01 swordLock, 2" instance=ExtResource( 8 )]
+position = Vector2( -430, -500 )
+
+[node name="Area01 - Hazard LaserTrap3" parent="chunk_b/TileMap - Area01, BuildingBlock/Door - Area01 swordLock, 2" instance=ExtResource( 8 )]
+position = Vector2( -330, -400 )
+
+[node name="Area01 - Hazard LaserTrap4" parent="chunk_b/TileMap - Area01, BuildingBlock/Door - Area01 swordLock, 2" instance=ExtResource( 8 )]
+position = Vector2( -210, -280 )
+prepare_playrate = 0.368
+shoot_playrate = 0.87
+
 [node name="Spikes - Area01" parent="chunk_b" instance=ExtResource( 2 )]
 show_collision = true
+
+[node name="eybo" parent="." instance=ExtResource( 6 )]
+position = Vector2( 820, 470 )
+
+[node name="eybo6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 360, 110 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="eybo7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 270, 110 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="eybo8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1600, 330 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="eybo9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1900, 330 )
+
+[node name="eybo2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 930, 470 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="eybo3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1050, 470 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="eybo4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1180, 470 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="eybo5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1360, 470 )
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 10,
+"max_health": 10,
+"wall_jump": true
+}
+
+[node name="waz" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1660, 200 )
+stats = {
+"alive": true,
+"gun": 0,
+"health": 8,
+"max_health": 10
+}
+
+[node name="waz4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 430, 220 )
+stats = {
+"alive": true,
+"gun": 0,
+"health": 8,
+"max_health": 10
+}
+
+[node name="waz2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1430, 340 )
+stats = {
+"alive": true,
+"gun": 0,
+"health": 8,
+"max_health": 10
+}
+
+[node name="waz3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1740, 350 )
+stats = {
+"alive": true,
+"gun": 0,
+"health": 8,
+"max_health": 10
+}
 
 [editable path="chunk_b/TileMap - Area01, BuildingBlock"]

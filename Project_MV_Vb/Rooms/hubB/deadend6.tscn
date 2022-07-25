@@ -6,7 +6,7 @@
 [ext_resource path="res://Rooms/Area01/Area01 - Objects/Door - Area01 swordLock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Rooms/SceneChanger_S.tscn" type="PackedScene" id=5]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="chunk_b" type="Node2D" parent="."]

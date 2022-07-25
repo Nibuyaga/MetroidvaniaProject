@@ -22,7 +22,7 @@ func deactivate_sword_hitbox():
 
 
 func _physics_process(delta):
-	
+
 	# Simple timer
 	if active_bool:
 		timerz -= delta
@@ -30,7 +30,6 @@ func _physics_process(delta):
 		if timerz <= 0:
 			active_bool = false
 			deactivate_sword_hitbox()
-	
+
 	if len(get_overlapping_bodies()) > 0:
 		$TDfunc.TD_multibodies(get_overlapping_bodies(), $CollisionShape2D)
-
