@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/TileMap - Area01, SandBlocks.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Pickups/Pickup.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/Area01_Background_Start.png" type="Texture" id=3]
 [ext_resource path="res://Rooms/SceneChanger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Rooms/AreaScript Generic.gd" type="Script" id=5]
@@ -48,5 +49,9 @@ texture = ExtResource( 3 )
 
 [node name="RoomSizeReference" type="Position2D" parent="."]
 position = Vector2( 640, 180 )
+
+[node name="Pickup" parent="." instance=ExtResource( 2 )]
+position = Vector2( 410, 140 )
+pickup_name = "grenade"
 
 [editable path="TileMap - Area01, SandBlocks"]
