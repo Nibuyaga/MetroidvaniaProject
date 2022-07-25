@@ -18,6 +18,7 @@ shape = SubResource( 1 )
 position = Vector2( -0.297302, 0 )
 scale = Vector2( 0.314991, 0.314991 )
 texture = ExtResource( 1 )
-vframes = 4
 hframes = 4
+vframes = 4
+
 [connection signal="body_entered" from="." to="." method="_on_Pickup_body_entered"]

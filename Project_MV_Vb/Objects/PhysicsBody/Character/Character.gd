@@ -4,11 +4,13 @@ export var speed = 2400
 export var jumpforce = 380
 export var stats = {
 	'gun':0,
-	'gun_max_cycle': 3,
+	'gun_max_cycle': 1,
 	'max_health':10,
 	'health':10,
 	'alive': true,
-	'wall_jump': true,
+	'has_sword': false,
+	'can_wall_jump': false,
+	'can_double_jump': false,
 	'double_jump': 0,
 	'double_jumps': 1,
 }

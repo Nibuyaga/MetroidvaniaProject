@@ -51,7 +51,23 @@ texture = ExtResource( 3 )
 position = Vector2( 640, 180 )
 
 [node name="Pickup" parent="." instance=ExtResource( 2 )]
-position = Vector2( 410, 140 )
+position = Vector2( 290, 140 )
+pickup_name = "sword"
+
+[node name="Pickup2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 270, 140 )
+pickup_name = "walljump"
+
+[node name="Pickup3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 250, 140 )
+pickup_name = "doublejump"
+
+[node name="Pickup4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 230, 140 )
 pickup_name = "grenade"
+
+[node name="Pickup5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 210, 140 )
+pickup_name = "grapple"
 
 [editable path="TileMap - Area01, SandBlocks"]

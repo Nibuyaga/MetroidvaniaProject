@@ -42,35 +42,12 @@ func provide_border():
 	]
 
 
-
-func tiledamage(input_pos, destruct_name = "no name", point1 = Vector2(-5,-5), point2 = Vector2(5,5)):
-	if destructible:
-
-		#get_cellv(cellposition, -1)
-		# above line is for getting tile index
-		if get_cellv(cellposition) != -1:
-			check_destructible(cellposition, destruct_name)
-		else:
-			cellposition = nearbyhandling(input_pos)	# Check function below
-			if cellposition != null:
-				check_destructible(cellposition, destruct_name)
-		# when set_cellv(inputVector2, -1), -1 removes tile
-
-func nearbyhandling(input_pos):
-	# returns cell coördinate which can be used
-	arrayDistance.clear()	#clears the array
-	arrayCell.clear()
-	for curr in listexplosion:
-		if get_cellv(world_to_map(curr + input_pos)) != -1:
-			var cellpos = map_to_world(world_to_map(curr+input_pos)) + tilecorr
-=======
 func tiledamage(input_pos, destruct_name = "no name", radius = 5, nodeself = null):
 	if destructible:
 
 		if nodeself == null or nodeself.onetime:
 			if nodeself != null and nodeself.continuous == false:
 				nodeself.onetime = false
->>>>>>> fda4a90 (multiple tiles can now be destroyed simultanously.)
 
 			listpositions = radiushandling(input_pos, radius)
 

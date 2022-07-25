@@ -41,7 +41,6 @@ func _ready():
 	# used for setting player position when changing scenes
 	if PlayerVariables.player_spawn_location != null:
 		global_position = PlayerVariables.player_spawn_location
-
 		PlayerVariables.get_data(self)
 
 	# gets stored playervariables
@@ -51,6 +50,7 @@ func _ready():
 	HUD.update_multiple_at_ready(stats)
 	# !AT, sets the AnimationTree at active at ready
 	$AnimationTree.active = true
+	
 	stats['sword'] = sword
 
 func _input(event):
@@ -133,7 +133,7 @@ func jump():
 		# 200 being the fall-speed limit.
 		if is_on_floor() or (initial_jump and velocity.y <= 200 and velocity.y >= 0):
 			velocity.y = -jumpforce
-		elif on_wall and (stats['wall_jump'] == true) and not last_facing_wall == facing:
+		elif on_wall and (stats['can_wall_jump'] == true) and not last_facing_wall == facing:
 			velocity.x -= (on_wall * wall_jump_force)*2.5
 			velocity.y = -jumpforce/1.5
 			facing = -on_wall
@@ -146,11 +146,10 @@ func jump():
 			dash.get_node('animation').play('dash')
 			dash.scale.x = -facing
 			dash.position = self.position
-		elif stats['double_jump'] < stats['double_jumps']:
+		elif stats['can_double_jump'] and stats['double_jump'] < stats['double_jumps']:
 			stats['double_jump'] += 1
 			velocity.y = -jumpforce
 			air_drag = real_air_drag
-			
 			var djump = djump_vfx.instance()
 			Global.grab_current_level().add_child(djump)
 			djump.get_node('animation').play('dash')
@@ -215,7 +214,7 @@ func _process(delta):
 		air_drag = real_air_drag
 		stats['double_jump'] = 0
 		initial_jump = true
-	else:
+	elif stats['can_wall_jump']:
 		wall_slide(delta)
 	if Input.is_action_pressed('jump'):
 		jump()
@@ -229,7 +228,7 @@ func _process(delta):
 	elif facing < 0:
 		$Sprite.flip_h = true
 
-	if 'sword' in stats:
+	if stats["has_sword"]:
 		update_sword(delta, aim, Input.get_action_strength("attack_b"))
 		if not stats['sword']['charging']:
 			guns[stats["gun"]].update_weapon(delta, aim, Input.get_action_strength("attack_a"))
