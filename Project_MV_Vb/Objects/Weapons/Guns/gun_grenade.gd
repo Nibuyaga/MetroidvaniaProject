@@ -17,3 +17,4 @@ func update_weapon(delta, aim, attack=false):
 		bullet.rotation_degrees = aim*45
 		Global.grab_current_level().add_child(bullet)
 		bullet.velocity = bullet.velocity.rotated(deg2rad((aim-2)*45))
+		$lop.play()

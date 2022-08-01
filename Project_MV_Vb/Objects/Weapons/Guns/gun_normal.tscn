@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://Assets/Sfx/laser_fire.wav" type="AudioStream" id=1]
 [ext_resource path="res://Objects/Weapons/Guns/gun_normal.gd" type="Script" id=2]
-
-
 
 [node name="gun_normal" type="Node2D"]
 position = Vector2( -0.15749, -2.83482 )
 script = ExtResource( 2 )
+
+[node name="laser" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -3.25
+pitch_scale = 0.84
