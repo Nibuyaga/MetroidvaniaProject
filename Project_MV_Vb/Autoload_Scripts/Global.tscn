@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Autoload_Scripts/Global.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Music/fad2.wav" type="AudioStream" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeToBlackScreen"
@@ -78,3 +79,8 @@ color = Color( 0, 0, 0, 0 )
 anims/FadeToBlackScreen = SubResource( 1 )
 anims/FadeToTransparent = SubResource( 2 )
 anims/RESET = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -19.035
+autoplay = true
