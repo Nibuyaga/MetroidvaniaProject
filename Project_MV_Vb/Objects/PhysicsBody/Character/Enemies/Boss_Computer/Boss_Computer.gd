@@ -29,12 +29,13 @@ func _process(delta):
 		if entry[0] <= timer and entry[1]:
 			entry[1] = false
 			entry[2].main_action()
-	
+
+
 
 func _on_Hurtbox_area_entered(area):
 	if "damage" in area:	# This needs to be tested
-		calc_health(area.damage)
+		calc_health(area.damage, false)
 	else:
-		calc_health(1)
-	print(stats["health"])
+		calc_health(1, false)
+	print("boss health: " + str(stats["health"]) )
 

@@ -27,8 +27,6 @@ func _physics_process(_delta):
 	RC.force_raycast_update()
 	
 	if RC.is_colliding():
-		# collide with player or enemy
-
 		# When the Raycast hits the world layer
 			# collision with the tilemap etc
 		cast_point = to_local(RC.get_collision_point())

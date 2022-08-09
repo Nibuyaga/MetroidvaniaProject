@@ -23,14 +23,18 @@ var downed = false
 
 const bullet = preload("Enemy_Bullet.tscn")
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if playernode != null:
 		playerseen = true
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if visible:
+		_process2(delta)
+
+func _process2(delta):
 	if playerseen and downed == false:
 		
 		

@@ -25,5 +25,16 @@ centered = false
 position = Vector2( 320, 180 )
 
 [node name="Boss_Computer" parent="." instance=ExtResource( 5 )]
+input_pickable = true
+stats = {
+"alive": true,
+"double_jump": 0,
+"double_jumps": 1,
+"gun": 0,
+"gun_max_cycle": 3,
+"health": 100,
+"max_health": 100,
+"wall_jump": true
+}
 
 [editable path="TileMap - Area01, BuildingBlock"]

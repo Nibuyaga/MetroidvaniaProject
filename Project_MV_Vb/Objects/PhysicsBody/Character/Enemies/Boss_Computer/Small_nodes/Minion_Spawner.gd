@@ -12,7 +12,8 @@ export(int, "auto", "left", "right") var minion_behaviour
 #	pass
 
 func main_action():
-	spawn_minion()
+	if visible:
+		spawn_minion()
 
 func spawn_minion():
 	var minion = minion_preload.instance()
