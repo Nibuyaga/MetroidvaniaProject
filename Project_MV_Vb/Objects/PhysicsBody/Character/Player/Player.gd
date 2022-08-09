@@ -14,7 +14,7 @@ var real_air_drag = air_drag
 var wall_jump_air_drag = 0.8
 var last_facing_wall = 0
 var wall_jump_reset = 0
-
+var walk_sound = 0
 var aim = 0 # multiply by 45 degrees
 var ani_aim = 0
 
@@ -103,10 +103,11 @@ func update_sword(delta, aim, attack):
 	if sword['charging']:
 		if attack:
 			sword['charge'] += delta
+			$player_audio/sword_charge.play()
 		else:
 			var swing = vfx.instance()
 			add_child(swing)
-			
+			$player_audio/sword_slash.play()
 			swing.position.y = -10
 			swing.position.x += 8*facing
 			swing.scale.x = -facing
@@ -133,6 +134,7 @@ func jump():
 		# 200 being the fall-speed limit.
 		if is_on_floor() or (initial_jump and velocity.y <= 200 and velocity.y >= 0):
 			velocity.y = -jumpforce
+			$player_audio/jump.play()
 		elif on_wall and (stats['can_wall_jump'] == true) and not last_facing_wall == facing:
 			velocity.x -= (on_wall * wall_jump_force)*2.5
 			velocity.y = -jumpforce/1.5
@@ -146,8 +148,10 @@ func jump():
 			dash.get_node('animation').play('dash')
 			dash.scale.x = -facing
 			dash.position = self.position
+			$player_audio/walljump.play()
 		elif stats['can_double_jump'] and stats['double_jump'] < stats['double_jumps']:
 			stats['double_jump'] += 1
+			$player_audio/doublejump.play()
 			velocity.y = -jumpforce
 			air_drag = real_air_drag
 			var djump = djump_vfx.instance()
@@ -161,9 +165,13 @@ func jump():
 		jumping = true
 
 
-func animate():
+func animate(dt):
 	if is_on_floor():
 		if abs(velocity.x) > 100:
+			walk_sound -= dt
+			if walk_sound <= 0:
+				walk_sound = 0.1
+				$player_audio/walk.play()
 			$AnimationTree.set("parameters/movement/current", 1)
 		else:
 			$AnimationTree.set("parameters/movement/current", 0)
@@ -196,11 +204,14 @@ func wall_slide(delta):
 	var space_state = get_world_2d().direct_space_state
 	var to = global_position + Vector2(facing * wall_jump_distance, 0)
 	if len(space_state.intersect_ray(global_position, to, [self])) > 0:
+		if not $player_audio/slide.playing:
+			$player_audio/slide.play()
 		on_wall = facing
 		# Slide down slower unless aiming down
 		if velocity.y > 100 and not Input.is_action_pressed("aim_down"):
 			velocity.y *= 0.8
 	else:
+		$player_audio/slide.stop()
 		on_wall = 0
 
 func _process(delta):
@@ -209,6 +220,7 @@ func _process(delta):
 		facing = horizontal_movement
 		velocity.x += speed * facing * delta
 	if is_on_floor():
+		$player_audio/slide.stop()
 		last_facing_wall = 0
 		wall_jump_reset = 0
 		air_drag = real_air_drag
@@ -221,7 +233,7 @@ func _process(delta):
 	else:
 		jumping = false
 	update_aim()
-	animate()
+	animate(delta)
 	# Overwrite the physicsbody flip because control is more responsive than velocity
 	if facing > 0:
 		$Sprite.flip_h = false
@@ -246,6 +258,7 @@ func _process(delta):
 
 # The player's Hurtbox function overwrites the Character function, fully
 func _on_Hurtbox_area_entered(area):
+	$player_audio/hurt.play()
 	knockback(Vector2(-1000,-100), true)
 	$AnimationTree.set("parameters/hurt/active", 1)
 	if "damage" in area:	# This needs to be tested

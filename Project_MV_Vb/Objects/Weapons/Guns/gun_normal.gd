@@ -16,3 +16,4 @@ func update_weapon(delta, aim, attack=false):
 		bullet.position = global_position
 		bullet.rotation_degrees = aim*45
 		Global.grab_current_level().add_child(bullet)
+		$laser.play()

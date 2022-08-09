@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/TileMap - Area01, BuildingBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area01/Area01 - Tiles/Spikes - Area01.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Objects/PhysicsBody/Character/Enemies/spika.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Rooms/Area01/Area01 - Objects/Door - Area01 swordLock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Rooms/SceneChanger_S.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Pickups/Pickup.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -97,5 +98,9 @@ scale = Vector2( -1, 1 )
 position = Vector2( 10, 30 )
 next_scene_path = "res://Rooms/hubB/GrenadeRooms/apply.tscn"
 new_player_pos = Vector2( 1000, 780 )
+
+[node name="Pickup" parent="." instance=ExtResource( 7 )]
+position = Vector2( 270, 950 )
+pickup_name = "doublejump"
 
 [editable path="chunk_b/TileMap - Area01, BuildingBlock"]
