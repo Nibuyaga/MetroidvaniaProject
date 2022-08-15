@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-
+var active = true
 export var health = 10
 var health_script = health
 
@@ -13,7 +13,7 @@ signal shieldUp
 
 
 func _process(delta):
-	if reboot_process:
+	if reboot_process and active:
 		reboot_timer_script -= delta
 		if reboot_timer_script <= 0:
 			shield_up()

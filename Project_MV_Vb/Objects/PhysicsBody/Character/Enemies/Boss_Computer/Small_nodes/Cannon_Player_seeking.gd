@@ -6,7 +6,7 @@ extends KinematicBody2D
 # var b = "text"
 
 
-
+var active = true
 var playerseen = false
 onready var playernode = Global.grab_current_level().get_node_or_null("Player")
 export var rotation_correction = 0.5	# 1 = full rotation, 0.5 = half rotation, etc.
@@ -31,7 +31,7 @@ func _ready():
 
 
 func _process(delta):
-	if visible:
+	if visible and active:
 		_process2(delta)
 
 func _process2(delta):

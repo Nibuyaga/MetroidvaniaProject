@@ -8,7 +8,8 @@ var hpcheck = {
 
 enum STATE {
 	normal,
-	large_cannon
+	large_cannon,
+	defeated
 }
 var state = STATE.normal
 
@@ -23,7 +24,11 @@ func _process(delta):
 	match state:
 		STATE.normal:
 			timed_events(delta)
-	
+		
+		STATE.defeated:
+			pass
+			
+			
 	
 
 
@@ -45,7 +50,7 @@ func _on_Hurtbox_area_entered(area):
 		hpcheck[3] = false
 	
 	if stats["health"] <= 0:
-		end_self()	# !at the moment it just queu free itself!
+		end_self()
 
 
 # variables for timer
@@ -73,7 +78,7 @@ func timed_events(delta):
 
 func main_action():	#mainly used for test purposes
 	if false:
-		start_large_cannon()
+		pass
 
 
 func start_large_cannon():
@@ -89,5 +94,12 @@ func end_large_cannon():
 	$Barrier.shield_up()
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", false)
 
-func end_self():	# ! at the moment rushed
-	queue_free()	
+func end_self():
+	state = STATE.defeated
+	$Cannon_Player_seeking.active = false
+	$Cannon_Player_seeking2.active = false
+	gravity = 1200
+	set_collision_mask_bit(0, true)
+	$Barrier.set_collision_layer_bit(0, false)
+	$Barrier.shield_hard_down()
+	$Barrier.active = false
