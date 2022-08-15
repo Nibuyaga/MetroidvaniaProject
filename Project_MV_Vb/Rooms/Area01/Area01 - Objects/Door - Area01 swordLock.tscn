@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Rooms/Area01/Area01 - Objects/Door - Area01.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Area01/Area01 - Objects/Area01_Building_Door-Sheet swordLock.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sfx/door.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=7]
 resource_name = "Instant Close"
@@ -34,6 +35,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 1, 2, 3, 4 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("audio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=2]
@@ -101,6 +116,8 @@ shape = SubResource( 6 )
 wait_time = 0.05
 one_shot = true
 autostart = true
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Player Detect" to="." method="_on_Player_Detect_body_entered"]

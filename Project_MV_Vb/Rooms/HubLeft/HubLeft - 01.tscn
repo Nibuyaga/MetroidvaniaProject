@@ -49,6 +49,6 @@ next_scene_path = "res://Rooms/HubLeft/WallJumpRooms/WallJumpRoom - 01.tscn"
 new_player_pos = Vector2( 740, 420 )
 
 [node name="SceneChanger_ Unused" parent="." instance=ExtResource( 5 )]
-position = Vector2( 960, 90 )
-next_scene_path = "res://Rooms/HubLeft/WallJumpRooms/WallJumpRoom - 01.tscn"
-new_player_pos = Vector2( 740, 420 )
+position = Vector2( 860, 158 )
+next_scene_path = "res://Rooms/hubB/enter.tscn"
+new_player_pos = Vector2( 50, 380 )

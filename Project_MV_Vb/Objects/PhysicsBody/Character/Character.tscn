@@ -41,6 +41,9 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox - Environment" index="0"]
 shape = SubResource( 3 )
 
+[node name="audio" type="AudioStreamPlayer" parent="." index="5"]
+volume_db = -10.487
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox - Environment" to="." method="_on_Hurtbox__Environment_body_entered"]
 [connection signal="body_exited" from="Hurtbox - Environment" to="." method="_on_Hurtbox__Environment_body_exited"]

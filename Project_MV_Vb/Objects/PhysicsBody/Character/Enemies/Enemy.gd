@@ -18,9 +18,7 @@ func turn_around():
 func hurt():
 	if stats['health'] <= 0:
 		$AnimationPlayer.play("die")
-		$audio/die.play()
 	else:
-		$audio/hurt.play()
 		$AnimationPlayer.stop(true)
 		$AnimationPlayer.play("hurt")
 
@@ -40,7 +38,6 @@ func _process(delta):
 		if not is_jumping:
 			$AnimationPlayer.play("jump")
 			jump()
-			$audio/jump.play()
 		else:
 			if jump_timer < 0:
 				is_jumping = false

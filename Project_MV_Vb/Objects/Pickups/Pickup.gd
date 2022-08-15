@@ -3,6 +3,7 @@ extends Area2D
 
 onready var player_vars = get_node("/root/PlayerVariables")
 onready var scene = self.owner.name
+var taken = false
 
 var effects = {
 	'health_full' : ['health', 'increase', 999],
@@ -11,8 +12,8 @@ var effects = {
 	'health_small' : ['health', 'increase', 1],
 	'health_extend' : ['max_health', 'increase', 10],
 	'sword' :  ['has_sword', 'set', true],
-	'walljump' :  ['can_double_jump', 'set', true],	
-	'doublejump' :  ['can_wall_jump', 'set', true],
+	'walljump' :  ['can_wall_jump', 'set', true],	
+	'doublejump' :  ['can_double_jump', 'set', true],
 	'grenade' : ['gun_max_cycle', 'set', 2],
 	'grapple' : ['gun_max_cycle', 'set', 3],
 }
@@ -34,6 +35,10 @@ func _ready():
 			queue_free()
 
 func affect():
+	if taken:
+		return
+	taken = true
+	$taken.play()
 	var stats = Global.grab_current_level().get_node("Player").stats
 	if not pickup_name in effects:
 		return
