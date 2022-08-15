@@ -41,6 +41,11 @@ func shield_up():
 	$CollisionShape2D.set_deferred("disabled", false)
 	emit_signal("shieldUp")
 
+func shield_hard_down():
+	reboot_process = false
+	visible = false
+	$CollisionShape2D.set_deferred("disabled", true)
+
 func _on_Hurtbox_area_entered(area):
 	if "damage" in area:
 		health_script -= area.damage

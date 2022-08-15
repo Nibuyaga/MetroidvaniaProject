@@ -4,7 +4,7 @@ extends Node2D
 var playerseen = false
 onready var playernode = Global.grab_current_level().get_node_or_null("Player")
 export var rotation_correction = 0.25	# 1 = full rotation, 0.5 = half rotation, etc.
-var activated = true
+var activated = false
 
 export var rotation_speed = 1
 var target_rotation = 0
@@ -18,6 +18,8 @@ var timer_shoot_script = timer_shoot
 
 onready var RC: RayCast2D = get_node("RayCast2D")
 
+signal shotfired
+
 enum STATE {
 	detect,
 	prepare,
@@ -25,11 +27,11 @@ enum STATE {
 }
 var state = STATE.detect
 
+
 func _ready():
 	if playernode != null:
 		playerseen = true
-	
-	activate_cannon()
+
 
 func _process(delta):
 	
@@ -53,6 +55,9 @@ func _process(delta):
 					laser_off()
 					timer_shoot_script = timer_shoot
 					deactivate_cannon()
+					emit_signal("shotfired")
+
+
 
 
 func update_aim_to_player(delta):
@@ -133,9 +138,11 @@ func laser_off():
 
 func activate_cannon():
 	activated = true
+	visible = true
 	state = STATE.detect
 
 func deactivate_cannon():
 	activated = false
+	visible = false
 	state = STATE.detect
 
