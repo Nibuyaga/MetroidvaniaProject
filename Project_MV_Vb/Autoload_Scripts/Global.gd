@@ -6,6 +6,11 @@ var player_spawn_location = null	# variable for player location in the scene
 var player_node = null
 onready var root = get_tree().get_root()	# shortcut var for getting the root
 
+var checkpoint = {
+	"room": "",
+	"position": Vector2(0,0)
+}
+var update_playervar = true
 
 var spn_on_in_goto_scene = true	# variable which determines whether a new player node will spawn or not
 var stored_path = ""
@@ -21,7 +26,7 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
 	# A convenience check whether or not the player will spawn
-	if true:
+	if false:
 		# checks and if confirmed copies the player_spawn_location of level
 		#	if not changes the spawn location to the bottom middle of the level
 		if "player_spawn_location" in current_scene:
@@ -51,8 +56,21 @@ func _ready():
 			player_spawn_location = Vector2(150,100)
 	
 	# changes camera to fit current room, at the start of the game
-	_change_camera_limit()
+		_change_camera_limit()
+	
+	# updates checkpoint
+		update_checkpoint()
+	
+	# updates playerstats, mainly used for respawn purposes
+	if grab_current_level().get_node_or_null("Player") != null:
+		PlayerVariables.store_data(grab_current_level().get_node_or_null("Player"))
 
+
+func _physics_process(delta):
+	# checkpoint restart
+	if Input.is_action_just_released("SHORTCUT_restart_to_checkpoint"):
+		restart_from_checkpoint()
+	
 
 
 # a somewhat easier way of getting the current level
@@ -81,9 +99,10 @@ func goto_scene2():
 	
 	# stores the current stats of player
 	player_node = grab_current_level().get_node_or_null("Player")
-	if player_node != null:
+	if player_node != null and update_playervar:
 		PlayerVariables.store_data(player_node)
-	
+	else:
+		update_playervar = true
 	
 	if stored_path != "":
 		call_deferred("_deferred_goto_scene", stored_path)
@@ -94,7 +113,6 @@ func goto_scene2():
 		
 	else:
 		print("!Trying to start goto_scene2 without stored_path")
-	
 
 
 
@@ -123,6 +141,9 @@ func _deferred_goto_scene(path):
 	else:
 		print("player_spawn_location is missing, written by Global/_deferred_goto_scene")
 	
+	# updates checkpoint
+	update_checkpoint(path, player_node.position)
+	
 	_change_camera_limit()
 	
 
@@ -139,6 +160,19 @@ func _spawn_player_node():
 		return player_node_spn
 
 
+# function for updating checkpoint
+func update_checkpoint(room_path = grab_current_level().filename, player_position = grab_current_level().get_node_or_null("Player").position):
+	checkpoint["room"] = room_path
+	checkpoint["position"] = player_position
+
+
+func restart_from_checkpoint():
+	player_spawn_location = checkpoint["position"]
+	goto_scene(checkpoint["room"])
+	update_playervar = false	# a bit of messy code
+	PlayerVariables.stats["health"] = PlayerVariables.stats["max_health"]
+
+
 # variable and function for changing camera_limit
 # !consider moving this code to the player or player_global script
 var player_ccl = null
@@ -152,8 +186,6 @@ func _change_camera_limit():
 	current_scene_ccl = root.get_child(root.get_child_count()-1)
 	roomsize_ccl = current_scene_ccl.get_node_or_null("RoomSizeReference")
 	
-	# !!!new code
-	# checkon_tilemap_size()
 	
 	if camera_ccl != null and current_scene_ccl != null:
 		# starting roomsize check
