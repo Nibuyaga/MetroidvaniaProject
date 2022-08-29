@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 Global="*res://Autoload_Scripts/Global.tscn"
 PlayerVariables="*res://Autoload_Scripts/PlayerGlobal.gd"
 PauseNode="*res://Autoload_Scripts/pause_node.tscn"
+SaveNode="*res://Autoload_Scripts/SaveNode.tscn"
 
 [display]
 

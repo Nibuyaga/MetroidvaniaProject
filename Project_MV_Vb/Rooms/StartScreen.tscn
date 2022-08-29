@@ -16,13 +16,15 @@ text = "Title"
 
 [node name="MainMenu" type="VBoxContainer" parent="."]
 margin_left = 40.0
-margin_top = 40.0
-margin_right = 80.0
-margin_bottom = 108.0
+margin_top = 50.0
+margin_right = 122.0
+margin_bottom = 118.0
+alignment = 1
 
 [node name="NewGameButton" type="Button" parent="MainMenu"]
+margin_top = 12.0
 margin_right = 82.0
-margin_bottom = 20.0
+margin_bottom = 32.0
 focus_neighbour_top = NodePath("../QuitButton")
 text = "New Game"
 
@@ -34,9 +36,9 @@ margin_bottom = 44.0
 text = "Continue"
 
 [node name="QuitButton" type="Button" parent="MainMenu"]
-margin_top = 24.0
+margin_top = 36.0
 margin_right = 82.0
-margin_bottom = 44.0
+margin_bottom = 56.0
 focus_neighbour_bottom = NodePath("../NewGameButton")
 text = "Quit"
 

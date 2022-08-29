@@ -9,6 +9,9 @@ var playerstartpos = Vector2(340, 140)
 func _ready():
 	$MainMenu/NewGameButton.grab_focus()
 	
+	SaveNode.load_save()
+	if SaveNode.save_dict["updated"] == true:
+		$MainMenu/ContinueButton.visible = true
 
 
 
@@ -18,7 +21,7 @@ func _on_NewGameButton_pressed():
 
 
 func _on_ContinueButton_pressed():
-	print("Continue Pressed - doesn't work at the moment")
+	SaveNode.start_from_load()
 
 
 func _on_QuitButton_pressed():
