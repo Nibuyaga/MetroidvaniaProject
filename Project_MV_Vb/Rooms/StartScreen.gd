@@ -7,11 +7,13 @@ var playerstartpos = Vector2(340, 140)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MainMenu/NewGameButton.grab_focus()
 	
 	SaveNode.load_save()
 	if SaveNode.save_dict["updated"] == true:
 		$MainMenu/ContinueButton.visible = true
+		$MainMenu/ContinueButton.grab_focus()
+	else:
+		$MainMenu/NewGameButton.grab_focus()
 
 
 

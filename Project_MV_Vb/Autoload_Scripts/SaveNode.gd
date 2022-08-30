@@ -3,21 +3,19 @@ extends Node
 # game saves are saved in 
 # "user"/Appdata/Roaming/Godot/app_userdata/"nameOfProject"
 
+
+
 var save_dict = {
-	"level": {
-		"position" : Vector2(0,0),
-		"room": ""
-	},
-	"player_stats": {},
-	"player_pickups": {},
-	"updated": false	#unused
+	"position_x" : 0,
+	"position_y" : 0,
+	"room": "",
+	"player_pickups": "",
+	"updated": false
 }
 
-var save_dict_conv = {
+var save_dict_conv = {	# unused
 	"true": "bool",
 	"false": "bool",
-	"(": "vector2",
-	
 }
 
 var save_file_location = "user://mv_checkpoint.save"
@@ -75,9 +73,16 @@ func _physics_process(delta):
 # use complete_save()
 func update_save_dict():
 	# happens at every screen transition
-	save_dict["level"] = checkpoint
-	save_dict["player_stats"] = PlayerVariables.stats
-	save_dict["player_pickups"] = PlayerVariables.pickups
+	# saves the room coördinates
+	save_dict["room"] = checkpoint["room"]
+	save_dict["position_x"] = checkpoint["position"].x
+	save_dict["position_y"] = checkpoint["position"].y
+	
+	# saves the stats and pickups
+	for x in PlayerVariables.stats:
+		save_dict[x] = PlayerVariables.stats[x]
+	for x in PlayerVariables.pickups:
+		save_dict["player_pickups"][x] = PlayerVariables.pickups[x]
 	
 	if save_dict["updated"] != true:
 		save_dict["updated"] = true
@@ -105,20 +110,30 @@ func load_save():
 		print("save file not found")
 	else:
 		save_gamev.open(save_file_location, File.READ)
-		JSON.parse("")	# hier ben je mee bezig
 		save_dict = parse_json(save_gamev.get_line())
 		save_gamev.close()
 		
 		# delete later
-		print(save_dict["player_pickups"])
-		print(typeof(save_dict["player_pickups"]))
+#		var contentx = save_dict["has_sword"]
+#		print(contentx)
+#		print(typeof(contentx))
 
 func start_from_load():
 	# for the start screen mainly
-	Global.player_spawn_location = save_dict["level"]["position"]
-	PlayerVariables.stats = save_dict["player_stats"]
+	
+	for x in PlayerVariables.stats:
+		if x in save_dict:
+			PlayerVariables.stats[x] = save_dict[x]
+		else:
+			print("odd key found")
+			print(x)
+	
 	PlayerVariables.pickups = save_dict["player_pickups"]
-	Global.goto_scene(save_dict["level"]["room"])
+	
+	Global.player_spawn_location = Vector2(0,0)
+	Global.player_spawn_location.x = save_dict["position_x"]
+	Global.player_spawn_location.y = save_dict["position_y"]
+	Global.goto_scene(save_dict["room"])
 
 # random unused files
 func test_save():
