@@ -9,14 +9,10 @@ var save_dict = {
 	"position_x" : 0,
 	"position_y" : 0,
 	"room": "",
-	"player_pickups": "",
+	"player_pickups": {},
 	"updated": false
 }
 
-var save_dict_conv = {	# unused
-	"true": "bool",
-	"false": "bool",
-}
 
 var save_file_location = "user://mv_checkpoint.save"
 
@@ -61,6 +57,7 @@ func restart_from_checkpoint():
 	Global.goto_scene(checkpoint["room"])
 	update_playervar = false	# a bit of messy code
 	PlayerVariables.stats["health"] = PlayerVariables.stats["max_health"]
+	PlayerVariables.stats["alive"] = true
 
 func _physics_process(delta):
 	# checkpoint restart on a button
@@ -81,8 +78,7 @@ func update_save_dict():
 	# saves the stats and pickups
 	for x in PlayerVariables.stats:
 		save_dict[x] = PlayerVariables.stats[x]
-	for x in PlayerVariables.pickups:
-		save_dict["player_pickups"][x] = PlayerVariables.pickups[x]
+	save_dict["player_pickups"] = PlayerVariables.pickups
 	
 	if save_dict["updated"] != true:
 		save_dict["updated"] = true
@@ -113,10 +109,7 @@ func load_save():
 		save_dict = parse_json(save_gamev.get_line())
 		save_gamev.close()
 		
-		# delete later
-#		var contentx = save_dict["has_sword"]
-#		print(contentx)
-#		print(typeof(contentx))
+
 
 func start_from_load():
 	# for the start screen mainly

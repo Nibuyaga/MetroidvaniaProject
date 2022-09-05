@@ -19,9 +19,8 @@ margin_right = 207.0
 margin_bottom = 170.0
 
 [node name="NewGameButton" type="Button" parent="MainMenu"]
-margin_top = 12.0
 margin_right = 82.0
-margin_bottom = 32.0
+margin_bottom = 20.0
 focus_neighbour_top = NodePath("../QuitButton")
 text = "New Game"
 
@@ -33,11 +32,18 @@ margin_bottom = 44.0
 text = "Continue"
 
 [node name="QuitButton" type="Button" parent="MainMenu"]
-margin_top = 36.0
+margin_top = 24.0
 margin_right = 82.0
-margin_bottom = 56.0
+margin_bottom = 44.0
 focus_neighbour_bottom = NodePath("../NewGameButton")
 text = "Quit"
+
+[node name="Read_Editor_Description" type="Node" parent="."]
+__meta__ = {
+"_editor_description_": "Notable bugs:
+Player cannot die when hitting 0 hp
+split2 rooms scenechangers doesn't make sense"
+}
 
 [connection signal="pressed" from="MainMenu/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="MainMenu/ContinueButton" to="." method="_on_ContinueButton_pressed"]

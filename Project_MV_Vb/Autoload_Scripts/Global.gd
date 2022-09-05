@@ -67,7 +67,7 @@ func grab_current_level():
 	)
 
 func goto_scene(path):
-	
+	print(path)	#!delete later
 	# stores path in var after animation
 	stored_path = path
 	# a check to make sure the playervariable storing is done proper
