@@ -14,7 +14,7 @@ var pixelPerValue = 3
 
 # bullet icon switching
 func updateBulletIcon(targetIcon):
-		$HBox/Icon_BulletBackground/Icon_Bullet.texture = bulletIcon[targetIcon]
+	$HBox/Icon_BulletBackground/Icon_Bullet.texture = bulletIcon[int(targetIcon)]
 
 
 #

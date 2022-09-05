@@ -6,11 +6,7 @@ var player_spawn_location = null	# variable for player location in the scene
 var player_node = null
 onready var root = get_tree().get_root()	# shortcut var for getting the root
 
-var checkpoint = {
-	"room": "",
-	"position": Vector2(0,0)
-}
-var update_playervar = true
+
 
 var spn_on_in_goto_scene = true	# variable which determines whether a new player node will spawn or not
 var stored_path = ""
@@ -58,19 +54,9 @@ func _ready():
 	# changes camera to fit current room, at the start of the game
 		_change_camera_limit()
 	
-	# updates checkpoint
-		update_checkpoint()
-	
-	# updates playerstats, mainly used for respawn purposes
-	if grab_current_level().get_node_or_null("Player") != null:
-		PlayerVariables.store_data(grab_current_level().get_node_or_null("Player"))
 
 
-func _physics_process(delta):
-	# checkpoint restart
-	if Input.is_action_just_released("SHORTCUT_restart_to_checkpoint"):
-		restart_from_checkpoint()
-	
+
 
 
 # a somewhat easier way of getting the current level
@@ -81,10 +67,9 @@ func grab_current_level():
 	)
 
 func goto_scene(path):
-	
+	print(path)	#!delete later
 	# stores path in var after animation
 	stored_path = path
-	
 	# a check to make sure the playervariable storing is done proper
 	PlayerVariables.gameplay_is_running = true
 	
@@ -96,13 +81,6 @@ func goto_scene(path):
 
 
 func goto_scene2():
-	
-	# stores the current stats of player
-	player_node = grab_current_level().get_node_or_null("Player")
-	if player_node != null and update_playervar:
-		PlayerVariables.store_data(player_node)
-	else:
-		update_playervar = true
 	
 	if stored_path != "":
 		call_deferred("_deferred_goto_scene", stored_path)
@@ -142,7 +120,7 @@ func _deferred_goto_scene(path):
 		print("player_spawn_location is missing, written by Global/_deferred_goto_scene")
 	
 	# updates checkpoint
-	update_checkpoint(path, player_node.position)
+	SaveNode.update_checkpoint()
 	
 	_change_camera_limit()
 	
@@ -160,17 +138,6 @@ func _spawn_player_node():
 		return player_node_spn
 
 
-# function for updating checkpoint
-func update_checkpoint(room_path = grab_current_level().filename, player_position = grab_current_level().get_node_or_null("Player").position):
-	checkpoint["room"] = room_path
-	checkpoint["position"] = player_position
-
-
-func restart_from_checkpoint():
-	player_spawn_location = checkpoint["position"]
-	goto_scene(checkpoint["room"])
-	update_playervar = false	# a bit of messy code
-	PlayerVariables.stats["health"] = PlayerVariables.stats["max_health"]
 
 
 # variable and function for changing camera_limit
