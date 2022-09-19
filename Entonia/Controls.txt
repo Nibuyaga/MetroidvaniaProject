@@ -1,0 +1,16 @@
+
+-- Menu Controls --
+Arrow Keys - move higlight
+Enter - confirm
+
+
+-- Game Controls --
+Arrow Keys - movement
+Z - jump
+X - shoot
+C - sword attack
+
+S - cycle bullet
+
+
+P - restart to checkpoint
